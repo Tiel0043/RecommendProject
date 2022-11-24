@@ -3,6 +3,7 @@
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
 <!-- 여기서부터 작성 -->
+
        <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -64,19 +65,23 @@
                         <div class="row product-grid-3">
                         
                         <!-- 상품 목록 -->
-                            <div class="col-lg-4 col-md-4 col-12 col-sm-6" th:each="cos_list : ${cos_list}">
+                            <div class="col-lg-4 col-md-4 col-12 col-sm-6" th:each="cos : ${cos_list}">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                                            	
+                                            	<img class="default-img" th:src="${cos.cos_photo1}" alt="">
+                                            	<img class="hover-img" th:src="${cos.cos_photo1}" alt="">
+                                            	
+                                                <!-- <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
                                             </a>
                                         </div>
                                         <div class="product-action-1">
                                             <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
 <i class="fi-rs-search"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Likes" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                             <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
@@ -88,14 +93,14 @@
                                             <a href="shop-grid-right.html">Music</a>
                                         </div>
                                         <!-- 제품명 입력 -->
-                                        <h2 th:text="${cos_list.cos_name}"><a href="shop-product-right.html">Colorful Pattern Shirts</a></h2>
+                                        <h2 th:text="${cos.cos_name}"><a href="shop-product-right.html">Colorful Pattern Shirts</a></h2>
                                         <div class="rating-result" title="90%">
-                                            <span>
+                                            <!-- <span>
                                                 <span>90%</span>
-                                            </span>
+                                            </span> -->
                                         </div>
                                         <div class="product-price">
-                                            <span th:text="${cos_list.cos_price}">$245.8</span>
+                                            <span th:text="${#numbers.formatInteger(cos.cos_price, 3, 'COMMA') + '원'}">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
                                             <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
