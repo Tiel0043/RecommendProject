@@ -1,3 +1,8 @@
+.flex-center-hb{
+	display : flex;
+	justify-content :center;
+}
+
 /* rank 페이지 버튼 관련 start*/
 .rank-cate-bt-hb{
     border: 0;
@@ -48,42 +53,73 @@
 
 /* customizing 페이지 관련 start */
 
-.custom-flex-hb{
+.card-hb {
+	transition: 1s;
+	transform-style: preserve-3d;
+}	
+.front-hb, .back-hb {
+	position: absolute;
+	backface-visibility: hidden;
+}
+.back-hb { 
+	/* 뒷면은 사전에 미리 뒤집기*/
+	transform: rotateY(180deg);
+}
+.flip-hb:hover .card-hb {	
+	/* 호버 시 뒤집기 */
+	transform: rotateY(180deg);
+	animation-play-state:paused;
+}
+.textarea-hb{
 	display : flex;
 	justify-content :center !important;
+	padding : 15px 0 !important;
 }
-
-.flip-hb { 
-  width: 50%;
-  height: 50%;
-  perspective: 1100px;
+.card-img-hb{
+	width : 100%;
 }
-
-.card-hb {
-  width: 80%; 
-  height: 80%; 
-  position: relative;
-  transition: 1s;
-  transform-style: preserve-3d;
-}	
-
-.front-hb, .back-hb {
-  position: absolute;
-  width: 100%; 
-  height: 100%;
-  backface-visibility: hidden;
+.height-hb{
+	height : 370px;
 }
-
-/* 뒷면은 사전에 미리 뒤집기*/
-.back-hb { 
-  transform: rotateY(180deg);
-}
-
-/* 호버 시 뒤집기 */
-.flip-hb:hover .card-hb {
-  transform: rotateY(180deg);
-  animation-play-state:paused;
-}
-
-
 /* customizing 페이지 관련 end */
+
+
+
+/* skintest 페이지 관련 start*/
+
+.test-flex-hb{
+    display: flex;
+    flex-direction : column;
+    justify-content:space-between;
+}
+.skin-wrap-hb{
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;	
+    overflow: hidden;
+}
+.test-num-hb{
+    width : 100%;
+    height : 60px;
+    padding-left: 47.5%;
+    padding-right: 47.5%;
+    margin-top: 15px;
+}
+.test-numfont-hb{
+    background-color :  #aeccc5;
+    width : 100%;
+    height : 100%;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    color : #fff;
+    font-size : 30px;
+    padding-top: 15px;
+}
+.num-icon-hb{
+    height : 60px;
+    width : 45px;
+}
+
+/* skintest 페이지 관련 end*/
