@@ -58,12 +58,19 @@
 	transform-style: preserve-3d;
 }	
 .front-hb, .back-hb {
+	width: 505px ;
+	height : 389px;
+	
 	position: absolute;
 	backface-visibility: hidden;
 }
 .back-hb { 
+	width: 505px ;
+	height : 389px;
+	padding-top : 100px;
 	/* 뒷면은 사전에 미리 뒤집기*/
 	transform: rotateY(180deg);
+	
 }
 .flip-hb:hover .card-hb {	
 	/* 호버 시 뒤집기 */
@@ -79,7 +86,7 @@
 	width : 100%;
 }
 .height-hb{
-	height : 370px;
+	height : 430px;
 }
 /* customizing 페이지 관련 end */
 
@@ -123,3 +130,5 @@
 }
 
 /* skintest 페이지 관련 end*/
+
+
