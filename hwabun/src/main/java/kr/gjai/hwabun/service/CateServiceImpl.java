@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.mapper.CateMapper;
+import lombok.extern.log4j.Log4j2;
 
 @Service
+@Log4j2
 public class CateServiceImpl implements CateService{
 
 	@Autowired
