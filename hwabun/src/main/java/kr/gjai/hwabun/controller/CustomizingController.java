@@ -17,8 +17,14 @@ public class CustomizingController {
 	
 	@RequestMapping("/skintest")
 	public String aiSkinTest() {
-		log.info("skin MBTI 확인!!");
+		log.info("skin MBTI test 확인!!");
 		return "/customizing/skintest";
+	}
+	
+	@RequestMapping("/result")
+	public String aiTestResult() {
+		log.info("skin MBTI result 확인!!");
+		return "/customizing/result";
 	}
 	
 }
