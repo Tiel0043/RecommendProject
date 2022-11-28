@@ -349,11 +349,11 @@
                         <a href="index.html"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
-                        <div class="main-categori-wrap d-none d-lg-block">
+                        <div class="main-categori-wrap d-none d-lg-block" id="Test2">
                             <a class="categori-button-active open" href="#">
                                 <span class="fi-rs-apps"></span> Categories
                             </a>
-                            <div class="categori-dropdown-wrap categori-dropdown-active-large open">
+                            <div class="categori-dropdown-wrap categori-dropdown-active-large open" id="test">
                                 <ul>
                                     <li class="has-children">
                                         <a href="getProductList?cate=스킨케어"><i class="evara-font-dress"></i>스킨케어</a>
@@ -1035,8 +1035,26 @@
     <script src="assets/js/plugins/jquery.elevatezoom.js"></script>
     <!-- Template  JS -->
     <script src="./assets/js/main.js?v=3.3"></script>
+    
     <script src="./assets/js/shop.js?v=3.3"></script>
-
+   
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		let cateAddrass = /*[[${main}]]*/
+		console.log(cateAddrass);
+		if(cateAddrass=="main"){
+			 $("#test").css("display","block");
+		}else{
+			 $("#test").css("display","none");
+			 $("#Test2").on("mouseover",function(){
+				  $("#test").css("display","block");
+			 })
+			 $("#test").on("mouseout",function(){
+				  $("#test").css("display","none");
+			 })
+		}
+		/*]]>*/
+	</script>
   
 </body>
 </th:block>
