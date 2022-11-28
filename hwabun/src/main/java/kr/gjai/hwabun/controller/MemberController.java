@@ -10,28 +10,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.gjai.hwabun.entity.MemberDTO;
-import kr.gjai.hwabun.service.JoinService;
+import kr.gjai.hwabun.service.MemberService;
 import lombok.extern.log4j.Log4j2;
 
 @Controller
 
 @Log4j2
-public class JoinController {
+public class MemberController {
 	
 	@Autowired
-	JoinService joinService;
+	MemberService memberService;
 
 	// 회원가입 폼 페이지로 
 	@GetMapping("/join")
 	public String join() {
 		log.info("join..........!!!!!");
 		
-		return "join/join";
+		return "member/join";
 	}
 	@RequestMapping("/idCheck")
-	public @ResponseBody String idCheck(String mb_id) {
+	@ResponseBody
+	public String idCheck(String mb_id) {
 		log.info(mb_id);
-		String idCheckResult = joinService.idCheck(mb_id);
+		String idCheckResult = memberService.idCheck(mb_id);
 		log.info(idCheckResult);
 		return idCheckResult;
 	}
@@ -41,11 +42,40 @@ public class JoinController {
 	public String join(MemberDTO mdo, HttpSession session) {
 
 		log.info(mdo);
-		joinService.register(mdo);	
+		memberService.register(mdo);	
 		log.info("회원가입성공!!");
-		MemberDTO mvo = joinService.getMemInfo(mdo);
+		MemberDTO mvo = memberService.getMemInfo(mdo);
 		session.setAttribute("mvo", mvo);
 		
+		return "redirect:/main";
+	}
+	
+	// 로그인 페이지로
+	@RequestMapping("/login")
+	public String goLogin() {
+		return "/member/login";
+	}
+	
+	// 로그인 
+	@RequestMapping("/login.do")
+	public String loginCheck(MemberDTO mdo, HttpSession session) {
+		log.info(mdo.getMb_id());
+		log.info(mdo.getMb_pw());
+
+		MemberDTO mvo = memberService.getMemInfo(mdo);
+		if(mvo != null) {
+			session.setAttribute("mvo", mvo);
+			log.info(session.getAttribute("mvo"));
+			log.info("로그인 완료");
+
+		}
+		return "redirect:/main";
+	}
+	
+	// 로그아웃
+	@RequestMapping("/logout.do")
+	public String logOut(HttpSession session) {
+		session.invalidate();
 		return "redirect:/main";
 	}
 	

@@ -109,12 +109,18 @@
             </div>
         </section>
     </main>
-    <script >
+
+	</th:block>
+	</th:block>
+	    <script th:inline="javascript">
+	/*<![CDATA[*/
     // 아이디 중복 체크
-	$('.join').on('click', function() {
-			
+    	console.log("여기까지 왔니...?");
+		$(".join").on("click", function() {
+		
+			console.log("여기는...?");
 			var text = $(this).attr('readonly');
-			
+			console.log(text);
 			if(text =="readonly"){
 				alert("아이디 중복체크를 먼저해주세요.");
 			}
@@ -125,7 +131,7 @@
 			var mb_id = $('#mb_id').val();
 	
 			$.ajax({
-				url:"idCheck",
+				url:"/idCheck",
 				data : { mb_id : mb_id}, 
 				method : "POST",
 				dataType: "json",
@@ -149,11 +155,7 @@
 				$('#idResult').css("color","red");
 			}
 		}
-	    
-	    
-	    
-	    
-    </script>
-	</th:block>
-	</th:block>
+		/*]]>*/
+		</script>
+	
 </html>

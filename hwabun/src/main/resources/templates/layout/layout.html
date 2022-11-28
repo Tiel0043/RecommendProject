@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="setContent(content)">  
 <head>
     <meta charset="utf-8">
@@ -349,11 +349,11 @@
                         <a href="index.html"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
-                        <div class="main-categori-wrap d-none d-lg-block" id="Test2">
+                        <div class="main-categori-wrap d-none d-lg-block" id="cate-bt-hb">
                             <a class="categori-button-active open" href="#">
                                 <span class="fi-rs-apps"></span> Categories
                             </a>
-                            <div class="categori-dropdown-wrap categori-dropdown-active-large open" id="test">
+                            <div class="categori-dropdown-wrap categori-dropdown-active-large open" id="cate-hb">
                                 <ul>
                                     <li class="has-children">
                                         <a href="getProductList?cate=스킨케어"><i class="evara-font-dress"></i>스킨케어</a>
@@ -1043,14 +1043,14 @@
 		let cateAddrass = /*[[${main}]]*/
 		console.log(cateAddrass);
 		if(cateAddrass=="main"){
-			 $("#test").css("display","block");
+			 $("#cate-hb").css("display","block");
 		}else{
-			 $("#test").css("display","none");
-			 $("#Test2").on("mouseover",function(){
-				  $("#test").css("display","block");
+			 $("#cate-hb").css("display","none");
+			 $("#cate-bt-hb").on("mouseover",function(){
+				  $("#cate-hb").css("display","block");
 			 })
-			 $("#test").on("mouseout",function(){
-				  $("#test").css("display","none");
+			 $("#cate-hb").on("mouseout",function(){
+				  $("#cate-hb").css("display","none");
 			 })
 		}
 		/*]]>*/

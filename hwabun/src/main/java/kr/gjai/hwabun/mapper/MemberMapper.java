@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import kr.gjai.hwabun.entity.MemberDTO;
 
 @Mapper
-public interface JoinMapper {
+public interface MemberMapper {
 
 	public void register(MemberDTO mdo);
 

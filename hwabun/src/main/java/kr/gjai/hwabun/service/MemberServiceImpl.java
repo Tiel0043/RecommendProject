@@ -4,45 +4,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.MemberDTO;
-import kr.gjai.hwabun.mapper.JoinMapper;
+import kr.gjai.hwabun.mapper.MemberMapper;
 
 @Service
-public class JoinServiceImpl implements JoinService{
+public class MemberServiceImpl implements MemberService{
 
 	@Autowired
-	JoinMapper joinMapper;
+	MemberMapper memberMapper;
 	
-	
-	  @Override 
-	  public void register(MemberDTO mdo) {
+		
+	@Override 
+	public void register(MemberDTO mdo) {
 	  
-	  joinMapper.register(mdo); 
+		memberMapper.register(mdo); 
 	  
 	  }
-
-
+	
+	// id, pw로 회원 정보 가져오는 메소드  
 	@Override
 	public MemberDTO getMemInfo(MemberDTO mdo) {
 		
-		MemberDTO mvo = joinMapper.getMemInfo(mdo);
+		MemberDTO mvo = memberMapper.getMemInfo(mdo);
 	  	return mvo; 
 	  	
 	}
-
-
+	
+	
 	@Override
 	public String idCheck(String mb_id) {
-		MemberDTO mvo = joinMapper.idCheck(mb_id);
+		MemberDTO mvo = memberMapper.idCheck(mb_id);
 		
 		if(mvo!=null) {
 			return"retry";
-		}else {
-			return "null";
+	}else {
+		return "null";
 		}
 		
 	}
-	  
-	  
-	 
-	
+
 }

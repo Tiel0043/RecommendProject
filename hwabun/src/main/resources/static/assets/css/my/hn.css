@@ -134,7 +134,7 @@
 	}
 }
 .card-hb {
-	transition: 0.2s;
+	transition: 1s;
 	transform-style: preserve-3d;
 }	
 .front-hb, .back-hb {
@@ -201,13 +201,14 @@
     padding-right: 47.5%;
     margin: 25px 0;
 }
+
 .test-text-hb{
 	font-size: 20px;
 	font-weight: bold;
 }
 .test-numfont-hb{
     background-color :  #aeccc5;
-    width : 100%;
+    width : 90%;
     height : 100%;
     border-radius: 80px;
     display: flex;
@@ -217,8 +218,8 @@
     padding-top: 15px;
 }
 .num-icon-hb{
-    height : 60px;
-    width : 45px;
+    height : 40px;
+    width : 25px;
 }
 .test-imgbox-hb{
     display : flex;
@@ -228,6 +229,7 @@
     padding : 30px 0px;
 
 }
+
 .testquestion-hb{
     display : flex;
 	justify-content :center;
@@ -252,7 +254,8 @@
 	background-color :  #aeccc5;
 	border : 0;
 	
-}    
+}
+  
 .choice-hb{
     display : flex;
     flex-direction : row;
@@ -266,6 +269,7 @@
     cursor: pointer;
     accent-color:#77948d75;
 }
+
 .choice-raL-hb{
     width: 20%;
     height :75%;
