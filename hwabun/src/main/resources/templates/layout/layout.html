@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="setContent(content)">  
 <head>
     <meta charset="utf-8">
@@ -349,11 +349,11 @@
                         <a href="index.html"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
-                        <div class="main-categori-wrap d-none d-lg-block">
+                        <div class="main-categori-wrap d-none d-lg-block" id="cate-bt-hb">
                             <a class="categori-button-active open" href="#">
                                 <span class="fi-rs-apps"></span> Categories
                             </a>
-                            <div class="categori-dropdown-wrap categori-dropdown-active-large open">
+                            <div class="categori-dropdown-wrap categori-dropdown-active-large open" id="cate-hb">
                                 <ul>
                                     <li class="has-children">
                                         <a href="getProductList?cate=스킨케어"><i class="evara-font-dress"></i>스킨케어</a>
@@ -529,7 +529,8 @@
                                         <a href="page-about.html">About</a>
                                     </li>
                                     <li>
-                                        <a href="page-about.html">랭킹</a>
+                                    	<a href="getProductList?cate=스킨케어"></a>
+                                        <a href="/rank">랭킹</a>
                                     </li>
                                     
                                     <!-- <li><a href="shop-grid-right.html">Shop <i class="fi-rs-angle-down"></i></a>
@@ -634,7 +635,7 @@
                                             <li><a href="page-login-register.html">register</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/mypage">마이페이지 <i class="fi-rs-angle-down"></i></a>
+                                    <li><a href="/mypage/member-info">마이페이지 <i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             
                                             <li><a href="page-contact.html">Contact</a></li>
@@ -1035,8 +1036,26 @@
     <script src="assets/js/plugins/jquery.elevatezoom.js"></script>
     <!-- Template  JS -->
     <script src="./assets/js/main.js?v=3.3"></script>
+    
     <script src="./assets/js/shop.js?v=3.3"></script>
-
+   
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		let cateAddrass = /*[[${main}]]*/
+		console.log(cateAddrass);
+		if(cateAddrass=="main"){
+			 $("#cate-hb").css("display","block");
+		}else{
+			 $("#cate-hb").css("display","none");
+			 $("#cate-bt-hb").on("mouseover",function(){
+				  $("#cate-hb").css("display","block");
+			 })
+			 $("#cate-hb").on("mouseout",function(){
+				  $("#cate-hb").css("display","none");
+			 })
+		}
+		/*]]>*/
+	</script>
   
 </body>
 </th:block>

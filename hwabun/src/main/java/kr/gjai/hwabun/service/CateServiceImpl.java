@@ -22,4 +22,16 @@ public class CateServiceImpl implements CateService{
 		return list;
 	}
 
+	@Override
+	public List<CosmeticsDTO> getProductList2(String cate1, String cate2) {
+		List list = cateMapper.getProductList2(cate1, cate2);
+		return list;
+	}
+
+	@Override
+	public List getCate(String cate) {
+		List cate2 = cateMapper.getCate(cate);
+		return cate2;
+	}
+
 }

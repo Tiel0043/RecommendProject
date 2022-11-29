@@ -127,9 +127,9 @@
                     <!-- 왼쪽 카테고리 바 영역 -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated"  th:text="${cate}"></h5>
-                            <ul class="categories"> <a th:href="@{/oreder/details(id=1, action='show_all')}">
-                                <li th:each ="cate_list : ${cate_list}"><a th:href="@{/getProductList2(cate1 = ${cate}, cate2 = ${cate_list.gubun_value})}" th:text="${cate_list.gubun_value}"></a></li>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">스킨케어</h5>
+                            <ul class="categories">
+                                <li th:each ="cate_list : ${cate_list}"><a th:href="@{/getProductList2(cate1 = ${cate}, cate2 = ${cate_list.gubun_value})}" th:text="${cate_list.gubun_value}"></a></li>                             
                             </ul>
                         </div>
                         <!-- Fillter By Price -->
