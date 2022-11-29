@@ -15,7 +15,7 @@ public class CosmeticsDTO { // 화장품 정보 엔티티
 	private int cos_sales_cnt; // 판매수량
 	private String gubun_name; //브랜드 명
 	private int review_cnt; // 리뷰수
-	private int review_ranking; // 평점
+	private float review_rating; // 평점
 	private int cos_likes; //좋아요 수
 	
 }

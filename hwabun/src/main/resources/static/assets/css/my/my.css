@@ -22,3 +22,44 @@
     border-bottom: 1px solid #eee !important;
     background-image: url(topbar-bg.jpg);
 }
+
+.rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+.rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url('../../imgs/my/starrate.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.rating .rate_radio:checked + label {
+    background-color: #EC8919;
+}
+.pdbg-color-hb {
+	background-color: white;
+
+} 
+.outer-div-hb {
+            display: flex;
+            justify-content: center;
+}
+
+.inner-div-hb{
+    margin-top: 55px;
+}
