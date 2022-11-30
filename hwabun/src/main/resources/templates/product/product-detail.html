@@ -32,6 +32,10 @@
 	    })
 	});
 	/* 장바구니 */
+	
+	
+	
+	
 	function saveBasket(){
 			
     		$("#popup").css("visibility","visible");
@@ -49,13 +53,12 @@
 				url : '/saveBasket',
 				data : {
 					
-					'cos_seq'  : '[[${param.cos_seq}]]',
-					'nickname' : '[[${session.nickname}]]',
+					'cos_seq'  : '[[${cdto.cos_seq}]]',
 					'cnt': cnt
 				},
 				success : function(res){
 					// res --> 응답내용을 담는 변수
-				console.log(res);	
+				console.log("send success");	
 				},
 				error : function(){
 				console.log("error!");
@@ -72,13 +75,60 @@
 				}
 				);
 		}
+	/*document document documnet*/
 	/* 댓글 부분 */
 	$(document).ready(function(){
 		loadList();
 		console.log("로딩됨")
 		
+		/*장바구니 개수*/
+		 $.ajax({
+				url : '/countBasket',
+				data : {
+				'nickname':'[[${session.mvo.mb_id}]]'
+				},
+				success : function(res){
+				// res --> 응답내용을 담는 변수
+				console.log(res);
+				console.log("success");
+			},
+				error : function(){
+				console.log("error!error!error!");
+			}
+			}).done(
+				
+				(data)=>{
+			
+
+
+				$('#countBasket').text(data);	
+			
+			}
+			);
+		
+		
+		  $("select[id=dropDownList]").click(function(){
+		    	
+		    	
+		    	console.log("클릭됨");
+		    	var cnt=$(this).val();
+		   
+		    	console.log(cnt);
+		    	
+		    	$("#cnt").val(cnt);
+		    	console.log($("#cnt").val());
+		    	
+		    })
+		
+		
+		
+		
+		
 	});	
 	
+	
+	
+	/*document document document*/
 	function insertComment(){
 		var mvo = '[[${session.mvo.mb_id}]]';
 		console.log($('#review_content').val())
@@ -320,10 +370,16 @@
                                             	
                                             	<select name="form-control"  class="form-control" id="dropDownList" style="float:left;margin-right:5px ;width:45px;height:42px; appearance: normal; -webkit-appearance: normal; -moz-appearance: normal;" >
    													 <option value="1" class="qty-val" selected="selected" >1</option>
-   													 <option value="1" class="qty-val" >2</option>
-   													 <option value="1" class="qty-val" >3</option>
-   													 <option value="1" class="qty-val" >4</option>
-   													 <option value="1" class="qty-val" >5</option>   													 
+   													 <option value="2" class="qty-val" >2</option>
+   													 <option value="3" class="qty-val" >3</option>
+   													 <option value="4" class="qty-val" >4</option>
+   													 <option value="5" class="qty-val" >5</option>   
+   													 <option value="6" class="qty-val" >6</option>   
+   													 <option value="7" class="qty-val" >7</option>   
+   													 <option value="8" class="qty-val" >8</option>   
+   													 <option value="9" class="qty-val" >9</option>   
+   													 
+   													 													 
 												</select>
 												
 												<input type="hidden" id="cnt" value="1"> 
