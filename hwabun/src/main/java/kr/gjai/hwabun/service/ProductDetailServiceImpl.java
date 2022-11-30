@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
+import kr.gjai.hwabun.entity.EventDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.entity.StarDTO;
 import kr.gjai.hwabun.mapper.ProductDetailMapper;
@@ -64,6 +65,12 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 	public int deleteReview(ReviewDTO reviewDTO) {
 		int cnt = productDetailMapper.deleteReview(reviewDTO);
 		return cnt;
+	}
+
+	@Override
+	public void registerEvent(EventDTO edo) {
+		productDetailMapper.registerEvent(edo);
+		
 	}
 
 	

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
+import kr.gjai.hwabun.entity.EventDTO;
+import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.entity.StarDTO;
 import kr.gjai.hwabun.service.ProductDetailService;
@@ -29,11 +34,20 @@ public class ProductDetailController {
 	ProductDetailService productDetailService;
 	
 	@GetMapping("/productDetail")
-	public String getProduct(Model model, @RequestParam("cos_seq") int cos_seq) {
+	public String getProduct(Model model, @RequestParam("cos_seq") int cos_seq, HttpServletRequest request, EventDTO edo,HttpSession session) {
 		CosmeticsDTO cdto = productDetailService.getProduct(cos_seq);
 		model.addAttribute("cdto", cdto);
 		System.out.println(cdto);
+		// 세부상품을 view 했다는 이벤트 로그 저장
+		session = request.getSession();
+		if(session.getAttribute("mvo")!=null) {
+		MemberDTO mvo = (MemberDTO) session.getAttribute("mvo");
 		
+		edo.setCos_seq(cos_seq);
+		edo.setUser_id(mvo.getMb_id());
+		edo.setUser_session(session.getId());
+		productDetailService.registerEvent(edo);
+		}
 		/*
 		 * List<ReviewDTO> rdto = productDetailService.getReviews(cos_seq);
 		 * model.addAttribute("rdto", rdto);

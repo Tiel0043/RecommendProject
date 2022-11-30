@@ -8,8 +8,9 @@
 		from cosmetics c, category t 
 		where c.cos_seq=t.cos_seq and c.cos_seq=#{cos_seq} and t.gubun_depth=1;
 	</select>
+	<!-- SELECT date_format(datetime, '%Y-%m-%d') as  FROM `sandbox2` WHERE id=1; -->
 	<select id = "getReviews" resultType="ReviewDTO"><!-- id값은 mapper 메소드명과 같아야함 -->
-		select r.*, m.mb_nick 
+		select r.review_seq, r.cos_seq, r.review_content,r.mb_id, r.review_rating, r.review_likes,r.review_photo, date_format(r.review_date, '%Y-%m-%d-%T') as review_date, m.mb_nick 
 		from reviews r, members m 
 		where m.mb_id=r.mb_id and cos_seq=#{cos_seq};
 	</select>
@@ -27,4 +28,8 @@
 	<delete id="deleteReview">
 		delete reviews where 
 	</delete>
+	<insert id="registerEvent" parameterType="EventDTO">
+		insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)
+		values (NOW(), 1, #{cos_seq}, #{user_id}, #{user_session}, 'op')
+	</insert>
 </mapper>
