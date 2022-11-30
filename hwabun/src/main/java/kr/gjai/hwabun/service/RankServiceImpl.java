@@ -21,4 +21,25 @@ public class RankServiceImpl implements RankService{
 		return list;
 	}
 
+	@Override
+	public List<CosmeticsDTO> getRankSales() {
+		List<CosmeticsDTO> list= rankMapper.getRankSales();
+		return list;
+	}
+	@Override
+	public List<CosmeticsDTO> getRankLikes() {
+		List<CosmeticsDTO> list= rankMapper.getRankLikes();
+		return list;
+	}
+	@Override
+	public List<CosmeticsDTO> getCateRankSales(String cate) {
+		List<CosmeticsDTO> list= rankMapper.getCateRankSales(cate);
+		return list;
+	}
+	@Override
+	public List<CosmeticsDTO> getCateRankLikes(String cate) {
+		List<CosmeticsDTO> list= rankMapper.getCateRankLikes(cate);
+		return list;
+	}
+
 }

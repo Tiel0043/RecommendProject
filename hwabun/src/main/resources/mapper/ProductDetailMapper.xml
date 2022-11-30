@@ -27,4 +27,5 @@
 	<delete id="deleteReview">
 		delete reviews where 
 	</delete>
+
 </mapper>

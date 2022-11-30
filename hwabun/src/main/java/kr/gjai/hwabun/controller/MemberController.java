@@ -66,6 +66,7 @@ public class MemberController {
 		if(mvo != null) {
 			session.setAttribute("mvo", mvo);
 			log.info(session.getAttribute("mvo"));
+			log.info(session.getId());
 			log.info("로그인 완료");
 
 		}

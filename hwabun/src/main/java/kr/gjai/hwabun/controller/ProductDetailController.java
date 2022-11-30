@@ -1,9 +1,8 @@
 package kr.gjai.hwabun.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +11,18 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.entity.StarDTO;
 import kr.gjai.hwabun.service.ProductDetailService;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @Controller
 public class ProductDetailController {
 	
@@ -31,8 +32,11 @@ public class ProductDetailController {
 	@GetMapping("/productDetail")
 	public String getProduct(Model model, @RequestParam("cos_seq") int cos_seq) {
 		CosmeticsDTO cdto = productDetailService.getProduct(cos_seq);
+
+		
 		model.addAttribute("cdto", cdto);
 		System.out.println(cdto);
+		
 		
 		/*
 		 * List<ReviewDTO> rdto = productDetailService.getReviews(cos_seq);

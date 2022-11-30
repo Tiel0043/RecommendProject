@@ -11,5 +11,13 @@ import kr.gjai.hwabun.entity.MemberDTO;
 public interface RankMapper {
 
 	public List<CosmeticsDTO> getAllProduct();
+
+	public List<CosmeticsDTO> getRankSales();
+
+	public List<CosmeticsDTO> getRankLikes();
+
+	public List<CosmeticsDTO> getCateRankSales(String cate);
+
+	public List<CosmeticsDTO> getCateRankLikes(String cate);
 	
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
+import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.entity.StarDTO;
 import kr.gjai.hwabun.mapper.ProductDetailMapper;
@@ -66,20 +67,7 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 		return cnt;
 	}
 
-	
-
-	
-
-	
-	
-	
 
 
 
-
-	
-
-	
-	
-	
 }
