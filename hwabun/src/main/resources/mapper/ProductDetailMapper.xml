@@ -28,8 +28,11 @@
 	<delete id="deleteReview">
 		delete reviews where 
 	</delete>
+
 	<insert id="registerEvent" parameterType="EventDTO">
 		insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)
 		values (NOW(), 1, #{cos_seq}, #{user_id}, #{user_session}, 'op')
 	</insert>
+
+
 </mapper>

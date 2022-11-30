@@ -25,6 +25,8 @@ public interface ProductDetailMapper {
 
 	int deleteReview(ReviewDTO reviewDTO);
 
+
 	void registerEvent(EventDTO edo);
+
 	
 }
