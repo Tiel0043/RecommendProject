@@ -20,13 +20,13 @@ public class TestController {
 	public String getList(Model model) {
 		List<MemberDTO> list = testService.getList();
 		model.addAttribute("list", list);
-		return "rank/rank";
+		return "sample/test2";
 	}
 	
-	@GetMapping("/index")
-	public String test() {
 
-		return "/index";
+	@GetMapping("/t")
+	public String test() {
+		return "etc/index_back";
 
 	}
 	

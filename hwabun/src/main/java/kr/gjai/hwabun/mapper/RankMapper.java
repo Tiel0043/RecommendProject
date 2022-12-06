@@ -19,5 +19,9 @@ public interface RankMapper {
 	public List<CosmeticsDTO> getCateRankSales(String cate);
 
 	public List<CosmeticsDTO> getCateRankLikes(String cate);
+
+	public List<CosmeticsDTO> getRankReviews();
+
+	
 	
 }

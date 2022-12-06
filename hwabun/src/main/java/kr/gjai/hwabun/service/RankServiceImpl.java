@@ -42,4 +42,10 @@ public class RankServiceImpl implements RankService{
 		return list;
 	}
 
+	@Override
+	public List<CosmeticsDTO> getRankReviews() {
+		List<CosmeticsDTO> list= rankMapper.getRankReviews();
+		return list;
+	}
+
 }
