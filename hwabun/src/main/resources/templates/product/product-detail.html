@@ -41,11 +41,6 @@
 	
 	function saveBasket(){
 			
-    		$("#popup").css("visibility","visible");
-    		$("#popupbox").css("visibility","visible");
-    		setTimeout(() => $("#popup").css("visibility","hidden"), 3000);
-			
-    		setTimeout(() => $("#popupbox").css("visibility","hidden"), 2700);
     		
     		
     		
@@ -61,6 +56,12 @@
 					'cnt': cnt
 				},
 				success : function(res){
+					$("#popup").css("visibility","visible");
+		    		$("#popupbox").css("visibility","visible");
+		    		setTimeout(() => $("#popup").css("visibility","hidden"), 3000);
+					
+		    		setTimeout(() => $("#popupbox").css("visibility","hidden"), 2700);
+		    		
 					// res --> 응답내용을 담는 변수
 				console.log("send success");	
 				},
@@ -496,10 +497,16 @@
                                                         </div>
                                                         <div class="product-content-wrap">
                                                             <h2><a href="shop-product-right.html" tabindex="0">Ulstra Bass Headphone</a></h2>
-                                                            <div class="rating-result" title="90%">
+                                                            <!-- <div class="rating-result" title="90%">
                                                                 <span>
                                                                 </span>
-                                                            </div>
+                                                            </div> -->
+                                                            <div class="product-rate d-inline-block">
+                                                                    <div class="product-rating" style="width:30%">
+                                                                    <!-- <div class="product-rating" style="width:20.0%"> -->
+                                                                    <!-- "+${rdto.review_rating}+"% -->
+                                                                    </div>
+                                                                </div>
                                                             <div class="product-price">
                                                                 <span>$238.85 </span>
                                                                 <!-- <span class="old-price">$245.8</span> -->

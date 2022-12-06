@@ -40,7 +40,6 @@ public class ProductDetailController {
 
 		
 		model.addAttribute("cdto", cdto);
-		System.out.println(cdto);
 		// 세부상품을 view 했다는 이벤트 로그 저장
 		session = request.getSession();
 		if(session.getAttribute("mvo")!=null) {
@@ -59,39 +58,34 @@ public class ProductDetailController {
 		 */
 		List<StarDTO> sdto = productDetailService.getStars(cos_seq);
 		model.addAttribute("sdto", sdto);
-		System.out.println(sdto);
 		return "product/product-detail";
 	}
 	//리뷰가져오기
 	@GetMapping("/reviewList")
 	@ResponseBody
 	public List<ReviewDTO> getReviews(Model model, @RequestParam("cos_seq") int cos_seq) {
-		 System.out.println("/reviewList");
 		 List<ReviewDTO> rdto = productDetailService.getReviews(cos_seq);
 //		 model.addAttribute("rdto", rdto);
-		 System.out.println(rdto);
 		 return rdto;
 	}
 	@PostMapping("/commentWrite")
 	@ResponseBody
 	public void insertReview(ReviewDTO reviewDTO, MultipartFile file) throws IllegalStateException, IOException {
-		System.out.println("/commentWrite");
+	
 		productDetailService.insertReview(reviewDTO,file);
 		
 	}
 	@PutMapping("/commentUpdate")
 	@ResponseBody
 	public void updateReview(ReviewDTO reviewDTO,MultipartFile file) {
-		System.out.println("/commentWrite");
+	
 		productDetailService.updateReview(reviewDTO,file);
 		
 	}
 	@DeleteMapping("/commentDelete")
 	@ResponseBody
 	public int deleteReview(ReviewDTO reviewDTO) {
-		System.out.println("/commentWrite");
 		int cnt = productDetailService.deleteReview(reviewDTO);
-		System.out.println(cnt);
 		return cnt;
 	}
 	

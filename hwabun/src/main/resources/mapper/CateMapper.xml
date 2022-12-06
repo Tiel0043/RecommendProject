@@ -6,12 +6,13 @@
 	<select id = "getProductList" resultType="CosmeticsDTO" parameterType="String"><!-- id값은 mapper 메소드명과 같아야함 -->
 	  select *
 	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
-	  where c.cos_seq = d.cos_seq
+	  where c.cos_seq = d.cos_seq 
+	  and gubun_depth=1
 	  order by cos_likes desc;
 	</select>
 	<select id = "getProductList2" resultType="CosmeticsDTO" parameterType="String">
 	   select *
-		from cosmetics c, (select * from category where gubun_value = #{cate1}) d, (select * from category where gubun_value = #{cate2}) e
+		from cosmetics c, (select * from category where gubun_value = #{cate1} and gubun_depth=1) d, (select * from category where gubun_value = #{cate2} and gubun_depth=1) e
 		where c.cos_seq = d.cos_seq
 		and d.cos_seq = e.cos_seq
 		order by c.cos_likes desc;
