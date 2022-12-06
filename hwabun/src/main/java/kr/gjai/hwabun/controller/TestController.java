@@ -25,7 +25,9 @@ public class TestController {
 	
 	@GetMapping("/index")
 	public String test() {
+
 		return "/index";
+
 	}
 	
 	

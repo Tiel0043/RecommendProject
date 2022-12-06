@@ -4,13 +4,6 @@
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
 <!-- 여기서부터 작성 -->
-	<script th:inline="javascript">
-	
-	function rankingType(){
-		console.log("rankingType()실행");
-	}
-	
-	</script>
    <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -26,13 +19,13 @@
                 <div class="rank-type-hb">
                     <ul class="nav nav-tabs rank-type-ul-hb">
                         <li class=" col-lg-2 col-md-4 mb-md-3 mb-lg-0 nav-item">
-                            <button class="nav-link rank-type-bt-hb" onclick="rankingType()">판매 랭킹</button>
+                            <button class="nav-link rank-type-bt-hb" th:onclick = "location.href = 'rank_sales'">판매 랭킹</button>
                         </li>
                         <li class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 nav-item">
                             <button class="nav-link rank-type-bt-hb">리뷰 베스트</button>
                         </li>
                         <li class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 nav-item">
-                            <button class="nav-link rank-type-bt-hb">좋아요 랭킹</button>
+                            <button class="nav-link rank-type-bt-hb" th:onclick = "location.href = 'rank_likes'">좋아요 랭킹</button>
                         </li>
                     </ul>
                 </div>

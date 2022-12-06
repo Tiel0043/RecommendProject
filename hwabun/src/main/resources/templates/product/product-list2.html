@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
 <!-- 여기서부터 작성 -->
@@ -238,4 +238,51 @@
 <!-- 여기까지 입력 -->
 	</th:block>
 	</th:block>
+	
+	
+		
+<script type="text/javascript">
+	
+	 $(document).ready(function(){   
+		
+	
+	 $.ajax({
+	 		
+	 		url : '/countBasket',
+	 		data : {
+	 		'count':'count'
+	 		},
+	 		
+	 		success : function(res){
+	 		// res --> 응답내용을 담는 변수
+	 		console.log(res);
+	 		console.log("success");
+	 		
+	 	},
+	 	error : function(){
+	 		console.log("error!error!error!");
+	 	}
+	 	
+	 	
+
+	 }).done(
+	 		
+	 (data)=>{
+	 	
+	 console.log(data);
+
+	 $('#countBasket').text(data);	
+	 	
+	 }
+	 );
+	
+	
+	 })
+	 
+	 
+
+	 
+	 
+	 
+	</script>
 </html>

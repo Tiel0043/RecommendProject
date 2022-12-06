@@ -26,7 +26,8 @@ public class CateController { // 대분류 상품 조회 컨트롤러
 		// 중분류 상품 리스트 받아오는 구문
 		List<CosmeticsDTO> list = cateService.getProductList(cate);
 		// 소분류 카테고리 받아오는 구문
-		List cate2_list = cateService.getCate(cate);
+		List<CosmeticsDTO> cate2_list = cateService.getCate(cate);
+
 		model.addAttribute("cos_list", list);
 		model.addAttribute("cate_list", cate2_list);
 		model.addAttribute("cate", cate);

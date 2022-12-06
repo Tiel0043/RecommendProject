@@ -11,5 +11,4 @@ public interface MemberService {
 	public String idCheck(String mb_id);
 	
 	
-	
 }
