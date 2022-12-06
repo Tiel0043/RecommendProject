@@ -23,9 +23,9 @@ public class TestController {
 		return "rank/rank";
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String test() {
-		return "mypage/mypage";
+		return "/index";
 	}
 	
 	

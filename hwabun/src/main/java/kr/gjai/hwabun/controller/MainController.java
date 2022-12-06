@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class MainController {
 	
-	@RequestMapping({"/","/main"})
+	@RequestMapping({"/main"})
 	public void main(Model model) {
 		log.info("main 확인!!");
 		model.addAttribute("main","main");
