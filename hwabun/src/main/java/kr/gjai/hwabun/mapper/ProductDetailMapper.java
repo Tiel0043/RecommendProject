@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
-import kr.gjai.hwabun.entity.EventDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.entity.StarDTO;

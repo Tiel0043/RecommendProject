@@ -2,11 +2,15 @@ package kr.gjai.hwabun.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.BasketDTO;
 import kr.gjai.hwabun.entity.CosmeticDTO;
+import kr.gjai.hwabun.entity.EventDTO;
+import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.TempBasketDTO;
 import kr.gjai.hwabun.mapper.BasketMapper;
 
@@ -160,10 +164,39 @@ public class BasketService {
 		return basketMapper.countBasket(nickname);
 		
 	}
-	
-	
-	
-	
+
+
+
+
+
+	public void registerEvent(EventDTO edo) {
+		basketMapper.registerEvent(edo);	
+	}
+
+
+
+
+
+	public void dropEvent(EventDTO edo) {
+		basketMapper.dropEvent(edo);
+		
+	}
+
+
+
+
+
+	public void payEvent(List<TempBasketDTO> tlist, String mb_id, String user_session) {
+		for(int i = 0; i < tlist.size(); i++) {
+			 EventDTO edo = new EventDTO();
+			 edo.setCos_seq(tlist.get(i).getCos_seq());
+			 edo.setUser_id(mb_id);
+			 edo.setUser_session(user_session);
+			 basketMapper.payEvent(edo);
+		 }
+		
+	}
+
 	
 	
 	

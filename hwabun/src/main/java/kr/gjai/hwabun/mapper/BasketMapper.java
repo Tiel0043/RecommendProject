@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.gjai.hwabun.entity.BasketDTO;
 import kr.gjai.hwabun.entity.CosmeticDTO;
+import kr.gjai.hwabun.entity.EventDTO;
 import kr.gjai.hwabun.entity.TempBasketDTO;
 
 @Mapper
@@ -38,7 +39,6 @@ public interface BasketMapper {
 	
 	@Select("select c.cos_seq, c.cos_photo1, c.cos_name, c.cos_price, t.cnt, (select cnt*cos_price from dual) as price from basket t left outer join cosmetics c on t.cos_seq=c.cos_seq where t.mb_id=#{nickname}")
 	public List<TempBasketDTO> showBasket(String nickname);
-	
 	
 	@Select("select count(*) from basket where mb_id=#{nickname}")
 	public int countBasket(String nickiname);
@@ -69,6 +69,21 @@ public interface BasketMapper {
 
 	@Update("update basket set cnt=#{param3} where cos_seq=#{param1} and mb_id=#{param2}")
 	public void changeCnt(int param1, String param2, int param3);
+
+	@Insert("insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)\r\n"
+			+ "		values (NOW(), 2, #{cos_seq}, #{user_id}, #{user_session}, 'op')")
+	public EventDTO registerEvent(EventDTO edo);
+
+	@Insert("insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)\r\n"
+			+ "		values (NOW(), 3, #{cos_seq}, #{user_id}, #{user_session}, 'op')")
+	public void dropEvent(EventDTO edo);
+
+	@Insert("insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)\r\n"
+			+ "		values (NOW(), 4, #{cos_seq}, #{user_id}, #{user_session}, 'op')")
+	public void payEvent(EventDTO edo);
+	
+	@Select("select cos_seq from basket where mb_id = #{mb_id}")
+	public List<String> getList(String mb_id);
 
 
 

@@ -19,7 +19,5 @@
 		select * from members
 		where mb_id=#{mb_id} and mb_pw=#{mb_pw}
 	</select>
-	
 
-	
 </mapper>

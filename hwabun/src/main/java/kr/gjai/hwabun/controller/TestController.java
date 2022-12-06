@@ -25,7 +25,7 @@ public class TestController {
 	
 	@GetMapping("/")
 	public String test() {
-		return "mypage/mypage";
+		return "cart/payment";
 	}
 	
 	
