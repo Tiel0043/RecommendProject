@@ -1,12 +1,14 @@
 package kr.gjai.hwabun.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.BasketDTO;
-import kr.gjai.hwabun.entity.CosmeticDTO;
+import kr.gjai.hwabun.entity.CosmeticsDTO;
+import kr.gjai.hwabun.entity.EventDTO;
 import kr.gjai.hwabun.entity.TempBasketDTO;
 import kr.gjai.hwabun.mapper.BasketMapper;
 
@@ -19,7 +21,7 @@ public class BasketService {
 
 	
 	
-	public CosmeticDTO getCosmetics(int cos_seq) {
+	public CosmeticsDTO getCosmetics(int cos_seq) {
 		
 		
 		return basketMapper.getCosmetics(cos_seq);
@@ -31,7 +33,7 @@ public class BasketService {
 	
 	
 	
-	public List<CosmeticDTO> showCosmetics(){
+	public List<CosmeticsDTO> showCosmetics(){
 		
 		
 		return basketMapper.showCosmetics();
@@ -160,8 +162,55 @@ public class BasketService {
 		return basketMapper.countBasket(nickname);
 		
 	}
+
+
+
+	public void registerEvent(EventDTO edo) {
+		basketMapper.registerEvent(edo);	
+	}
 	
+	public void dropEvent(EventDTO edo) {
+		basketMapper.dropEvent(edo);
+		
+	}
 	
+	public List<TempBasketDTO> willPurchase(String mb_id, String pchase) {
+		
+		List<TempBasketDTO> blist=new ArrayList<TempBasketDTO>();
+		
+		
+		try {
+		String[] pchase_seq=pchase.split(",");
+		
+		for(int i=0;i<pchase_seq.length;i++) {
+			
+			
+			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase_seq[i])).get(0));
+			basketMapper.throwSeq(Integer.parseInt(pchase_seq[i]),mb_id);
+			
+			
+			}
+		
+		}
+		catch(Exception e){
+			
+			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase)).get(0));
+			basketMapper.throwSeq(Integer.parseInt(pchase), mb_id);
+			
+			
+		}
+		
+		return blist;
+		
+		
+		
+		
+	}
+
+
+
+
+
 	
 	
 	

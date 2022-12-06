@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.gjai.hwabun.entity.EventDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.TempBasketDTO;
 import kr.gjai.hwabun.service.BasketService;
@@ -26,22 +27,41 @@ public class BasketController {
 	@RequestMapping("/saveBasket")
 	public int cartCosmetics(@RequestParam(value="cos_seq") int cos_seq,
 								@RequestParam(value="cnt") int cnt,
-								HttpSession session
+								HttpSession session,EventDTO edo
 								)
-	
-	
 	{
+		
+		
+		if(session.getAttribute("mvo") != null) {
+		
 		MemberDTO mvo = (MemberDTO)session.getAttribute("mvo");
 		
 		String nickname = mvo.getMb_id();
 		
-		System.out.println(cos_seq);
-		System.out.println(nickname);
+	
 		
 		basketService.saveBasket(cos_seq,nickname,cnt);
 		int updatedcnt=basketService.countBasket(nickname);
 		
+		
+		// 행동 이벤트 양식
+					edo.setCos_seq(cos_seq);
+					edo.setUser_id(mvo.getMb_id());
+					edo.setUser_session(session.getId());
+					basketService.registerEvent(edo);
+		
 		return updatedcnt;
+		}
+		
+		
+		
+		else {
+			
+			return 0;
+			
+		}
+		
+		
 			
 	}
 	
@@ -50,22 +70,19 @@ public class BasketController {
 	
 	
 	
-	@RequestMapping("/shop-cart.html")
+	@RequestMapping("/goBasket")
 	public String showBasket(Model model,HttpSession session){
 		
 		
-		
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");		
 		
-		System.out.println(mb);
 	
 		List<TempBasketDTO> tlist=basketService.showBasket(mb.getMb_id());
-	
-		System.out.println(tlist);
 		
 		model.addAttribute("Basket",tlist);
-		
-		return "cart/cart.html";
+		}
+		return "cart/cart";
 		
 	}
 	
@@ -77,13 +94,13 @@ public class BasketController {
 	public String plusCnt(@RequestParam(value="cos_seq") int cos_seq,
 			HttpSession session)
 	{
-		
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
 		basketService.plusCnt(cos_seq,mb.getMb_id());
 		
 		
-	
+		}
 		
 		return "cart/cart";
 	}
@@ -93,12 +110,13 @@ public class BasketController {
 	public String minusCnt(@RequestParam(value="cos_seq") int cos_seq,HttpSession session
 							)
 	{
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
 		
 		basketService.minusCnt(cos_seq,mb.getMb_id());
 		
-		
+		}
 	
 		
 		return "cart/cart";
@@ -110,16 +128,18 @@ public class BasketController {
 	@ResponseBody
 	@RequestMapping("/throwSeq")
 	public String throwSeq(@RequestParam(value="cos_seq") int cos_seq,
-							HttpSession session)
+							HttpSession session, EventDTO edo)
 	{
-		
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
 		basketService.throwSeq(cos_seq,mb.getMb_id());
 		
-		System.out.println(cos_seq);
-
-		System.out.println(mb.getMb_id());
+		edo.setCos_seq(cos_seq);
+		edo.setUser_id(mb.getMb_id());
+		edo.setUser_session(session.getId());
+		basketService.dropEvent(edo);
+		}
 		
 		return "cart/cart";
 	}
@@ -136,15 +156,16 @@ public class BasketController {
 	
 	
 	@ResponseBody
-	@RequestMapping("/clearCart")
+	@RequestMapping("/clearBasket")
 	public String clearCart(HttpSession session)
 	{
 		
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
 		basketService.clearCart(mb.getMb_id());
 		
-		
+		}
 		
 		return "cart/cart";
 	}
@@ -158,12 +179,12 @@ public class BasketController {
 							HttpSession session ,
 							@RequestParam(value="cnt") int cnt)
 	{
-		
+		if(session.getAttribute("mvo") != null) {
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
 		basketService.changeCnt(cos_seq,mb.getMb_id(),cnt);
 		
-		
+		}
 		
 		return "cart/cart";
 	}
@@ -173,19 +194,37 @@ public class BasketController {
 	
 	@ResponseBody
 	@RequestMapping("/countBasket")
-	public int countBasket(@RequestParam(value="count") String count,HttpSession session){
+	public int countBasket(HttpSession session){
 		
-		System.out.println(count);
+		
+		
+		if(session.getAttribute("mvo")!=null) {
+		
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		return basketService.countBasket(mb.getMb_id());
-		
+		}else {
+			
+			return 0;
+		}
 
 		
 		
 	}
 	
 	
-	
+	@RequestMapping("/willPurchase")
+	public String willPurchase(@RequestParam(value="pchase") String pchase,HttpSession session,Model model){
+		
+		
+		
+		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
+		
+		
+		model.addAttribute("pitem",basketService.willPurchase(mb.getMb_id(),pchase));
+		
+		return "cart/purchase";
+		
+	}
 	
 	
 	

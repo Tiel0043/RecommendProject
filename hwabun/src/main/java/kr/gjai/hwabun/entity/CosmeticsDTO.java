@@ -20,3 +20,5 @@ public class CosmeticsDTO { // 화장품 정보 엔티티
 	private String gubun_value; // 카테고리 구분값
 	
 }
+
+
