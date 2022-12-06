@@ -1,29 +1,21 @@
 package kr.gjai.hwabun.service;
-
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import kr.gjai.hwabun.entity.BasketDTO;
-import kr.gjai.hwabun.entity.CosmeticDTO;
+import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.EventDTO;
-import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.TempBasketDTO;
 import kr.gjai.hwabun.mapper.BasketMapper;
-
 @Service
 public class BasketService {
-
 	
 	@Autowired
 	BasketMapper basketMapper;
-
 	
 	
-	public CosmeticDTO getCosmetics(int cos_seq) {
+	public CosmeticsDTO getCosmetics(int cos_seq) {
 		
 		
 		return basketMapper.getCosmetics(cos_seq);
@@ -35,7 +27,7 @@ public class BasketService {
 	
 	
 	
-	public List<CosmeticDTO> showCosmetics(){
+	public List<CosmeticsDTO> showCosmetics(){
 		
 		
 		return basketMapper.showCosmetics();
@@ -59,14 +51,11 @@ public class BasketService {
 		
 	}
 	
-
-	
-
 	
 	
 	
 	
-
+	
 	public void saveBasket(int cos_seq, String nickname, int cnt) {
 		// TODO Auto-generated method stub
 	
@@ -89,7 +78,6 @@ public class BasketService {
 			}
 			
 		
-
 		}
 		
 		
@@ -110,93 +98,74 @@ public class BasketService {
 		
 		
 	}
-
-
-
-
-
 	public void plusCnt(int cos_seq, String nickname) {
 		basketMapper.plusCnt(cos_seq,nickname);
 		
 	}
-
-
-
-
-
 	public void minusCnt(int cos_seq, String nickname) {
 		basketMapper.minusCnt(cos_seq,nickname);
 		
 	}
-
-
-
-
-
 	public void throwSeq(int cos_seq, String nickname) {
 		basketMapper.throwSeq(cos_seq,nickname);
 		
 	}
-
-
-
-
-
 	public void clearCart(String nickname) {
 		basketMapper.clearCart(nickname);
 		
 	}
-
-
-
-
-
 	public void changeCnt(int cos_seq, String nickname, int cnt) {
 		basketMapper.changeCnt(cos_seq, nickname,cnt);
 		
 	}
-
-
-
-
 	public int countBasket(String nickname) {
 		
 		return basketMapper.countBasket(nickname);
 		
 	}
-
-
-
-
-
 	public void registerEvent(EventDTO edo) {
 		basketMapper.registerEvent(edo);	
 	}
-
-
-
-
-
+	
 	public void dropEvent(EventDTO edo) {
 		basketMapper.dropEvent(edo);
 		
 	}
-
-
-
-
-
-	public void payEvent(List<TempBasketDTO> tlist, String mb_id, String user_session) {
-		for(int i = 0; i < tlist.size(); i++) {
-			 EventDTO edo = new EventDTO();
-			 edo.setCos_seq(tlist.get(i).getCos_seq());
-			 edo.setUser_id(mb_id);
-			 edo.setUser_session(user_session);
-			 basketMapper.payEvent(edo);
-		 }
+	
+	public List<TempBasketDTO> willPurchase(String mb_id, String pchase) {
+		
+		List<TempBasketDTO> blist=new ArrayList<TempBasketDTO>();
+		
+		
+		try {
+		String[] pchase_seq=pchase.split(",");
+		
+		for(int i=0;i<pchase_seq.length;i++) {
+			
+			
+			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase_seq[i])).get(0));
+			basketMapper.throwSeq(Integer.parseInt(pchase_seq[i]),mb_id);
+			
+			
+			}
+		
+		}
+		catch(Exception e){
+			
+			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase)).get(0));
+			basketMapper.throwSeq(Integer.parseInt(pchase), mb_id);
+			
+			
+		}
+		
+		return blist;
+		
+		
+		
 		
 	}
-
+	
+	
 	
 	
 	

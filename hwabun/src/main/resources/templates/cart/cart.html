@@ -3,29 +3,11 @@
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
 <!-- 여기서부터 작성 -->
-<script th:inline="javascript">
-	/*<![CDATA[*/
-		
-		
-	/*[# th:each="row:${Basket}"]*/
-	noti(/*[[${row}]]*/);
-	
-	/*[/]*/
-	/*]]>*/
-	
-	
-	
-	
-	function noti(testValue){
-		console.log(testValue);
-	}
-</script>1
-
   <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Home</a>
+                    <a href="main" rel="nofollow">Home</a>
                     <span></span> Shop
                     <span></span> Your Cart
                 </div>
@@ -35,184 +17,170 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                        <div class="table-responsive">                                
+             
+                            <table class="table shopping-summery text-center clean">
+                                <thead>
+                                    <tr class="main-heading">
+                                    	<th scope="col"></th>
+                                        <th scope="col">사진</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col">가격</th>
+                                        <th scope="col">수량</th>
+                                        <th scope="col">합계</th>
+                                        <th scope="col">장바구니 제거</th>
+                                    </tr>
+                                </thead>
+                                <tbody>                            
+                                    
+                                    <tr th:each="row:${Basket}" class="Basket">
+                                      <td>
+                                      	<input checked class="check" type="checkbox" name="xxx" value="|check_${row.cos_seq}|" 
+                                     		 th:id="|check_${row.cos_seq}|" style="width:17px;height:17px">
+                                      </td>
+                                      <td class="image product-thumbnail"><img th:src="${row.cos_photo1}" alt="#">
+                                      </td>
+                                 
+                                       <td   class="product-des product-name">
 
-                            <div class="table-responsive">
-                                
-                
-                                <table class="table shopping-summery text-center clean">
-                                    <thead>
-                                        <tr class="main-heading">
-                                            <th scope="col">사진</th>
-                                            <th scope="col">상품명</th>
-                                            <th scope="col">가격</th>
-                                            <th scope="col">수량</th>
-                                            <th scope="col">합계</th>
-                                            <th scope="col">장바구니 제거</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                            <h5 class="product-name"><a href="shop-product-right.html"></a></h5>
+                                            <p class="font-xs" th:text="${row.cos_name}">상품이름<br>상품이름</p>
+                                            
+                                       </td>
                                         
-                                
+                                                                     
+                                       <td th:id="|price_${row.cos_seq}|"class="price" data-title="Price" th:text="${row.cos_price}"><span>1개의가격</span>
+                                       </td>    
+                                       <td class="text-center" data-title="Stock" >
                                         
-
-                                        <tr th:each="row:${Basket}" class="Basket">
-                                        <td class="image product-thumbnail"><img th:src="${row.cos_photo1}" alt="#"></td>
+                                       
+                                        
+                                       	 	<div style="position:relatve">
+                                                
+                                                
+                                                
+                                                <input style="visibility:hidden;display:inline-block;position:absolute;" th:value="${row.cos_seq}"/>
+                                                
+                                                <div style="display:inline-block;position:absolute;">
+	                                                <select  class="nine" th:id="|under_${row.cos_seq}|" 
+	                                                style="visibility:visible;text-align:center;text-align-last:center;top:10px;left:20px;width:55px;height:30px;border:solid;border-color:black;border-radius:2px;border-width:1px;margin-top:35px" >
+	   													 <option class="qty-option"  value="1"  style="width:20px;height:20px;">1</option>
+	   													 <option class="qty-option"  value="2"  style="width:20px;height:20px;">2</option>
+	   													 <option class="qty-option"  value="3"  style="width:20px;height:20px;">3</option>
+	   													 <option class="qty-option"  value="4"  style="width:20px;height:20px;">4</option>
+	   													 <option class="qty-option"  value="5"  style="width:20px;height:20px;">5</option>
+	   													 <option class="qty-option"  value="6"  style="width:20px;height:20px;">6</option>
+	   													 <option class="qty-option"  value="7"  style="width:20px;height:20px;">7</option>
+	   													 <option class="qty-option"  value="8"  style="width:20px;height:20px;">8</option>
+	   													 <option class="qty-option"  value="9"  style="width:20px;height:20px;">9</option>
+	   													 <option class="qty-option"  value="10+" style="width:20px">10+</option>
+													</select>
+												</div>
+											
+												<div style="display:inline-block;visibility:hidden;position:absolute;">
+													<input class="cnt" type="text" style="border:solid;border-width:1px;width:55px;height:30px;top:10px;margin-top:35px" th:id="|over_${row.cos_seq}|" th:value="${row.cnt}"></input>
+                                               	</div>
+                                              
+                                               	
+                                               
+                                   
+                                               	<button class='apply' style="border-radius:2px;visibility:hidden;margin-top:70px;margin-left:5px;margin-bottom:0px;padding-bottom:0px;top:10px;left:10px;height:30px;background-color:green;color:white;" th:id="|btn_${row.cos_seq}|">적용</button>
+                                               	
+                                              
+                                                
+                                       
+                                       
+                                       		</div>
+                                        </td>
+                                        
+                                        <td  style="width:180px;"class="text-right eachsum" th:id="|eachsum_${row.cos_seq}|" data-title="Cart" th:text="${row.price}">
+                                            
+                                            <input th:id="|sum_${row.cos_seq}|" style="visibility:hidden" class="sum" th:value="${row.price}">
+                                            
+                                        </td>
+                                        
+                                        <td class="action" data-title="Remove">
+                                        
+                                        	<a href="#" class="throw">
+                                        	<img th:src="@{/assets/imgs/shop/dh_bin.png}" style="width:20px; height:20px;"/>
+                                        	<input th:class="cos_seq" type="hidden" th:value="${row.cos_seq}"/>
+                                        	<input th:class="_cnt" type="hidden" th:value="${row.cnt}"/>
+                                        	</a>
+                                        
+                                        
+                                        
+                                        </td>
                                     
-                                            <td   class="product-des product-name">
-
-                                                <h5 class="product-name"><a href="shop-product-right.html"></a></h5>
-                                                <p class="font-xs" th:text="${row.cos_name}">상품이름<br>상품이름</p>
-                                                
-                                            </td>
-                                            
-                                            
-                                        
-                                            
-                                            <td class="price" data-title="Price" th:text="${row.cos_price}"><span>1개의가격</span></td>
-                                            
-                                            <td class="text-center" data-title="Stock" >
-                                            
-                                            
-                                            
-                                                <div  class="detail-qty border radius  m-auto" >
-                                                    
-                                                    
-                                                    
-                                                    <input style="visibility:hidden" th:value="${row.cos_seq}"/ name="cos_seq">
-                                                    
-                                                    <select  class="nine" th:id="|under_${row.cos_seq}|" style="visibility:visible; float:left;margin-right:5px ;width:45px;height:42px;" >
-                                                        <option class="qty-option"  value="1"  style="width:20px">1</option>
-                                                        <option class="qty-option"  value="2"  style="width:20px">2</option>
-                                                        <option class="qty-option"  value="3"  style="width:20px">3</option>
-                                                        <option class="qty-option"  value="4"  style="width:20px">4</option>
-                                                        <option class="qty-option"  value="5"  style="width:20px">5</option>
-                                                        <option class="qty-option"  value="6"  style="width:20px">6</option>
-                                                        <option class="qty-option"  value="7"  style="width:20px">7</option>
-                                                        <option class="qty-option"  value="8"  style="width:20px">8</option>
-                                                        <option class="qty-option"  value="9"  style="width:20px">9</option>
-                                                        <option class="qty-option special"  value="10+" style="width:20px">10+</option>
-                                                    </select>
-                                                    
-                                                    <input type="text" style="visibility:hidden" th:id="|over_${row.cos_seq}|" th:value="${row.cnt}"></input>
-                                                    <button class='end' style="visibility:hidden" th:id="|btn_${row.cos_seq}|"></button>
-                                                    
-                                                    <!-- <p th:text="${row.cnt}" th:value="${row.cnt}" style="width:45px;height:42px;visibility:hidden">
-                                                            <input th:value="${row.cnt}" />
-                                                    </p>
-                                                    
-                                                    -->
-                                                    
-                                                
-                                                </div>
-                                            </td>
-                                            
-                                            <td  class="text-right"  data-title="Cart" th:text="${row.price}">
-                                                <span>총가격</span>
-                                                <input style="visibility:hidden" class="sum" th:value="${row.price}">
-                                                
-                                            </td>
-                                            
-                                            <td class="action" data-title="Remove">
-                                            
-                                                
-                                                
-                                                <a href="#" class="throw">
-                                                
-                                                <img th:src="@{/assets/imgs/shop/dh_bin.png}" style="width:20px; height:20px;"/>
-                                                <input th:class="cos_seq" type="hidden" th:value="${row.cos_seq}"/>
-                                                <input th:class="_cnt" type="hidden" th:value="${row.cnt}"/>
-                                                </a>
-                                            
-                                
-                                            
-                                            </td>
-                                        
-                                        <td class="text-right" data-title="Cart" th:id="cos_seq" th:value="${row.cos_seq}" >
-                                        
-                                                <span></span>
-                                            </td>
-                                        
-                                        </tr>
+                                    	<td class="text-right" data-title="Cart" th:id="cos_seq" th:value="${row.cos_seq}" >
+                                        	 <span></span>
+                                        </td>
                                     
-                                
-                                    
-                                    
-                                        <tr>
-                                            <td colspan="6" class="text-end">
+                                    </tr>  
+                                   
+                                    <tr >
+                                        <td colspan="6" class="text-end" style="position:absolute;width:1280px;">
+                                        
+                                          <a href="#" class="text-muted" id="clear" > 
+                                         
+                                          <i class="fi-rs-cross-small"></i> 장바구니 모두 비우기
+                                          
+                                          </a>
                                             
-                                            <a href="#" class="text-muted" id="clear"> 
                                             
-                                            <i class="fi-rs-cross-small"></i> 장바구니 모두 비우기
-                                            
-                                            </a>
-                                                
-                                                
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
+                                        </td>
+                                    </tr>
+                                </tbody>
+                           	</table>
+  
+                            
+                        </div>
                         
+                        
+                        
+                        
+                        
+                        <div >
+                                <div >
+                                    <table style="margin-top:20px">
+                                       <tbody>
+                                            <tr>
+                                            	<td style="text-align:center"><strong>총 상품금액</strong></td>
+                                                <td style="text-align:center;width:630px;font-size:20px" id="finalsum">총 상품금액</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <a href="#" onclick="purchase()" class="btn" style="float:right"> <i class="fi-rs-box-alt mr-10"></i>구매하러 가기</a>
                                 
                                 
-                            </div>
-                            <div class="cart-action text-end">
-                            <!--  <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10" ></i>Update Cart</a> -->
-                                <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>쇼핑 계속하기</a>
-                            </div>
-                            <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                            <div class="row mb-50">
-                                <div class="col-lg-6 col-md-12">                            
-                                    <div class="mb-30 mt-50">
-                                        <div class="total-amount">
-                                            <div class="left">
-                                                <div class="coupon">
-                                                    <form action="#" target="_blank">
-                                                        <div class="form-row row justify-content-center">
-                                                        
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                
+                        </div>
+                       
+                                <br>
+                    
+                     
+                        <div class="row mb-50">
+                            <div class="col-lg-6 col-md-12">
+             
+                                <div class="mb-30 mt-50">
+                    
+                                    <div class="total-amount">
+                                        <div class="left">
+                                            <div class="coupon">
+                                                <form action="#" target="_blank">
+                                                    <div class="form-row row justify-content-center">
+                                                  
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="border p-md-4 p-30 border-radius cart-totals">
-                                        <div class="heading_s1 mb-3">
-                                            <h4>총합</h4>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                            <tbody>
-                                                <!--   <tr>
-                                                        <td class="cart_total_label">Cart Subtotal</td>
-                                                        <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">$240.00</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="cart_total_label">Shipping</td>
-                                                        <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free Shipping</td>
-                                                    </tr> -->
-                                                    <tr>
-                                                        <td class="cart_total_label" id="sumtotal">총합</td>
-                                                        <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand" ></span></strong></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <a href="/payment" class="btn "> <i class="fi-rs-box-alt mr-10"></i>구매하러 가기</a> 
-                                    </div>
-
-
-
-
-                                    
-                                </div>
-
-
                             </div>
-
-                        <!--결제하기  버튼-->                      
+                            <div class="col-lg-6 col-md-12">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -229,7 +197,10 @@
     
     
     $(document).ready(function(){   
-
+		
+    	
+    	
+    	
     	var arr1=[];
     	var arr2=[];
     	var cosseqs=$('.cos_seq');
@@ -258,10 +229,10 @@
 			
 		}
 		
-
-		console.log(loop);
-		console.log(arr1);
-		console.log(arr2);
+	
+		$(".check").attr(":checked",1); 	
+    	 	
+    	 	
 		
 		
 		for(var i=0;i<loop;i++){
@@ -270,17 +241,16 @@
 			if(arr2[i]<10){
 				
 				
-			console.log("10미만")
+		
 			
 			var seq=arr1[i];
 			var cnt=arr2[i];
-			console.log(cnt);
+			
 			$('#under_'+seq+' > option[value='+cnt+']').attr('selected',true);
 			
 			
 			
-			//console.log($('select[value='+seq+']>option[@value='+cnt+']'));
-			//$('select[value='+seq+']>option[@value='+cnt+']').attr('selected',true);	
+			
 				
 	
 			}else{
@@ -302,16 +272,20 @@
 			
 		}
 		
-		var sumtotal=$(".sum");
-		arr3=[];
-		console.log(sumtotal.length)
-		for(var i=0;i<sumtotal.length;i++){
+		
+		
+		var finalsum=parseInt(0);
+		var eachsum=$(".eachsum");
+		for(var i=0;i<eachsum.length;i++){
+		
+			finalsum+=parseInt(eachsum[i].innerText);
 			
-			console.log(sumtotal[i]);
-			
+				
 		}
+		$('#finalsum').text(finalsum);		
 		
 		
+	
 		
 		
 		
@@ -320,20 +294,107 @@
 		
 		$(".nine").click(function(){
 			
+			
 			var cnt=$(this).val();
 			
-			
-			
 			if(cnt=='10+'){
+				
+				
+	
 
-			$(this).css('visibility','hidden')
-			$(this).next().css('visibility','visible')
-			$(this).next().next().css('visibility','visible')
+			$(this).css('visibility','hidden');
+			$(this).parent().next().find('input').css('visibility','visible');
+			$(this).parent().next().next().css('visibility','visible');
+			
+			
+			var over=parseInt(10);
+			
+			$(this).parent().next().find('input').val(over)
+			
+			
+			var price=$(this).parent().parent().parent().prev().text();
+			
+			var eachsum=over*price;
+			
+			$(this).parent().parent().parent().next().text(eachsum);
+			
+	
+	////////////////////////////////////////////////////		
+			
+				
+					var check=$(this).parent().parent().parent().prev().prev().prev().prev().find('input').attr(":checked");
+					console.log(check);
+					
+					if(check==0){
+				
+						console.log("ninetenpluscheck");
+				
+						$('#finalsum')[0].innerText=$('#finalsum')[0].innerText-$(this).parent().parent().next()[0].innerText;
+						
+					}
+					else{
+			
+				
+			/////////////////////////////////////////////////////////////
+					var finalsum=parseInt(0);
+					var eachsum=$(".eachsum");
+					for(var i=0;i<eachsum.length;i++){
+				
+						finalsum+=parseInt(eachsum[i].innerText);
+						
+					}
+					
+					$('#finalsum').text(finalsum);	
+				
+					}
+			
+			
+			
 			}
 			else{
+				
+				var cnt=$(this).val();
+				
+				var price=$(this).parent().parent().parent().prev().text();
+				
+				var eachsum=cnt*price;
+				
+				$(this).parent().next().find('input').text(cnt);
+				
+				$(this).parent().parent().parent().next().text(eachsum);
+				
+			/////////////////////////////////////////////////////////////////	
+				console.log("nineundertencheck")
+			
+					var check=$(this).parent().parent().parent().prev().prev().prev().prev().find('input').attr(":checked");
+					console.log(check);
+					
+					if(check==0){
+				
+						console.log("ninetenpluscheck");
+				
+						$('#finalsum')[0].innerText=$('#finalsum')[0].innerText-$(this).parent().parent().next()[0].innerText;
+						
+					}
+					else{
+			
+				
+			/////////////////////////////////////////////////////////////
+					var finalsum=parseInt(0);
+					var eachsum=$(".eachsum");
+					for(var i=0;i<eachsum.length;i++){
+				
+						finalsum+=parseInt(eachsum[i].innerText);
+						
+					}
+					
+					$('#finalsum').text(finalsum);	
+				
+					}
+		///////////////////////////////////////////////////////////
 
 				$("#cnt").text(cnt);
-				var cos_seq=$(this).prev().val();
+				var cos_seq=$(this).parent().prev().val();
 	        	
 			 	$.ajax({
 					
@@ -370,21 +431,109 @@
 		
 		//end 시작
 		
-		$(".end").click(function(){
+		$(".apply").click(function(){
+			
+			
+			var overten=$(this).prev().find('input').val();
 			
 			
 			
+			if (Number.isInteger(+overten)){
+				
+		
+				if(overten>=1){
+					
+					
+					
+					
+					var cos_seq=$(this).prev().prev().prev().val();
+					
+					
+					var cnt=overten;
+					
+					
+					
+					var price=$(this).parent().parent().prev().text();
+				
+					var eachsum=cnt*price;
+				
+					
+					$(this).parent().parent().next().text(eachsum);	
+					
+					
+					var check=$(this).parent().parent().prev().prev().prev().prev().find('input').attr(':checked');
+				
+					if(check==1){
+				
+			
+					var finalsum=parseInt(0);
+					var eachsum=$(".eachsum");
+					for(var i=0;i<eachsum.length;i++){
+				
+						finalsum+=parseInt(eachsum[i].innerText);
+						
+					}
+					
+					$('#finalsum').text(finalsum);	
+					}
+					
+					
+					
+					$.ajax({
+						
+						
+						url : '/changeCnt',
+						data : {
+
+						'cos_seq':cos_seq,
+						'cnt':cnt
+							
+							
+						},
+						
+					
+						success : function(res){
+						// res --> 응답내용을 담는 변수
+						console.log(res);
+						console.log("success");
+						
+					},
+					error : function(){
+						console.log("error!error!error!");
+					}
+
+					
+				});
+					
+					
+					
+		
+					
+				}
+				else{
+					
+					alert("1 이상의 정수여야 합니다.")
+					
+				}
+				
+				
+				
+			}else{
+				
+				
+				alert("숫자만 입력가능합니다");
+				
+			}
 			
 			
 			
-			
-			
+			//조건문 끝 
 			
 			
 		})
         
 		
-		
+		//end 끝
 		
 		
 		
@@ -402,19 +551,25 @@
     $(".throw").click(function(){
       
      
-     
       
-    	var cos_seq=$(this).find('input[class=cos_seq]').val()
+     var cos_seq=$(this).find('input[class=cos_seq]').val();
     
-     	
      //
     
+ 
+     var check=$(this).parent().prev().prev().prev().prev().prev().prev().find('input').attr(':checked');
+ 	 
+    
+     if(check==1){
+ 		
+    	 $('#finalsum')[0].innerText=$('#finalsum')[0].innerText-$(this).parent().prev()[0].innerText;
+ 		
+ 	}
+   
+ 	
+ 	
+     
      $(this).parent().parent().empty();
-     
-     
-       //
-       
-       
        
        $.ajax({
         		
@@ -424,11 +579,8 @@
 
         		'cos_seq':cos_seq
         		
-        			
-        			
         		},
         		
-        	
         		success : function(res){
     			// res --> 응답내용을 담는 변수
     			console.log(res);
@@ -465,6 +617,13 @@
 
      $("#clear").click(function(){
       
+    	 
+    	 var cos_seq=$(this).parent().parent().prev().find('a[class=throw]').find('input[class=cos_seq]');
+    	 
+    	 
+    	 
+			$('#finalsum').text(0);	
+			
     	 $('#countBasket').text(0);
     	 
     	 $(".Basket").empty();
@@ -473,6 +632,36 @@
    //
 			
         
+   	$.ajax({
+        		
+        		
+        		url : '/clearBasket',
+        		data : {
+        			
+        			
+        		},
+        		
+        	
+        		success : function(res){
+    			// res --> 응답내용을 담는 변수
+    			console.log(res);
+    			console.log("success");
+    			
+    		},
+    		error : function(){
+    			console.log("error!error!error!");
+    		}
+    		
+        	
+        		
+        		
+        	
+        });
+   
+   
+   
+   
+   
 		//ajax	
 
 		
@@ -493,13 +682,6 @@
      $(".changeCnt").click(function(){
       
      
-     
-    	 //var originprice=$(this).parent().parent().prev().text();     
-         
- 
-    	 //var total=originprice*cntt;
-    	       
-    	 //$(this).parent().parent().next().text(total);
     	 
    	var originprice=$(this).parent().prev().text();     
         
@@ -590,10 +772,88 @@
         
         //countBasket 끝 
         
+       
+        //check 시작
         
+        
+     
+         $(".check").click(function(){
+        
+        
+        	
+        	 
+        	 	
+        	 	
+        	     	
+        	if($(this).attr(':checked')==1){
+        		
+        		$(this).attr(':checked',0);
+	      		$(this).attr('checked',false);
+	      		
+        		var k=$(this).parent().next().next().next().next().next()[0].innerText;
+        		$('#finalsum')[0].innerText=$('#finalsum')[0].innerText-k;
+        		
+        		
+        		
+        	}else{
+        		
+        		$(this).attr(':checked',1);
+        		$(this).attr('checked',true);
+        		
+        		var k=$(this).parent().next().next().next().next().next()[0].innerText;
+        		$('#finalsum')[0].innerText=parseInt($('#finalsum')[0].innerText)+parseInt(k);
+        		
+        		
+        	}
+        	 
+        	 
+        	 
+        	 
+        	 
+        	 
+        	 
+        	 
+        	 
+        
+         })  
+        
+        //check 끝 
+        
+        
+        //goPurchase 시작
+        
+        
+       
 
     });
     
+    function purchase(){
+    	
+    	
+    	
+    	var pchase='';
+    	var purchases=$(".check");
+    	for(var i=0;i<purchases.length;i++){
+    		
+    		if(purchases[i].checked){
+    		
+    		pchase+=parseInt(purchases[i].id.split('_')[1])+',';
+    	
+    		
+    			}
+    		
+    		
+    		}
+    	pchase=pchase.substring(0, pchase.length - 1);
+    	
+		
+		    
+    	
+    	
+    	location.href="/willPurchase?pchase="+pchase;
+    	
+    	
+    }
  
 </script>
     

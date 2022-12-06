@@ -1,6 +1,5 @@
 package kr.gjai.hwabun.entity;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 

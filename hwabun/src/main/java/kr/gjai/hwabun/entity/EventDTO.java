@@ -3,7 +3,7 @@ package kr.gjai.hwabun.entity;
 import lombok.Data;
 
 @Data
-public class EventDTO {
+public class EventDTO { 
 	
 	private String event_time; // 이벤트 시간
 	private int event_type; // 이벤트 유형
