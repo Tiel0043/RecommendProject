@@ -7,4 +7,30 @@
 	  select * from cosmetics;
 	</select>
 	 
+	 <select id = "getRankSales" resultType = "CosmeticsDTO">
+	 select *
+	 from cosmetics
+	 order by cos_sales_cnt desc;
+	 </select>
+	 
+	 <select id = "getRankLikes" resultType = "CosmeticsDTO">
+	 select *
+	 from cosmetics
+	 order by cos_likes desc;
+	 </select>
+	 
+	 <select id = "getCateRankSales" resultType = "CosmeticsDTO" parameterType="String">
+	  select *
+	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
+	  where c.cos_seq = d.cos_seq
+	  order by cos_sales_cnt desc;
+	 </select>
+	 
+	 <select id = "getCateRankLikes" resultType = "CosmeticsDTO" parameterType="String">
+	  select *
+	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
+	  where c.cos_seq = d.cos_seq
+	  order by cos_likes desc;
+	 </select>
+	 
 </mapper>

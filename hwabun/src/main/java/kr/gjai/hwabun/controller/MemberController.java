@@ -66,6 +66,7 @@ public class MemberController {
 		if(mvo != null) {
 			session.setAttribute("mvo", mvo);
 			log.info(session.getAttribute("mvo"));
+			log.info(session.getId());
 			log.info("로그인 완료");
 
 		}
@@ -75,6 +76,7 @@ public class MemberController {
 	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logOut(HttpSession session) {
+		log.info("로그아웃~~~~~~~~");
 		session.invalidate();
 		return "redirect:/main";
 	}
