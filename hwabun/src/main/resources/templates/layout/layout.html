@@ -1043,8 +1043,8 @@
    
 	<script th:inline="javascript">
 	/*<![CDATA[*/
-		let cateAddrass = /*[[${main}]]*/;
-		
+		let cateAddrass = /*[[${main}]]*/
+		console.log("오류방지용콘솔");
 		if(cateAddrass=="main"){
 			 $("#cate-hb").css("display","block");
 		}else{
