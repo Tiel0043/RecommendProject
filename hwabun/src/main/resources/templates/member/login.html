@@ -33,8 +33,12 @@
                         <a class="text-muted" href="#">Forgot password?</a>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Log in</button>
+                        <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Log in</button> 
+                     
                     </div>
+                    
+                     	
+                   
                 </form>
             </div>
         </div>
@@ -47,4 +51,39 @@
 	
 	</th:block>
 	</th:block>
+	
+	
+<script type="text/javascript">
+
+$.ajax({
+		
+		url : '/countBasket',
+		data : {
+		'count':'count'
+		},
+		
+		success : function(res){
+		// res --> 응답내용을 담는 변수
+		console.log(res);
+		console.log("success");
+		
+	},
+	error : function(){
+		console.log("error!error!error!");
+	}
+	
+	
+
+}).done(
+		
+(data)=>{
+	
+console.log(data);
+
+$('#countBasket').text(data);	
+	
+}
+);
+
+</script>
 </html>

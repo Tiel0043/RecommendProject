@@ -1,8 +1,6 @@
 package kr.gjai.hwabun.entity;
 
-
 import lombok.Data;
-
 
 @Data
 public class EventDTO { 

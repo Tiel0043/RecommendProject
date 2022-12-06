@@ -23,9 +23,11 @@ public class TestController {
 		return "sample/test2";
 	}
 	
+
 	@GetMapping("/t")
 	public String test() {
 		return "etc/index_back";
+
 	}
 	
 	

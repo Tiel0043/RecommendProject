@@ -15,6 +15,7 @@ public class ReviewDTO { // 화장품 정보 엔티티
 	
 	private long review_seq; // 리뷰 순번
 	private long cos_seq; // 화장품 순번
+	private String cos_name; //화장품 이름
 	private String review_content; // 리뷰내용
 	private String mb_id; // 작성자 아이디
 	private float review_rating; // 리뷰평점
@@ -22,6 +23,7 @@ public class ReviewDTO { // 화장품 정보 엔티티
 	private String review_photo; // 리뷰 사진
 	private String review_date; // 댓글 작성 시간
 	private String mb_nick; // 작성자 닉네임
+	private String mb_name; //작성자 이름 
 	private String filepath; //저장 파일 경로
 	
 	

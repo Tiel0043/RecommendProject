@@ -17,7 +17,7 @@ public class MainController {
 	@Autowired
 	RankService rankService;
 	
-	@RequestMapping({"/","/main"})
+	@RequestMapping({"/main"})
 	public void main(Model model) {
 		log.info("main 확인!!");
 		//판매순으로 가져오기

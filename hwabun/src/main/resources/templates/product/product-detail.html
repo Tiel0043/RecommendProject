@@ -158,13 +158,10 @@
 		  $("select[id=dropDownList]").click(function(){
 		    	
 		    	
-		    	console.log("클릭됨");
+		    
 		    	var cnt=$(this).val();
-		   
-		    	console.log(cnt);
+		       	$("#cnt").val(cnt);
 		    	
-		    	$("#cnt").val(cnt);
-		    	console.log($("#cnt").val());
 		    	
 		    })
 		
@@ -414,7 +411,7 @@
                                             		
                                             	
                                             		
-    <button id="popupbox" class="popup" th:onclick="|location.href='@{/shop-cart.html}'|" style="line-height:1px;max-height:40px;min-height:40px;max-width:150px;min-width:180px;background-color:#FFFFFF;border-color:#346AFF;margin: 0px 10px 10px 10px;color:#346AFF;font-weight:200px;padding:10px 10px 10px 10px;">장바구니 바로가기 ></button>              
+    <button id="popupbox" class="popup" th:onclick="|location.href='@{/goBasket}'|" style="line-height:1px;max-height:40px;min-height:40px;max-width:150px;min-width:180px;background-color:#FFFFFF;border-color:#346AFF;margin: 0px 10px 10px 10px;color:#346AFF;font-weight:200px;padding:10px 10px 10px 10px;">장바구니 바로가기 ></button>              
                                             		
                                             	</div>
                                             	
