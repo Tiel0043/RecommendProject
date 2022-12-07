@@ -183,8 +183,6 @@ public class BasketController {
 	}
 	
 	
-	
-	
 	@ResponseBody
 	@RequestMapping("/countBasket")
 	public int countBasket(HttpSession session){
@@ -211,28 +209,10 @@ public class BasketController {
 		
 		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");
 		
-		
-		model.addAttribute("pitem",basketService.willPurchase(mb.getMb_id(),pchase));
+		model.addAttribute("pitem",basketService.willPurchase(mb.getMb_id(),pchase, session.getId()));
 		
 		return "cart/purchase";
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

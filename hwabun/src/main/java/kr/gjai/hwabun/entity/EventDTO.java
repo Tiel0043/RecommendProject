@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class EventDTO { 
 	
+	private long event_seq;
 	private String event_time; // 이벤트 시간
 	private int event_type; // 이벤트 유형
 	private long cos_seq; // 화장품 순번
