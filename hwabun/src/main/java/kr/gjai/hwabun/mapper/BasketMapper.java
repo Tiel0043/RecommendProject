@@ -75,6 +75,4 @@ public interface BasketMapper {
 	public void payEvent(EventDTO edo);
 	
 	
-	
-	
 }

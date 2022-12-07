@@ -265,3 +265,28 @@
 	max-width: 100%;
 	height: auto;
 }
+.result-box-hb{
+	margin-top:20px;
+	display:flex;
+	justify-content:center;
+}
+.result-graph1-hb{
+	width : 50%;
+	min-height:400ps;
+}
+#container-hb{
+	width:1000px;
+	height:400px;	
+}
+.result-graph2-hb{
+	width : 50%;
+	min-height:300ps;
+}
+#container2-hb{
+	width:1000px;
+	height:400px;	
+}
+.py-jb{
+	padding:10px 10px;
+}
+

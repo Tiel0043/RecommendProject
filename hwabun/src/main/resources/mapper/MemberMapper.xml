@@ -14,7 +14,7 @@
 		values(#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_birthdate}, #{mb_gender}, #{mb_nick}, #{mb_post}, #{mb_addr1}, #{mb_addr2}, now())
 	</insert>
 	
-	<!-- 가입 후 자동 로그인 -->
+	<!-- 로그인 -->
 	<select id="getMemInfo" parameterType="MemberDTO" resultType="MemberDTO">
 		select * from members
 		where mb_id=#{mb_id} and mb_pw=#{mb_pw}

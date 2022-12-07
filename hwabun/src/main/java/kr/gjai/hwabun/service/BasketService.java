@@ -1,3 +1,4 @@
+
 package kr.gjai.hwabun.service;
 import java.util.ArrayList;
 import java.util.List;
@@ -157,6 +158,11 @@ public class BasketService {
 		}
 		catch(Exception e){
 			
+			EventDTO edo = new EventDTO();
+			edo.setCos_seq(Integer.parseInt(pchase));
+			edo.setUser_id(mb_id);
+			edo.setUser_session(user_session);
+			basketMapper.payEvent(edo);
 			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase)).get(0));
 			basketMapper.throwSeq(Integer.parseInt(pchase), mb_id);
 			
@@ -176,4 +182,5 @@ public class BasketService {
 	
 	
 	
+
 }

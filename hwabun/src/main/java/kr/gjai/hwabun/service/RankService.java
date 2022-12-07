@@ -16,4 +16,6 @@ public interface RankService {
 
 	public List<CosmeticsDTO> getCateRankLikes(String cate);
 
+	public List<CosmeticsDTO> getRankReviews();
+
 }

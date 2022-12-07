@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.gjai.hwabun.mapper.CustomizingMapper">
+
+	<insert id="reservation" parameterType="ConsultingDTO">
+	
+	insert into consulting(mb_id,consulting_date) 
+	values(#{mb_id},#{consulting_date})
+	
+	</insert>
+
+	<select id="testCount" parameterType="MemberDTO" resultType="int">
+	<!-- select 값 유무로 판단할수 있는 방법 없을땐 0 있을땐 1 출력 -->
+	select exists(select * from skintest_answer where mb_id=#{mb_id}) as success
+	
+	</select>
+	
+	
+	<select id="getQuestion" parameterType="HashMap" resultType="SkinTestQuestionDTO">
+	<!-- 클래스 생성하지 않은 파라미터 2개 이상 받을때 HashMap사용 -->
+	select * from skintest_question where que_seq between #{start} and #{end} order by que_num asc
+	
+	</select>
+	
+	<select id="getTypeIngredients" parameterType="String" resultType="IngredientsDTO">
+	
+	select * from ingredients where ingredient_type=#{ingredient_type}
+	
+	</select>
+
+</mapper>
