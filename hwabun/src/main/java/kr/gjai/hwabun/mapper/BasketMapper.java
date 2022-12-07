@@ -69,6 +69,10 @@ public interface BasketMapper {
 	public List<TempBasketDTO> willPurchase(String param1, int param2);
 	@Select("select cos_seq from basket where mb_id = #{mb_id}")
 	public List<String> getList(String mb_id);
+
+	@Insert("insert into event_table(event_time, event_type, cos_seq, user_id, user_session, admin_id)\r\n"
+			+ "		values (NOW(), 4, #{cos_seq}, #{user_id}, #{user_session}, 'op')")
+	public void payEvent(EventDTO edo);
 	
 	
 	
