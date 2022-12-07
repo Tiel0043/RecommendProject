@@ -97,9 +97,12 @@
 		            <div class="row flex-center-hb">
 		                <div class="col-lg-10 col-md-4 test-flex-hb">
 		                    <div class="skin-wrap-hb mb-30 flex-center-hb">
-		                  		<div th:each="ingre:${ingre}" class= "check-size-hb flex-center-hb" >
+		                  		<div th:each="ingre:${ingre}" class= "check-size-hb " >
 			                    	<input type="checkbox" name="" class="checkbox-hb " th:id="'17_'+${ingre.ingredient_seq}" value="${ingre.ingredient_seq}">
-			                    	<label th:for="'17_'+${ingre.ingredient_seq}" >[[${ingre.ingredient_name}]]</label>
+			                    	<label th:for="'17_'+${ingre.ingredient_seq}" class="checklabel-hb">[[${ingre.ingredient_name}]]</label>
+			                    </div>
+			                    <div>
+			                    
 			                    </div>
 		                    </div>
 		                </div>
