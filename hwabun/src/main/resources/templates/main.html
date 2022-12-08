@@ -65,31 +65,31 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-1.png" alt="">
+                            <a href="#div1"><img src="assets/imgs/theme/icons/feature-1.png" alt=""></a>
                             <h4 class="bg-1">Free Shipping</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-2.png" alt="">
+                            <a href="#div2"><img src="assets/imgs/theme/icons/feature-1.png" alt=""></a>
                             <h4 class="bg-3">Online Order</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-3.png" alt="">
+                            <a href="#div3"><img src="assets/imgs/theme/icons/feature-1.png" alt=""></a>
                             <h4 class="bg-2">Save Money</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-4.png" alt="">
+                           <a href="#div4"><img src="assets/imgs/theme/icons/feature-1.png" alt=""></a>
                             <h4 class="bg-4">Promotions</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-5.png" alt="">
+                            <a href="#div5"><img src="assets/imgs/theme/icons/feature-1.png" alt=""></a>
                             <h4 class="bg-5">Happy Sell</h4>
                         </div>
                     </div>
@@ -99,17 +99,18 @@
                             <h4 class="bg-6">24/7 Support</h4>
                         </div>
                     </div>
+                     <div id="div1"></div>
                 </div>
             </div>
         </section>
         <!--반응하는 네모 박스들 끝-->
     <!-------------------------------------------------------------------로그인 했을때만 보이는--------------------------------------------------------------------------------->
 <!-- 메인 베너 시작-->
-<section class="bg-grey-9 section-padding">
+<section id="div1" class="bg-grey-9 section-padding">
     <div class="container pt-15 pb-25">
         <div class="heading-tab d-flex">
             <div class="heading-tab-left wow fadeIn animated">
-                <h3 class="section-title mb-20"><span>#이지은님</span> 구매 상품과 유사한 상품</h3>
+                <h3 class="section-title mb-20"><span th:text="|#${session.mvo.mb_nick}님|">#이지은님</span>과 같은 MBTI를 가진 고객님이 구매한 상품</h3>
             </div>
             
         </div>
@@ -732,6 +733,7 @@
                             </div>
                         </div>
                     </div>
+                     <div id="div2"></div>
                 </div>
                 <!--End tab-content-->
             </div>
@@ -741,7 +743,7 @@
 </section>
 <!-- 메인 베너 끝-->
 <!-- 메인 베너2 시작-->
-<section class="bg-blue-9 section-padding">
+<section id="div2" class="bg-blue-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -759,7 +761,7 @@
                 <h4 class="mt-5">Save 17% on <br>Clothing</h4>
                 <a href="shop-grid-right.html" class="text-white">Shop Now <i class="fi-rs-arrow-right"></i></a>
             </div> -->
-       
+      
     </div>
     <div class="col-lg-7 col-md-12">
         <div class="row">
@@ -781,11 +783,11 @@
                                     <span class="hot">Hot</span>
                                 </div> -->
                             </div>
-                            <div class="product-content-wrap">
-                                <div class="product-category">
+                            <div class="product-content-wrap" >
+                                <div class="product-category" >
                                     <a href="shop-grid-right.html" th:text="${lp.gubun_name}">Nulla</a>
-                                </div>
-                                <h2><a href="shop-product-right.html" th:text="${lp.cos_name}">Maecenas eget</a></h2>
+                                </div >
+                                <h2 style="height:41px"><a href="shop-product-right.html" th:text="${lp.cos_name}">Maecenas eget</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         <span th:text="${lp.review_rating}">70%</span>
@@ -806,7 +808,7 @@
 						
                     </div>
             
-            
+             <div id="div3"></div>
             
             
         </div>
@@ -819,11 +821,11 @@
 </section>
 <!-- 메인 베너2 끝-->
 <!-- 메인 베너3 시작-->
-<section class="bg-grey-9 section-padding">
+<section  class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
-        <h3 class="section-title mb-20"><span>#성분다이어트</span> 상품 라인 추천</h3>
+        <h3  class="section-title mb-20"><span>#성분다이어트</span> 상품 라인 추천</h3>
     </div>
     
 </div>
@@ -863,7 +865,7 @@
                                 <div class="product-category">
                                     <a href="shop-grid-right.html" th:text="${rp.gubun_name}">Nulla</a>
                                 </div>
-                                <h2><a href="shop-product-right.html" th:text="${rp.cos_name}">Maecenas eget</a></h2>
+                                <h2 style="height:41px"><a href="shop-product-right.html" th:text="${rp.cos_name}">Maecenas eget</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         <span th:text="${rp.review_rating}">70%</span>
@@ -884,7 +886,7 @@
                         </div>
 						
                     </div>
-           
+            <div id="div4"></div>
             
             
         </div>
@@ -897,7 +899,7 @@
 </section>
 <!-- 메인 베너3 끝-->
 <!-- 메인 베너4 시작-->
-<section class="bg-blue-9 section-padding">
+<section id="div4" class="bg-blue-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -942,7 +944,7 @@
                                 <div class="product-category">
                                     <a href="shop-grid-right.html" th:text="${lp.gubun_name}">Nulla</a>
                                 </div>
-                                <h2><a href="shop-product-right.html" th:text="${lp.cos_name}">Maecenas eget</a></h2>
+                                <h2 style="height:41px"><a href="shop-product-right.html" th:text="${lp.cos_name}">Maecenas eget</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         <span th:text="${lp.review_rating}">70%</span>
@@ -964,7 +966,7 @@
                     </div>
             
             
-            
+             <div id="div5"></div>
             
         </div>
        
@@ -976,7 +978,7 @@
 </section>
 <!-- 메인 베너4 끝-->
 <!-- 메인 베너5 시작-->
-<section class="bg-grey-9 section-padding">
+<section id="div5" class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -1027,7 +1029,7 @@
                                 <div class="product-category">
                                     <a href="shop-grid-right.html" th:text="${rp.gubun_name}">Nulla</a>
                                 </div>
-                                <h2><a href="shop-product-right.html" th:text="${rp.cos_name}">Maecenas eget</a></h2>
+                                <h2 style="height:41px"><a href="shop-product-right.html" th:text="${rp.cos_name}">Maecenas eget</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         <span th:text="${rp.review_rating}">70%</span>

@@ -28,5 +28,7 @@ public interface ProductDetailMapper {
 
 	void registerEvent(EventDTO edo);
 
+	void cInsertReview(ReviewDTO reviewDTO);
+
 	
 }

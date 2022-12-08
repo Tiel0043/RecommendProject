@@ -36,9 +36,8 @@ public class ProductDetailController {
 	
 	@GetMapping("/productDetail")
 	public String getProduct(Model model, @RequestParam("cos_seq") int cos_seq, HttpServletRequest request, EventDTO edo,HttpSession session) {
+		//제품 상세정보 가져오기
 		CosmeticsDTO cdto = productDetailService.getProduct(cos_seq);
-
-		
 		model.addAttribute("cdto", cdto);
 		// 세부상품을 view 했다는 이벤트 로그 저장
 		session = request.getSession();
@@ -56,6 +55,7 @@ public class ProductDetailController {
 		 * List<ReviewDTO> rdto = productDetailService.getReviews(cos_seq);
 		 * model.addAttribute("rdto", rdto);
 		 */
+		//고객 평점 가져오기
 		List<StarDTO> sdto = productDetailService.getStars(cos_seq);
 		model.addAttribute("sdto", sdto);
 		return "product/product-detail";
@@ -68,12 +68,16 @@ public class ProductDetailController {
 //		 model.addAttribute("rdto", rdto);
 		 return rdto;
 	}
+	//리뷰 등록
 	@PostMapping("/commentWrite")
 	@ResponseBody
 	public void insertReview(ReviewDTO reviewDTO, MultipartFile file) throws IllegalStateException, IOException {
-	
-		productDetailService.insertReview(reviewDTO,file);
-		
+		log.info(reviewDTO);
+		if(file!=null) {
+			productDetailService.insertReview(reviewDTO,file);
+		}else {
+			productDetailService.cInsertReview(reviewDTO);
+		}
 	}
 	@PutMapping("/commentUpdate")
 	@ResponseBody
