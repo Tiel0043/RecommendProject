@@ -17,7 +17,7 @@
         </div>
         <section class="mt-50 mb-50 ">
 
-			<form>
+			<form action="/loadingResult" method="post">
 
 				<!-- test시작 start -->
 		        <div id="test0-hb" class="col-lg-12">
@@ -73,7 +73,7 @@
 		                        </div>
 		                        <div class="choice-hb">
 		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raL-hb" th:id="${que.que_num}+'_1'" value="1" th:pageNum="${que.que_num}" th:onclick="nextPage(this.getAttribute('pageNum'))"> 
-		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raM-hb" th:id="${que.que_num}+'_2'" value="2" th:pageNum="${que.que_num}" th:onclick="nexttPage(this.getAttribute('pageNum'))"> 
+		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raM-hb" th:id="${que.que_num}+'_2'" value="2" th:pageNum="${que.que_num}" th:onclick="nextPage(this.getAttribute('pageNum'))"> 
 		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raS-hb" th:id="${que.que_num}+'_3'" value="3" th:pageNum="${que.que_num}" th:onclick="nextPage(this.getAttribute('pageNum'))"> 
 		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raM-hb" th:id="${que.que_num}+'_4'" value="4" th:pageNum="${que.que_num}" th:onclick="nextPage(this.getAttribute('pageNum'))"> 
 		                            <input type="radio" th:name="'qna'+${que.que_num}" class="radio-hb choice-raL-hb" th:id="${que.que_num}+'_5'" value="5" th:pageNum="${que.que_num}" th:onclick="nextPage(this.getAttribute('pageNum'))"> 
@@ -98,18 +98,18 @@
 		                <div class="col-lg-10 col-md-4 test-flex-hb">
 		                    <div class="skin-wrap-hb mb-30 flex-center-hb">
 		                  		<div th:each="ingre:${ingre}" class= "check-size-hb " >
-			                    	<input type="checkbox" name="" class="checkbox-hb " th:id="'17_'+${ingre.ingredient_seq}" value="${ingre.ingredient_seq}">
+			                    	<input type="checkbox" name="ingre" class="checkbox-hb " th:id="'17_'+${ingre.ingredient_seq}" th:value="${ingre.ingredient_seq}">
 			                    	<label th:for="'17_'+${ingre.ingredient_seq}" class="checklabel-hb">[[${ingre.ingredient_name}]]</label>
 			                    </div>
-			                    <div>
 			                    
-			                    </div>
+			                   
+			              
 		                    </div>
 		                </div>
 		            </div> 
 		        </div>
 	        	<!-- 알러지 성분 end -->
-	        	
+	        	 <button type="submit"  style="width:50px; height:20px;">등록</button>
 	    </form>
 	    
 	   </section>
@@ -165,6 +165,6 @@
 		
 	};
 	</script>
-	
+
 	
 </html>

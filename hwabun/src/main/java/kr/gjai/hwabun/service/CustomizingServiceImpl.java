@@ -7,10 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.gjai.hwabun.entity.AnswerDTO;
 import kr.gjai.hwabun.entity.ConsultingDTO;
 import kr.gjai.hwabun.entity.IngredientsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
+import kr.gjai.hwabun.entity.MemberIngredientsDTO;
 import kr.gjai.hwabun.entity.SkinMBTIDTO;
+import kr.gjai.hwabun.entity.SkinTestAnswerDTO;
 import kr.gjai.hwabun.entity.SkinTestQuestionDTO;
 import kr.gjai.hwabun.mapper.CustomizingMapper;
 
@@ -31,12 +34,13 @@ public class CustomizingServiceImpl implements CustomizingService{
 	
 	// 피부진단 질문지 가져오는 메소드
 	@Override
-	public List<SkinTestQuestionDTO> getQuestion(MemberDTO mvo) {
+	public HashMap<String, Object> getQuestion(MemberDTO mvo) {
 		
-		// 이전 테스트 횟수 체크용
+		// 이전 테스트 횟수 
 		int testCnt = customizingMapper.testCount(mvo);
-		
+		// 테스트지
 		List<SkinTestQuestionDTO> que = new ArrayList<SkinTestQuestionDTO>();
+		// 
 		HashMap<String, Object > queBundle = new HashMap<String, Object>();
 		
 		if(testCnt==0) {		
@@ -63,9 +67,11 @@ public class CustomizingServiceImpl implements CustomizingService{
 			}
 		}
 		
-		que= customizingMapper.getQuestion(queBundle); 
-		
-		return que;
+		que= customizingMapper.getQuestion(queBundle);
+		HashMap<String, Object> prepareTest =  new HashMap<String, Object>();
+		prepareTest.put("questions", que);
+		prepareTest.put("testCnt",testCnt);
+		return prepareTest;
 	}
 
 	// 특정 성분 유형 모두 가져오기
@@ -74,7 +80,27 @@ public class CustomizingServiceImpl implements CustomizingService{
 		List<IngredientsDTO> ingre = customizingMapper.getTypeIngredients(ingredient_type);
 		return ingre;
 	}
+	
+	// 피부 진단 분석
+	@Override
+	public void mbtiAnalysis(AnswerDTO answer, String[] ingredient, MemberDTO mvo) {
+		List<SkinTestAnswerDTO> ans = new ArrayList<SkinTestAnswerDTO>();
+		List<MemberIngredientsDTO> memIngre = new ArrayList<MemberIngredientsDTO>();
+		int testCnt = customizingMapper.testCount(mvo);
+		
+		for(int i = 0 ; i<=ingredient.length;i++) {
+			MemberIngredientsDTO mem = new MemberIngredientsDTO();
+			mem.setMb_id(mvo.getMb_id());
+			mem.setIngredient_seq(Integer.parseInt(ingredient[i]));
+			memIngre.add(mem);
+		}
+		
 
+		
+	}
+
+
+	// mbti 불러오기
 	@Override
 	public SkinMBTIDTO[] getAllMbtiResult() {
 		SkinMBTIDTO[] mbti = new SkinMBTIDTO[16]; 
@@ -89,7 +115,7 @@ public class CustomizingServiceImpl implements CustomizingService{
 		mbti[8] = new SkinMBTIDTO("ORPT", "지성 민감▼ 색소▲ 주름▼","단점보다 장점이 많고 관리하기 쉬운 메추리알 피부","주름과 자극에 강한 편", "번들거림, 어둡고 칙칙한 피부톤", "SPF 30+ 이상의 자외선 차단제, 브라이트닝 필링","#E87306","#e873061a");
 		mbti[9] = new SkinMBTIDTO("ORPW", "지성 민감▼ 색소▲ 주름▲","모공이 넓지만 여드름은 쉽게 나지 않는 감귤 피부","자극에 강한 피부","번들거림, 균일하지 못한 피부 톤, 모공이 넓은 편","SPF30+ 이상의 자외선 차단제, 항산화제","#F9BE03","#f9c00317");
 		mbti[10] = new SkinMBTIDTO("ORNT", "지성 민감▼ 색소▼ 주름▼","흠잡을 것 하나 없는 건강한 광채 탱탱볼 피부(한국인에게 흔한 타입)","부드럽고 유연한 피부","모공이 큰 편, 블렉헤드가 생기기 쉬움", "피지 흡착 성분. 논 코메도제닉(Non Comedogenic 모공막힘 가능성 낮은 ) 보습제","#FBD25C","#fbd35c18");
-		mbti[11] = new SkinMBTIDTO("ORNW", "지성 민감▼ 색소▼ 주름▲","여드름은 쉽게 올라오지 않지만 때이른 잔주름이 나타나기 쉬운 지성 피부","매끈한 피부", "건조 타입 보다는 적지만 잔주름이 쉽게 나타나는 편","항산화 필링","#F2AF69","#f2b06915");
+		mbti[11] = new SkinMBTIDTO("ORNW", "지성 민감▼ 색소▼ 주름▲","여드름은 쉽게 올라오지 않지만 때이른 `잔주름이 나타나기 쉬운 지성 피부","매끈한 피부", "건조 타입 보다는 적지만 잔주름이 쉽게 나타나는 편","항산화 필링","#F2AF69","#f2b06915");
 		mbti[12] = new SkinMBTIDTO("OSPT", "지성 민감▲ 색소▲ 주름▼","여드름과 색소침착이 있지만 주름은 쉽게 지지 않는 피부","끝까지 탄력을 잃지 않는 편, 개선의 여지가 존재", "피지, 염증, 색소침착의 악순환 반복","반드시 민감성 제품만 사용할 것, 필링은 가급적 자제. 피부 장벽 강화 성분. 오일 베이스 및 워터프루프 제품 사용 자제","#EC9DB8","#ec9db91a");
 		mbti[13] = new SkinMBTIDTO("OSPW", "지성 민감▲ 색소▲ 주름▲","영원히 고통받는 총체적 난국 지성 민감 피부","", "여드름 부터 색소, 주름이 생기기 쉬움. 모든 종류의 문제를 보일수 있는 피부","반드시 민감성 제품만 사용할 것. 패치테스트 필수. 전문가에 의한 엄격한 피부 관리 필요","#F29A97","#f29a9718");
 		mbti[14] = new SkinMBTIDTO("OSNT", "지성 민감▲ 색소▼ 주름▼","성인 여드름이 올라올 수 있지만 50대 이후 진정한 승리자 피부(한국인에게 흔한 타입)", "여드름 자국으로 이어지지 않는 편. 나이가 들수록 관리하기 쉬움", "번들거림. 염증 반응으로 인한 붉은 기", "저자극 데일리 모이스처라이저","#E80342","#e8034417");
@@ -98,6 +124,7 @@ public class CustomizingServiceImpl implements CustomizingService{
 		return mbti;
 	}
 
+	
 	
 	
 }

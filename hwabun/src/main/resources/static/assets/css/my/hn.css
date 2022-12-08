@@ -1,3 +1,11 @@
+.main{
+	background-color:#f7f8f9;
+}
+.sec50-hb{
+	margin-bottom: 0 !important;
+	padding-bottom: 50px
+}
+
 .flex-center-hb{
 	display : flex;
 	justify-content :center;
@@ -10,6 +18,14 @@
     font-weight: lighter;
 
 }
+/*main*/
+.white-hb{
+	background-color: #fff;
+}
+
+
+/*main*/
+
 /* rank 페이지 버튼 관련 start*/
 .rank-cate-bt-hb{
     border: 0;
@@ -194,7 +210,7 @@
     border: 1px solid #cce7d0;
     border-radius: 25px;	
     overflow: hidden;
-   /* min-height: 505px;*/
+   min-height: 505px;
 }
 .start-num-hb{
     width : 100%;
@@ -577,17 +593,26 @@
 	flex-direction : column;
 	justify-content :center;
 	border : none;
+	background-color:#fff;
+	box-shadow:1px 1px 1px 1px gray
+}
+.result-halfbox-hb{
+	width:50%;
+	display : flex;
+	flex-direction : column;
+	justify-content :center;
 }
 .resultMBTI1-hb{
-	width : 30%;
+	width : 60%;
 	margin-top : 20px;
-	margin-left:35%;
+	margin-left:17.5%;
 }
 .resultMBTI2-hb{	
 	width : 100%;
-
+	min-height : 400px;
 	margin-top : 10px;
 	display : flex;
+	flex-direction : column;
 	justify-content :center;
 }
 #result-chart-hb{
@@ -608,15 +633,6 @@
 	font-weight: normal;
 	color: #fff;
 	padding: 10px 0px 10px 70px;
-}
-.result-mbtibox-hb{
-	width : 45%; 
-	min-height : 400px;
-	display : flex;
-	flex-direction : column;
-	justify-content :center;
-	margin-left: 10%;
-	padding-right: 100px;
 }
 .real-result-hb{
 	width : 100%;

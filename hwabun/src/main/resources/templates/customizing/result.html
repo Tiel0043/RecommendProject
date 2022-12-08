@@ -6,7 +6,7 @@
 	 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
 	 	
 	 <main class="main">
-        <div class="page-header breadcrumb-wrap">
+        <div class="page-header breadcrumb-wrap" >
             <div class="container">
                 <div class="breadcrumb">
                     <a href="main" rel="nofollow">Home</a>
@@ -16,26 +16,20 @@
             </div>
         </div>
         
-        <section class="mt-50 mb-50 ">
+        <section class="mt-50 mb-50 sec50-hb">
             <div class="container">
                 <div class="row flex-center-hb">
-                	<div class="flex-center-hb cloud-hb">
+                	<div class="col-lg-9 cloud-hb">
                 		<h2>이지은님의 피부 MBTI 결과</h2>                	
                 	</div>
                     <div class="col-lg-12 flex-center-hb">
-                    
-						<div class="col-lg-10 col-md-4 skin-wrap-hb resultbox-hb" th:style="'background-color:'+${mbti.mbtiColor2}">
-							<div  class ="resultMBTI1-hb " th:style="'background-color:'+${mbti.mbtiColor1}">
-                                <div class="result-textL-hb">[[${mbti.skinMBTI}]]</div>
-                                <div class="result-textS-hb">[[${mbti.skinSimple}]]</div>
-                            </div>
-                
-                            <div class="resultMBTI2-hb">
-                                <!-- 차트 박스 start-->
-                                <div id="result-chart-hb" >
+                        <div class="col-lg-10 col-md-4 skin-wrap-hb resultbox-hb">
+                            <div class="result-halfbox-hb">
+                                <div  class ="resultMBTI1-hb " th:style="'background-color:'+${mbti.mbtiColor1}">
+                                    <div class="result-textL-hb" >[[${mbti.skinMBTI}]]</div>
+                                    <div class="result-textS-hb">[[${mbti.skinSimple}]]</div>
                                 </div>
-                                <!-- 차트 박스 end -->
-                                <div class="result-mbtibox-hb">
+                                <div class="resultMBTI2-hb">                                  
                                     <div class="real-result-hb">
                                         [[${mbti.skinResult}]]
                                     </div>
@@ -51,8 +45,12 @@
                                     <div class="result-briefing-hb">
                                         <div class="result-part-hb">Solution</div>
                                         <div class="result-content-hb" >[[${mbti.skinSolution}]]</div>
-                                    </div>
+                                    </div>                                   
                                 </div>
+                            </div>
+                            <div class="result-halfbox-hb">
+
+
                             </div>
 						</div>
 
@@ -90,6 +88,10 @@
                                         <div class = "mbti-con1-hb"><P>T</P><p>&emsp;&nbsp;Tight</p><P>&nbsp;탱탱함</P></div>
                                     </div>
                                 </div>
+                                <!-- 차트 박스 start-->
+                                <div id="result-chart-hb" >
+                                </div>
+                                <!-- 차트 박스 end -->
                             </div>
                             <div class="all-bt-hb">
                                 <div class="detail-bt-hb" th:style="'background-color:'+${mbti.mbtiColor1}" onclick="closeDetail()">진단 결과 상세 보기</div>

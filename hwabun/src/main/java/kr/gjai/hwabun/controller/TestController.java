@@ -30,5 +30,10 @@ public class TestController {
 
 	}
 	
+	@GetMapping("/hn")
+	public String test_hn() {
+		return "/customizing/test";
+
+	}
 	
 }
