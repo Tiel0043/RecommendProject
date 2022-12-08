@@ -772,7 +772,7 @@
 				line-height: 1;
 				padding: 10px 20px;
 				background-color: $color-brand;
-				font-family: $font-heading;
+				/* font-family: $font-heading; */
 				border: 2px solid $color-brand;
 				&.outline {
 					background-color: transparent;
@@ -790,6 +790,7 @@
 		}
 
 	}
+	
 
 }
 

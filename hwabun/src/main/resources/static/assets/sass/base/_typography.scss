@@ -1,7 +1,7 @@
 /*TYPOGRAPHY*/
 body {
   color: $color-text;
-  font-family: $font-text;
+  /*font-family: $font-text;*/
   font-size: 14px;
   line-height: 24px;
   font-style: normal;
@@ -14,7 +14,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-heading;
+/* font-family: $font-heading; */
   color: $color-heading;
   font-weight: 600;
   line-height: 1.2;
