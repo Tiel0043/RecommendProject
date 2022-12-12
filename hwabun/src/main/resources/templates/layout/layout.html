@@ -1075,7 +1075,45 @@
 		 
 		/*]]>*/
 	</script>
-  
+  	<script type="text/javascript">
+    $(document).ready(function(){   
+    	
+    	
+    	  $.ajax({
+    	 		
+    	 		url : '/countBasket',
+    	 		data : {
+    	 
+    	 		},
+    	 		
+    	 		success : function(res){
+    	 		// res --> 응답내용을 담는 변수
+    	 		console.log(res);
+    	 		console.log("success");
+    	 		
+    	 	},
+    	 	error : function(){
+    	 		console.log("error!error!error!");
+    	 	}
+    	 	
+    	 	
+
+    	 }).done(
+    	 		
+    	 (data)=>{
+    	 	
+    	 console.log(data);
+
+    	 $('#countBasket').text(data);	
+    	 	
+    	 }
+    	 );
+    	
+    	
+    })
+    
+  	
+  	</script>
 </body>
 </th:block>
 </html>

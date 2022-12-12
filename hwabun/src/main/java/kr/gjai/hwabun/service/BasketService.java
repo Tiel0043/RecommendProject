@@ -136,7 +136,11 @@ public class BasketService {
 	public List<TempBasketDTO> willPurchase(String mb_id, String pchase, String user_session) {
 		
 		List<TempBasketDTO> blist=new ArrayList<TempBasketDTO>();
-		
+		List<Integer> cnts=new ArrayList<Integer>();
+		List<Integer> seqs=new ArrayList<Integer>();
+		List<Integer> prices=new ArrayList<Integer>();
+		int amount=0;
+		int number=0;
 		
 		try {
 		String[] pchase_seq=pchase.split(",");
@@ -150,10 +154,43 @@ public class BasketService {
 			basketMapper.payEvent(edo);
 			
 			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase_seq[i])).get(0));
+			
+			
+			int seq=Integer.parseInt(pchase_seq[i]);
+			seqs.add(seq);
+
+			int cnt = basketMapper.getCnt(mb_id,Integer.parseInt(pchase_seq[i]));
+			cnts.add(cnt);
+						
+			int price=basketMapper.getPrice(Integer.parseInt(pchase_seq[i]));
+			prices.add(price);
+			
+			
 			basketMapper.throwSeq(Integer.parseInt(pchase_seq[i]),mb_id);
 			
 			
 			}
+		
+		for(int j=0;j<pchase_seq.length;j++) {
+			
+			amount+=prices.get(j)*cnts.get(j);
+		
+		
+		
+		}
+
+		
+		basketMapper.saveOrder(amount,mb_id);
+	
+		for(int j=0;j<pchase_seq.length;j++) {
+			int order_seq=basketMapper.getNumber(mb_id);
+			int seq=seqs.get(j);
+			int cnt=cnts.get(j);
+			basketMapper.saveDetail(order_seq,seq,cnt);
+		}
+		
+		
+		
 		
 		}
 		catch(Exception e){
@@ -164,9 +201,18 @@ public class BasketService {
 			edo.setUser_session(user_session);
 			basketMapper.payEvent(edo);
 			blist.add(basketMapper.willPurchase(mb_id,Integer.parseInt(pchase)).get(0));
+			
+			int cnt = basketMapper.getCnt(mb_id,Integer.parseInt(pchase));
+			int seq=Integer.parseInt(pchase);
+			int price=basketMapper.getPrice(Integer.parseInt(pchase));
+			
+			amount=cnt*price;
+			
 			basketMapper.throwSeq(Integer.parseInt(pchase), mb_id);
 			
-			
+			basketMapper.saveOrder(amount,mb_id);
+			int order_seq=basketMapper.getNumber(mb_id);
+			basketMapper.saveDetail(order_seq,seq,cnt);
 		}
 		
 		return blist;
