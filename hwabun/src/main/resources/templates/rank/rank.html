@@ -3,6 +3,8 @@
 	
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
+	
+	
 <!-- 여기서부터 작성 -->
    <main class="main">
         <div class="page-header breadcrumb-wrap">
@@ -22,7 +24,7 @@
                             <button class="nav-link rank-type-bt-hb" th:onclick = "location.href = 'rank_sales'">판매 랭킹</button>
                         </li>
                         <li class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 nav-item">
-                            <button class="nav-link rank-type-bt-hb">리뷰 베스트</button>
+                            <button class="nav-link rank-type-bt-hb" th:onclick = "location.href = 'rank_reviews'">리뷰 베스트</button>
                         </li>
                         <li class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 nav-item">
                             <button class="nav-link rank-type-bt-hb" th:onclick = "location.href = 'rank_likes'">좋아요 랭킹</button>
@@ -34,27 +36,27 @@
                         <div class="row rank-cate-flex-hb">
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 rank-cate-box-hb">
                                 <div class="banner-features wow fadeIn animated hover-up rank-cate-hb">
-                                    <button class="rank-cate-bt-hb"><h4>전체</h4></button>
+                                    <button class="rank-cate-bt-hb" id="total" onclick = "getCateRank()"><h4>전체</h4></button>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 rank-cate-box-hb">
                                 <div class="banner-features wow fadeIn animated hover-up rank-cate-hb">
-                                    <button class="rank-cate-bt-hb"><h4>스킨케어</h4></button>
+                                    <button class="rank-cate-bt-hb" id="skin" onclick = "getCateRank()"><h4>스킨케어</h4></button>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 rank-cate-box-hb">
                                 <div class="banner-features wow fadeIn animated hover-up rank-cate-hb">
-                                    <button class="rank-cate-bt-hb"><h4>클린징</h4></button>
+                                    <button class="rank-cate-bt-hb" id = "cleansing" onclick = "getCateRank()"><h4>클렌징</h4></button>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 rank-cate-box-hb">
                                 <div class="banner-features wow fadeIn animated hover-up rank-cate-hb">
-                                    <button class="rank-cate-bt-hb"><h4>썬케어</h4></button>
+                                    <button class="rank-cate-bt-hb" id = "suncare" onclick = "getCateRank()"><h4>썬케어</h4></button>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 rank-cate-box-hb">
                                 <div class="banner-features wow fadeIn animated hover-up rank-cate-hb">
-                                    <button class="rank-cate-bt-hb"><h4>남성</h4></button>
+                                    <button class="rank-cate-bt-hb" id = "man" onclick = "getCateRank()"><h4>남성</h4></button>
                                 </div>
                             </div>
                             
@@ -88,8 +90,8 @@
                                         <div class="product-category">
                                             <a href="shop-grid-right.html">Music</a>
                                         </div>
-                                        <h2><a href="shop-product-right.html" th:text="${list.cos_name}">Colorful Pattern Shirts</a></h2>
-                                        <div class="rating-result" title="90%">
+                                        <h2><a href="shop-product-right.html" th:text="${list.cos_name}"></a></h2>
+                                        <div class="rating-result" title="50%">
                                             <span>
                                                 <span>90%</span>
                                             </span>
@@ -128,4 +130,26 @@
 <!-- 여기까지 입력 -->
 	</th:block>
 	</th:block>
+	
+	
+	<script th:inline="javascript">
+	function getCateRank(){
+		console.log("확인!!")
+		var cate = document.getElementById("skin")
+		console.log(cate);
+	}
+            // ajax 통신
+/*             $.ajax({
+                type : "POST",            // HTTP method type(GET, POST) 형식이다.
+                url : "/test/ajax",      // 컨트롤러에서 대기중인 URL 주소이다.
+                data : params,            // Json 형식의 데이터이다.
+                success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+                    // 응답코드 > 0000
+                    alert(res.code);
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                    alert("통신 실패.")
+                }
+            }); */
+	</script>
 </html>

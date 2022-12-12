@@ -3,17 +3,20 @@
 <mapper namespace="kr.gjai.hwabun.mapper.CateMapper"><!-- 인터페이스(클래스) 이름 적어줘야함!!!!!-->
 	
 	<!-- resultType : 리턴타입, parameterType : 인자 타입 -->
-	<select id = "getProductList" resultType="CosmeticsDTO" parameterType="String"><!-- id값은 mapper 메소드명과 같아야함 -->
+	<select id = "getProductList" resultType="CosmeticsDTO" parameterType="String"><!-- id값은 mapper 메소드명과 같아야함 -->	  
 	  select *
-	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
+	  from cosmetics c, (select * from category where gubun_value = #{cate}) d left outer join (select * from reviews) f
+      on f.cos_seq = d.cos_seq
 	  where c.cos_seq = d.cos_seq 
 	  and gubun_depth=1
 	  order by cos_likes desc;
 	</select>
 	<select id = "getProductList2" resultType="CosmeticsDTO" parameterType="String">
-	   select *
-		from cosmetics c, (select * from category where gubun_value = #{cate1} and gubun_depth=1) d, (select * from category where gubun_value = #{cate2} and gubun_depth=1) e
-		where c.cos_seq = d.cos_seq
+	   
+		select *
+		from cosmetics c, (select * from category where gubun_value = #{cate1} and gubun_depth=1) d, (select * from category where gubun_value = #{cate2} and gubun_depth=2) e left outer join (select * from reviews) f
+		on f.cos_seq = e.cos_seq
+        where c.cos_seq = d.cos_seq
 		and d.cos_seq = e.cos_seq
 		order by c.cos_likes desc;
 	</select>

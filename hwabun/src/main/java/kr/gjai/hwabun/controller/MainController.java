@@ -34,10 +34,6 @@ public class MainController {
 		
 		model.addAttribute("main","main");
 		
-	}
-	
-	
-	
-	
+	}	
 	
 }

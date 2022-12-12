@@ -12,7 +12,7 @@ import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.service.RankService;
 import lombok.extern.log4j.Log4j2;
 
-
+@Log4j2
 @Controller
 public class RankController {
 	
@@ -31,6 +31,7 @@ public class RankController {
 	public String getRankSales(Model model){
 		List<CosmeticsDTO> list = rankService.getRankSales();
 		model.addAttribute("list", list);
+		log.info(list.get(0));
 		return "rank/rank";
 	}
 	
@@ -42,12 +43,19 @@ public class RankController {
 		return "rank/rank";
 	}
 	
-	// 카테고리별 판매랭킹
-	@GetMapping("rank_cate_sales")
-	public String getCateRankSales(@RequestParam(value="cate") String cate, Model model) {
-		List<CosmeticsDTO> list = rankService.getCateRankSales(cate);
+	// 리뷰순 랭킹
+	@GetMapping("rank_reviews")
+	public String getRankReviews(Model model) {
+		List<CosmeticsDTO> list = rankService.getRankReviews();
 		model.addAttribute("list", list);
 		return "rank/rank";
+	}
+	
+	// 카테고리별 판매랭킹
+	@GetMapping("rank_cate_sales")
+	public List<CosmeticsDTO> getCateRankSales(@RequestParam(value="cate") String cate, Model model) {
+		List<CosmeticsDTO> list = rankService.getCateRankSales(cate);
+		return list;
 	}
 	
 	// 카테고리별 좋아요 랭킹
