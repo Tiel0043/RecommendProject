@@ -29,8 +29,10 @@ TABLE CONTENT
  WP STYPE
  Custom amine
 ***/
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap");
+ */
+@import url(my/fonts.css);
 /*import vendors*/
 @import url(vendors/normalize.css);
 @import url(vendors/bootstrap.min.css);
@@ -74,6 +76,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
+	/*폰트추가*/
+  /* */
   line-height: 1;
 }
 
@@ -2478,7 +2482,7 @@ label {
 
 .page-header.breadcrumb-wrap {
   padding: 20px;
-  background-color: #f7f8f9;
+  background-color: #aeccc525;
 }
 
 .page-header .breadcrumb {

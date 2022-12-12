@@ -17,7 +17,7 @@
         border-right-color: currentcolor;
         border-bottom-color: currentcolor;
         border-left-color: currentcolor;
-        font-family: $font-heading;
+        /* font-family: $font-heading; */
         font-weight: 600;
         line-height: 1;
         &.active {
@@ -87,7 +87,7 @@
     justify-content: space-between;
     align-items: center;
     .view-more {
-        font-family: $font-heading;
+        /* font-family: $font-heading; */
         font-size: 13px;
         font-weight: 700;
         display: flex;

@@ -249,7 +249,7 @@
 				margin-left: 5px;
 			}	
 			&::before {
-				font-family: "uicons-regular-straight"  !important;
+				/* font-family: "uicons-regular-straight"  !important; */
 				font-size: 11px;
 				letter-spacing: 2px;
 				content: '\f225' '\f225' '\f225' '\f225' '\f225';
@@ -655,7 +655,7 @@
 						left: 10px;
 						font-size: 12px;
 						color: $color-brand;
-						font-family: 'uicons-regular-straight'  !important;
+						/* font-family: 'uicons-regular-straight'  !important; */
 						font-weight: 900;
 					}
 					&:hover {

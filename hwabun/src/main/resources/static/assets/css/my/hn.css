@@ -1,13 +1,31 @@
+.main{
+	background-color:#f7f8f9;
+}
+.sec50-hb{
+	margin-bottom: 0 !important;
+	padding-bottom: 50px
+}
+
 .flex-center-hb{
 	display : flex;
 	justify-content :center;
 	flex-wrap: wrap;
+
 }
+
 .textS-hb{
     font-size: 12px;
     font-weight: lighter;
 
 }
+/*main*/
+.white-hb{
+	background-color: #fff;
+}
+
+
+/*main*/
+
 /* rank 페이지 버튼 관련 start*/
 .rank-cate-bt-hb{
     border: 0;
@@ -192,6 +210,7 @@
     border: 1px solid #cce7d0;
     border-radius: 25px;	
     overflow: hidden;
+   min-height: 505px;
 }
 .start-num-hb{
     width : 100%;
@@ -356,12 +375,22 @@
 	
 	width:20%;
 	height:20%;
+	margin-top:15px ;
+	display : flex;
+	justify-content :center;
+	flex-wrap: wrap;
+	align-items:baseline;
 	
 }
 .checkbox-hb{
 	
-	width:20%;
-	height:50%;
+	width:50.4px;
+	height:14.5px;
+	
+
+}
+.checklabel-hb{
+	width:80%;
 }
 /* skintest 페이지 관련 end*/
 
@@ -564,21 +593,30 @@
 	flex-direction : column;
 	justify-content :center;
 	border : none;
+	background-color:#fff;
+	box-shadow:1px 1px 1px 1px gray
+}
+.result-halfbox-hb{
+	width:50%;
+	display : flex;
+	flex-direction : column;
+	justify-content :center;
 }
 .resultMBTI1-hb{
-	width : 30%;
+	width : 60%;
 	margin-top : 20px;
-	margin-left:35%;
+	margin-left:17.5%;
 }
 .resultMBTI2-hb{	
 	width : 100%;
-
+	min-height : 400px;
 	margin-top : 10px;
 	display : flex;
+	flex-direction : column;
 	justify-content :center;
 }
 #result-chart-hb{
-	width : 35%; 
+	width : 45%; 
 	min-height : 400px;
 	
 }
@@ -595,15 +633,6 @@
 	font-weight: normal;
 	color: #fff;
 	padding: 10px 0px 10px 70px;
-}
-.result-mbtibox-hb{
-	width : 55%; 
-	min-height : 400px;
-	display : flex;
-	flex-direction : column;
-	justify-content :center;
-	margin-left: 10%;
-	padding-right: 100px;
 }
 .real-result-hb{
 	width : 100%;
@@ -655,27 +684,27 @@
 	margin-top:50px;
 }
 .detail-bt-hb{
-	width : 20%; 
-	height : 60px;
+	width : 15%; 
+	height : 45px;
 	border-radius: 6px;
 	color:#f4f5f9;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bolder;
-	margin-right: 30px;
-	padding-top: 17px;
-	padding-left: 20px;
+	margin-right: 15px;
+	padding-top: 10px;
+	padding-left: 10px;
 	cursor:pointer;
 }
 .recommend-bt-hn{
-	width : 20%; 
-	height : 60px;
+	width : 15%; 
+	height : 45px;
 	border-radius: 6px;
 	color:#f4f5f9;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bolder;
-	margin-left: 30px;
-	padding-top: 17px;
-	padding-left: 35px;
+	margin-left: 15px;
+	padding-top: 10px;
+	padding-left: 20px;
 	cursor:pointer;
 }
 .result-type-hb{

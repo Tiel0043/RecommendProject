@@ -31,6 +31,8 @@ public interface ProductDetailService {
 
 	void registerEvent(EventDTO edo);
 
+	void cInsertReview(ReviewDTO reviewDTO);
+
 
 	
 

@@ -704,7 +704,7 @@
 				position: relative;
 				> a::after {					
 						content: "\f111";
-						font-family: 'uicons-regular-straight' !important;
+						/* font-family: 'uicons-regular-straight' !important; */
 						position: absolute;
 						right: 30px;
 						top: 50%;
@@ -778,7 +778,7 @@
 		color: $color-brand;
 		position: relative;
 		font-size: 13px;
-		font-family: $font-heading;
+		/* font-family: $font-heading; */
 
 		&::before {
 			content: "";

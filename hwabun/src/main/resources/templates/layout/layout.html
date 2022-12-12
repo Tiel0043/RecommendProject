@@ -18,6 +18,11 @@
     <!-- my css -->
     <link rel="stylesheet" href="assets/css/my/my.css?v=3.3">
     <link rel="stylesheet" href="assets/css/my/hn.css?v=3.3"> 
+    <!-- font -->
+    <link rel="preload" href="assets/css/my/fonts.css?v=3.3" as="style" onload="this.rel='stylesheet'">
+  
+
+
 </head>
 
 <body>
@@ -1046,7 +1051,7 @@
 		let cateAddrass = /*[[${main}]]*/
 		console.log("오류방지용");
 
-		if(cateAddrass=="main"){
+	/*	if(cateAddrass=="main"){
 			 $("#cate-hb").css("display","block");
 		}else{
 			 $("#cate-hb").css("display","none");
@@ -1056,7 +1061,18 @@
 			 $("#cate-hb").on("mouseout",function(){
 				  $("#cate-hb").css("display","none");
 			 })
-		}
+		}*/
+		
+		
+		
+		 $("#cate-hb").css("display","none");
+		 $("#cate-bt-hb").on("mouseover",function(){
+			  $("#cate-hb").css("display","block");
+		 })
+		 $("#cate-hb").on("mouseout",function(){
+			  $("#cate-hb").css("display","none");
+		 })
+		 
 		/*]]>*/
 	</script>
   

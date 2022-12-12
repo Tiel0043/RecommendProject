@@ -1,5 +1,6 @@
 package kr.gjai.hwabun.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.gjai.hwabun.entity.AnswerDTO;
 import kr.gjai.hwabun.entity.ConsultingDTO;
 import kr.gjai.hwabun.entity.IngredientsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
@@ -44,11 +46,12 @@ public class CustomizingController {
 		session = request.getSession();
 		MemberDTO mvo = (MemberDTO)session.getAttribute("mvo");	
 		
-		// 질문지 보내기
-		List<SkinTestQuestionDTO> que= customizingService.getQuestion(mvo);
-		model.addAttribute("que",que);
+		// 질문지와 테스트 횟수 받고 보내기
+		HashMap<String, Object> prepareTest= customizingService.getQuestion(mvo);
+		model.addAttribute("que", prepareTest.get("questions"));
+		model.addAttribute("skintest_cnt", prepareTest.get("testCnt"));
 		
-		// 선택할 알러지 성분 보내기
+		// 선택할 알러지 성분 반고 보내기
 		String ingredient_type = "알러지";
 		List<IngredientsDTO> ingre = customizingService.getTypeIngredients(ingredient_type);
 		model.addAttribute("ingre",ingre);
@@ -60,8 +63,16 @@ public class CustomizingController {
 	
 	// 피부 진단 결과 로딩 페이지
 	@RequestMapping("/loadingResult")
-	public String loadingResult(Model model) {
+	public String loadingResult(AnswerDTO answer,Model model, HttpSession session,HttpServletRequest request) {
 		 
+		session = request.getSession();
+		MemberDTO mvo = (MemberDTO)session.getAttribute("mvo");	
+		
+		String[] ingredient = request.getParameterValues("ingre");
+		
+		customizingService.mbtiAnalysis(answer, ingredient, mvo);
+		
+		// 
 		SkinMBTIDTO[] mbti = customizingService.getAllMbtiResult();
 		model.addAttribute("mbti",mbti);
 

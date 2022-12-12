@@ -15,18 +15,22 @@
 		where m.mb_id=r.mb_id and cos_seq=#{cos_seq};
 	</select>
 	<select id = "getStars" resultType="StarDTO"><!-- id값은 mapper 메소드명과 같아야함 -->
-		select r.review_range, r.review_cnt, (round( r.review_cnt/(select count(review_likes) from reviews where cos_seq=#{cos_seq})  * 100 )) AS percentage  
-		from (select review_likes as review_range, count(*) as review_cnt, count(review_likes) as total_cnt from reviews where cos_seq=#{cos_seq} group by review_likes order by review_range desc) as r;
+		select r.review_range, r.review_cnt, (round( r.review_cnt/(select count(review_rating) from reviews where cos_seq=#{cos_seq})  * 100 )) AS percentage  
+		from (select review_rating as review_range, count(*) as review_cnt, count(review_rating) as total_cnt from reviews where cos_seq=#{cos_seq} group by review_rating order by review_range desc) as r;
 	</select>
 	<insert id="insertReview" parameterType="ReviewDTO">
 		insert into reviews(cos_seq, review_content, mb_id, review_rating, review_photo) 
 		values(#{cos_seq},#{review_content}, #{mb_id},#{review_rating},#{review_photo});
 	</insert> 
+	<insert id="cInsertReview" parameterType="ReviewDTO">
+		insert into reviews(cos_seq, review_content, mb_id, review_rating) 
+		values(#{cos_seq},#{review_content}, #{mb_id},#{review_rating});
+	</insert> 
 	<update id="updateReview" parameterType="ReviewDTO">
 		update reviews set review_content=#{review_content},review_photo=#{review_photo} where cos_seq=#{cos_seq} and review_seq=#{review_seq};
 	</update> 
 	<delete id="deleteReview">
-		delete reviews where 
+		delete from reviews where review_seq=#{review_seq};
 	</delete>
 
 	<insert id="registerEvent" parameterType="EventDTO">

@@ -77,6 +77,12 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 		
 	}
 
+	@Override
+	public void cInsertReview(ReviewDTO reviewDTO) {
+		productDetailMapper.cInsertReview(reviewDTO);
+		
+	}
+
 	
 
 	
