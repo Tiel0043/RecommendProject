@@ -48,7 +48,7 @@ public interface MyPageMapper {
 
 
 	
-	@Select("select distinct order_detail.cos_seq, recommendation.reco_seq, cosmetics.cos_name, cosmetics.cos_photo1, user_skin.reg_date, recommendation_review.rv_content from recommendation inner join user_skin on recommendation.skin_seq=user_skin.skin_seq inner join cosmetics on cosmetics.cos_seq=recommendation.cos_seq inner join order_detail on order_detail.cos_seq=recommendation.cos_seq inner join orders on orders.order_seq=order_detail.order_seq left outer join recommendation_review on recommendation.reco_seq=recommendation_review.reco_seq where user_skin.mb_id='q' order by user_skin.reg_date desc;")
+	@Select("select distinct order_detail.cos_seq, recommendation.reco_seq, cosmetics.cos_name, cosmetics.cos_photo1, user_skin.reg_date, recommendation_review.rv_content from recommendation inner join user_skin on recommendation.skin_seq=user_skin.skin_seq inner join cosmetics on cosmetics.cos_seq=recommendation.cos_seq inner join order_detail on order_detail.cos_seq=recommendation.cos_seq inner join orders on orders.order_seq=order_detail.order_seq left outer join recommendation_review on recommendation.reco_seq=recommendation_review.reco_seq where user_skin.mb_id=#{mb_id} order by user_skin.reg_date desc;")
 	public List<RecReviewDTO> showRReview(String mb_id);
 
 	
