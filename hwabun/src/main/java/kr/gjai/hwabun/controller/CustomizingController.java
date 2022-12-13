@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import kr.gjai.hwabun.entity.ConsultingDTO;
+import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.IngredientsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.SkinMBTIDTO;
@@ -111,6 +112,8 @@ public class CustomizingController {
 		// mbti 결과
 		SkinMBTIDTO mbti = customizingService.getUserMbti(userSkin.getMbti());
 		model.addAttribute("mbti",mbti);
+		List<CosmeticsDTO> dr = customizingService.getRecommendationDR();
+		model.addAttribute("dr",dr);
 		
 		log.info("skin MBTI result 확인!!");		
 		return "/customizing/result";

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kr.gjai.hwabun.entity.ConsultingDTO;
+import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.IngredientsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.MemberIngredientsDTO;
@@ -37,5 +38,7 @@ public interface CustomizingMapper {
 
 	public UserSkinDTO getUserSkin(MemberDTO mvo);
 
-	public SkinMBTIDTO getUserMbti(String mbti); 
+	public SkinMBTIDTO getUserMbti(String mbti);
+
+	public List<CosmeticsDTO> getRecommendationDR(); 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.ConsultingDTO;
+import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.IngredientsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
 import kr.gjai.hwabun.entity.MemberIngredientsDTO;
@@ -173,6 +174,12 @@ public class CustomizingServiceImpl implements CustomizingService{
 	public SkinMBTIDTO getUserMbti(String mbti) {
 		SkinMBTIDTO userMbti = customizingMapper.getUserMbti(mbti);
 		return userMbti;
+	}
+
+	@Override
+	public List<CosmeticsDTO> getRecommendationDR() {
+		List<CosmeticsDTO> dr = customizingMapper.getRecommendationDR();
+		return dr;
 	}
 
 	

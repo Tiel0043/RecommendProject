@@ -67,4 +67,9 @@
 	<select id="getUserMbti" parameterType="String" resultType="SkinMBTIDTO">
 	select * from skinMBTI where mbti=#{mbti}
 	</select>
+	
+	<!-- 모델연결전 임시 방편 -->
+	<select id="getRecommendationDR" resultType="CosmeticsDTO">
+	select * from cosmetics where cos_seq in(361,348,357,374)
+	</select>
 </mapper>
