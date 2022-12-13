@@ -13,36 +13,36 @@
 					<div class="col-lg-10 col-md-4 mbti-center-hb">	
 						
 						<div id="content1" class = "mbti-content-hb">
-							<div class = "mbti-con1-hb"><P>D</P><p>&emsp;&nbsp;&nbsp;&nbsp;Dry</p><P>&nbsp;&nbsp;&nbsp;건성</P></div>
-							<div class="mbti-type-hb">&emsp;유수분 밸런스</div>
-							<div class = "mbti-con1-hb"><P>O</P><p>&emsp;&nbsp;&nbsp;&nbsp;Oily</p><P>&nbsp;&nbsp;&nbsp;지성</P></div>
+							<div class = "mbti-con1-hb"><P>D</P><p>Dry</p><P>건성</P></div>
+							<div class="mbti-type-hb">유수분 밸런스</div>
+							<div class = "mbti-con1-hb"><P>O</P><p>Oily</p><P>지성</P></div>
 						</div>
 						
 						<div id="content2" class = "mbti-content-hb">
-							<div class = "mbti-con1-hb"><P>S</P><p>&nbsp;&nbsp;Sensitive</p><P>&nbsp;민감성</P></div>							
-							<div class="mbti-type-hb">&nbsp;&emsp;피부 민감도</div>							
-							<div class = "mbti-con1-hb"><P>R</P><p>&nbsp;&nbsp;Resistant</p><P>&nbsp;저항성</P></div>
+							<div class = "mbti-con1-hb"><P>S</P><p>Sensitive</p><P>민감성</P></div>							
+							<div class="mbti-type-hb">피부 민감도</div>							
+							<div class = "mbti-con1-hb"><P>R</P><p>Resistant</p><P>저항성</P></div>
 						</div>
 						<div id="loading-page-hb" ></div>
 						
 						<div id="content3" class = "mbti-content-hb">
-							<div class = "mbti-con1-hb"><P>P</P><p>&nbsp;&nbsp;Pigment</p><P>&nbsp;색소성</P></div>							
+							<div class = "mbti-con1-hb"><P>P</P><p>Pigment</p><P>색소성</P></div>							
 							<div class="mbti-type-hb">멜라닌 색소 활성도</div>							
 							<div class = "mbti-con1-hb"><P>N</P><p>Non-Pigment</p><P>비색소성</P></div>
 						</div>
 						
 						<div id="content4" class = "mbti-content-hb">
-							<div class = "mbti-con1-hb"><P>W</P><p>&emsp;Wrinkle</p><P>&emsp;주름</P></div>							
+							<div class = "mbti-con1-hb"><P>W</P><p>Wrinkle</p><P>주름</P></div>							
 							<div class="mbti-type-hb">피부 탄력도 및 주름</div>							
-							<div class = "mbti-con1-hb"><P>T</P><p>&emsp;&nbsp;Tight</p><P>&nbsp;탱탱함</P></div>
+							<div class = "mbti-con1-hb"><P>T</P><p>Tight</p><P>탱탱함</P></div>
 						</div>
 						
 					</div>
 
 					<div class="col-lg-10 col-md-4 loading-center-hb">	
 						<div th:each="mbti,i:${mbti}" th:class ="'skinMBTI-hb skinMBTI'+${i.count}+'-hb'" >
-							<div class="loading-textL-hb">[[${mbti.skinMBTI}]]</div>
-							<div class="loading-textS-hb">[[${mbti.skinSimple}]]</div>
+							<div class="loading-textL-hb">[[${mbti.mbti}]]</div>
+							<div class="loading-textS-hb">[[${mbti.skin_simple}]]</div>
 						</div>
 					</div>
 				</div> 
@@ -147,13 +147,13 @@
 			
 			()=>$(".skinMBTI-hb").animate({opacity:'0.3'},time,
 			()=>$(".skinMBTI-hb").animate({opacity:'1'},time,
-			()=>$(".skinMBTI-hb").animate({opacity:'0.5'},time
-			
+			()=>$(".skinMBTI-hb").animate({opacity:'0.5'},time,
+			()=>location.href="/result"
 			// 추가적
 			
 			))))))))))))))))))))
 			)))))))))))))))))))))))))))))));
-			()=>location.href="/result";
+			
 		});
 		
 	</script>

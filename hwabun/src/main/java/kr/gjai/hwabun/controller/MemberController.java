@@ -4,9 +4,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.gjai.hwabun.entity.MemberDTO;
@@ -57,20 +59,32 @@ public class MemberController {
 	}
 	
 	// 로그인 
-	@RequestMapping("/login.do")
-	public String loginCheck(MemberDTO mdo, HttpSession session) {
-		log.info(mdo.getMb_id());
-		log.info(mdo.getMb_pw());
-
+	@PostMapping("/login")
+	public String loginCheck( @RequestParam(value="referrer") String referrer, MemberDTO mdo, HttpSession session, Model model) {
+		
+		
+		log.info(referrer);
+		String[] preUrl = referrer.split("/");
+		int url = preUrl.length-1;
 		MemberDTO mvo = memberService.getMemInfo(mdo);
+		log.info(preUrl[url]);
 		if(mvo != null) {
+			
 			session.setAttribute("mvo", mvo);
-			log.info(session.getAttribute("mvo"));
-			log.info(session.getId());
-			log.info("로그인 완료");
-
+			
+			if(preUrl[url].equals("login") || preUrl[url].equals("")) {
+				return "/main";
+			}
+			else {
+				
+				return "redirect:/"+preUrl[url];
+			}
+				
+		}else{
+			model.addAttribute("fail","아이디와 비밀번호를 다시 확인해 주세요");
+			return "/member/login";
 		}
-		return "redirect:/main";
+		
 	}
 	
 	// 로그아웃
