@@ -19,8 +19,14 @@
             header.removeClass('stick');
             $('.header-style-2 .categori-dropdown-active-large').removeClass('open');
             $('.header-style-2 .categori-button-active').removeClass('open');
+            $('.Dday-1-hb').css("display","none");
+            $('.top-bt-hb p span').css("color","#fff");
+            
         } else {
             header.addClass('stick');
+            $('.Dday-1-hb').css("display","block");
+            $('.top-bt-hb p span').css("color","#a5a2a2a4");
+            
         }
     });
     

@@ -43,7 +43,7 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 	}
 
 	@Override
-	public void updateReview(ReviewDTO reviewDTO, MultipartFile file) {
+	public void updateReview(ReviewDTO reviewDTO) {
 		productDetailMapper.updateReview(reviewDTO);
 	}
 
@@ -81,6 +81,18 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 	public void cInsertReview(ReviewDTO reviewDTO) {
 		productDetailMapper.cInsertReview(reviewDTO);
 		
+	}
+
+	@Override
+	public int like(int review_seq) {
+		int cnt = productDetailMapper.like(review_seq);
+		return cnt;
+	}
+
+	@Override
+	public int likeCheck(ReviewDTO reviewDTO) {
+		int cnt = productDetailMapper.likeCheck(reviewDTO);
+		return 0;
 	}
 
 	

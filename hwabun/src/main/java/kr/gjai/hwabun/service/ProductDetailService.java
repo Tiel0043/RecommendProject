@@ -22,9 +22,9 @@ public interface ProductDetailService {
 
 	List<StarDTO> getStars(int cos_seq);
 
-	void insertReview(ReviewDTO reviewDTO, MultipartFile file) throws IllegalStateException, IOException;
+	void insertReview(ReviewDTO reviewDTO, MultipartFile files) throws IllegalStateException, IOException;
 
-	void updateReview(ReviewDTO reviewDTO, MultipartFile file);
+	void updateReview(ReviewDTO reviewDTO);
 
 	int deleteReview(ReviewDTO reviewDTO);
 
@@ -32,6 +32,10 @@ public interface ProductDetailService {
 	void registerEvent(EventDTO edo);
 
 	void cInsertReview(ReviewDTO reviewDTO);
+
+	int like(int review_seq);
+
+	int likeCheck(ReviewDTO reviewDTO);
 
 
 	

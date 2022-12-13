@@ -4,11 +4,9 @@
 	
 	<!-- resultType : 리턴타입, parameterType : 인자 타입 -->
 	<select id = "getProductList" resultType="CosmeticsDTO" parameterType="String"><!-- id값은 mapper 메소드명과 같아야함 -->
-	  select *
-	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
-	  where c.cos_seq = d.cos_seq 
-	  and gubun_depth=1
-	  order by cos_likes desc;
+	  select * 
+	  from cosmetics c, (select * from category where gubun_value = #{cate}) d, (select cos_seq, avg(review_rating) from reviews group by cos_seq ) a 
+	  where c.cos_seq = d.cos_seq and a.cos_seq = c.cos_seq order by cos_likes desc;
 	</select>
 	<select id = "getProductList2" resultType="CosmeticsDTO" parameterType="String">
 	   select *

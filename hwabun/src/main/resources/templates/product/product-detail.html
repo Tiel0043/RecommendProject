@@ -35,84 +35,76 @@
 	    })
 	});
 	/* 장바구니 */
-	
-	
-	
-	
 	function saveBasket(){
+		var cnt=$("#cnt").val();
+		console.log(cnt);
+		$.ajax({
 			
-    		
-    		
-    		
-    		var cnt=$("#cnt").val();
-			console.log(cnt);
-			$.ajax({
+			url : '/saveBasket',
+			data : {
 				
-				url : '/saveBasket',
-				data : {
-					
 
-					'cos_seq'  : '[[${cdto.cos_seq}]]',
-					'cnt': cnt
-				},
-				success : function(res){
-					$("#popup").css("visibility","visible");
-		    		$("#popupbox").css("visibility","visible");
-		    		setTimeout(() => $("#popup").css("visibility","hidden"), 3000);
-					
-		    		setTimeout(() => $("#popupbox").css("visibility","hidden"), 2700);
-		    		
-					// res --> 응답내용을 담는 변수
-				console.log("send success");	
-				},
-				error : function(){
-				console.log("error!");
-				}
+				'cos_seq'  : '[[${cdto.cos_seq}]]',
+				'cnt': cnt
+			},
+			success : function(res){
+				$("#popup").css("visibility","visible");
+	    		$("#popupbox").css("visibility","visible");
+	    		setTimeout(() => $("#popup").css("visibility","hidden"), 3000);
 				
-				//ajax
-			}).done(
-					
-					(data)=>{
+	    		setTimeout(() => $("#popupbox").css("visibility","hidden"), 2700);
+	    		
+				// res --> 응답내용을 담는 변수
+			console.log("send success");	
+			},
+			error : function(){
+			console.log("error!");
+			}
+			
+			//ajax
+		}).done(
 				
-					console.log(data);
-					$('#countBasket').text(data);	
-					/*장바구니 개수*/
-					 $.ajax({
-							url : '/countBasket',
-							data : {
-							},
-							success : function(res){
-							// res --> 응답내용을 담는 변수
-							console.log(res);
-							console.log("success");
+				(data)=>{
+			
+				console.log(data);
+				$('#countBasket').text(data);	
+				/*장바구니 개수*/
+				 $.ajax({
+						url : '/countBasket',
+						data : {
 						},
-							error : function(){
-							console.log("error!error!error!");
-						}
-						}).done(
-							
-							(data)=>{
+						success : function(res){
+						// res --> 응답내용을 담는 변수
+						console.log(res);
+						console.log("success");
+					},
+						error : function(){
+						console.log("error!error!error!");
+					}
+					}).done(
 						
-							$('#countBasket').text(data);	
-						
-						}
-						);
+						(data)=>{
 					
+						$('#countBasket').text(data);	
 					
-					  $("select[id=dropDownList]").click(function(){
-					    	
-					    	
-					    	console.log("클릭됨");
-					    	var cnt=$(this).val();
-					  
-					    	console.log(cnt);
-					    	
-					    	$("#cnt").val(cnt);
-					    	console.log($("#cnt").val());
-					    	
-					    })
-				}
-				);
+					}
+					);
+				
+				
+				  $("select[id=dropDownList]").click(function(){
+				    	
+				    	
+				    	console.log("클릭됨");
+				    	var cnt=$(this).val();
+				  
+				    	console.log(cnt);
+				    	
+				    	$("#cnt").val(cnt);
+				    	console.log($("#cnt").val());
+				    	
+				    })
+			}
+			);
 		}
 	/*document document documnet*/
 	/* 댓글 부분 */
@@ -149,54 +141,42 @@
 		
 		
 		  $("select[id=dropDownList]").click(function(){
-		    	
-		    	
-		    
 		    	var cnt=$(this).val();
 		       	$("#cnt").val(cnt);
 		    	
-		    	
-		    })
-		
-		
-		
-		
-		
+		    })				
 	});	
 
 	// html 파싱순서( thymeleaf > javascript )
-
 	
 	/*댓글*/
 	function insertComment(){
-		
-		console.log($('#review_content').val())
 		var review_content = $('#review_content').val();
 		var review_rating = $('input:checkbox[name="review_rating"]:checked').length ;
 		var cos_seq = $('#cos_seq').val();
 		var mb_id = $('#mb_id').val();
-		/* var formData = new FormData($('#review_photo')[0]); */
+		var form =$('#review_photo');
+		var formData = new FormData(); 
+		 formData.append('review_content' , review_content);
+		 formData.append('review_rating' , review_rating);
+		 formData.append('cos_seq' , cos_seq);
+		 formData.append('mb_id' , mb_id);
+		 formData.append('files' , document.getElementById("review_photo").files[0]);
   			/* var fData = $('#commentForm').serialize(); */
 			console.log("====폼내용");
   	  		console.log(review_content);
   	  		console.log(review_rating);
   	  		console.log(cos_seq);
   	  		console.log(mb_id);
-  	  		/* console.log(formData); */
-  	  	console.log("====폼내용");
+  	  		console.log(formData);
+  	  		console.log("====폼내용");
   	  		$.ajax({
   	  			url :"/commentWrite",
   	  			type :"post",
-  	  			/* enctype: 'multipart/form-data',	// 필수 */
-  	  			data : {
-  	  				'review_content' : review_content,
-  	  				'review_rating' : review_rating,
-  	  				'cos_seq':cos_seq,
-  	  				'mb_id' : mb_id
-  	  				/* 'review_photo' : formData */
-  	  			},
-  	  			/* processData: false,	// 필수
-  	  			contentType: false,	// 필수 */
+  	  			enctype: 'multipart/form-data',	// (파일보낼때필수) form data 설정
+  	  			data: formData,
+  	  			processData: false,	// (필수)  프로세스 데이터 설정 : false 값을 해야 form data로 인식
+  	  			contentType: false,	// (필수)  헤더의 Content-Type을 설정 : false 값을 해야 form data로 인식
   	  			success : loadList,
   	  			error : function(){alert("goInserterror");}
   	  		});
@@ -242,7 +222,10 @@
 					comm+= "<div class='product-rate d-inline-block'>";
 					comm+= "<div class='product-rating' style='width:"+rdto.review_rating*20+"%'>";
 					comm+= "</div> </div>";
-					comm+= "<p>"+rdto.review_content+"</p>";
+					if(rdto.review_photo!= null){
+					comm+= "<div class='img-size'><img src='files/"+rdto.review_photo+"'></img></div>"
+					}
+					comm+= "<p id='cmt"+rdto.review_seq+"'>"+rdto.review_content+"</p>";
 					comm+= "<p class='font-xs mr-30'>이 댓글이 "+rdto.review_likes+"명에게 도움이 됐어요 </p>";
 					
 					comm+= "<div class='d-flex justify-content-between'>";
@@ -250,15 +233,12 @@
 					comm+= "<p class='font-sm mr-30' >"+rdto.review_date+"</p>";
 					comm+= "<a href='#' class='list-filter size-filter font-small'> </a> </div> </div> </div></div> <div class='outer-div-hb'>";
                    /* 로그인한 사람이랑 댓글쓴 사람이 다를 경우  */
-                   console.log("===============2")
-					console.log(mbId);
-					console.log(mbNick);
-					console.log("===============2")
+                 
                    
                    
                    if(rdto.mb_id != mvo){
                     comm+= "<div class='product-extra-link2'>";
-                    comm+= "<a aria-label='Add To Wishlist' class='action-btn hover-up' href='shop-wishlist.html'><i class='fi-rs-heart'></i></a></div>";
+                    comm+= "<a id='a-like-hb"+rdto.review_seq+"' aria-label='Add To Wishlist' class='action-btn hover-up' href='javascript:goLike("+rdto.review_seq+");'><i id='like-hb"+rdto.review_seq+"' class='fi-rs-heart'></i></a></div>";
                    }
                     /* 로그인한 사람이 댓글 쓴 사람이면 */
                     else if(rdto.mb_id == mvo){
@@ -318,18 +298,74 @@
   	  		}
   	  		
   	  	}
+  	  function goLike(num){
+  			var mvo = mbId;
+    		if(mvo==null){
+    			alert("로그인후 이용가능 합니다.");
+    			return false;
+    		}else{
+    			$.ajax({
+    	  			url : "/like",
+    	  			type : "get",
+    	  			data : {"review_seq":num},
+    	  			success : function(data){
+    	  					console.log(data)
+    	  					/* $('#likes').text(item.likes); */
+    	  					if(data==0){
+    	  						$('#like-hb'+num).attr('class','fi-rs-heart');
+    	  					}else{
+    	  						$('#a-like-hb'+num).attr('class','a-like-hb');
+    	  						$('#like-hb'+num).css('color','red');
+    	  					}
+    	  					loadList();	
+    	  			},
+    	  			error :function(){alert("error");}
+    			});	
+    			
+    		}
+    	
+    	}
+  	  function productLike(num){
+  			var mvo = mbId;
+    		if(mvo==null){
+    			alert("로그인후 이용가능 합니다.");
+    			return false;
+    		}else{
+    			alert("찜목록에 상품을 담았습니다.")
+    			$.ajax({
+    	  			url : "/productLike",
+    	  			type : "get",
+    	  			data : {"review_seq":num,
+    	  					"mb_id" : mvo},
+    	  			success : function(data){
+    	  					console.log(data)
+    	  					/* $('#likes').text(item.likes); */
+    	  					if(data==0){
+    	  						$('#prdLike-hb'+num).attr('class','action-btn hover-up');
+    	  					}else{
+    	  						$('#prdLike-hb'+num).attr('class','action-btn hover-up a-like-hb');
+    	  						$('#p-like-hb'+num).css('color','red');
+    	  					}
+    	  					loadList();	
+    	  			},
+    	  			/* error :function(){alert("error");} */
+    			});	
+    			
+    		}
+    	
+    	}
 		/*]]>*/
 	</script>
 <!-- 여기서부터 작성 -->
 	<input id='sesId' type="hidden" th:if="${session.mvo != null}" th:value="${session.mvo.mb_id}">
 	<input id='sesNick' type="hidden" th:if="${session.mvo != null}" th:value="${session.mvo.mb_nick}">
-  <main class="main">
+  <main >
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Fashion
-                    <span></span> Abstract Print Patchwork Dress
+                    <span></span> 스킨케어
+                    <span></span> 토너
                 </div>
             </div>
         </div>
@@ -462,7 +498,7 @@
 												
                                             <div class="product-extra-link2">
                                                 <button type="submit" class="button button-add-to-cart" onclick="saveBasket()">장바구니</button>
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                <a id="prdLike-hb" aria-label="Add To Wishlist" class="action-btn hover-up" th:onclick="productLike('${cdto.cos_seq')"><i id="p-like-hb" class="fi-rs-heart"></i></a>
                                                 <!-- <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> -->
                                             </div>
                                         </div>
@@ -679,7 +715,7 @@
                                                         <div class="product-rating" th:style="|width:${cdto.review_rating*20}%|">
                                                         </div>
                                                     </div>
-                                                    <h6 th:text="${cdto.review_rating}">4.8 out of 5</h6>
+                                                    <h6 th:text="${#numbers.formatDecimal(cdto.review_rating,1,1)}">4.8 out of 5</h6>
                                                 </div>
                                                 <div class="progress" th:each="sdto : ${sdto}">
                                                     <span th:text="|${sdto.review_range} star|">5 star</span>
@@ -893,13 +929,15 @@
                                                             <!-- th:placeholder="${session.mvo.mb_nick?session.mvo.mb_nick:'닉네임'}"  -->
                                                             </div>
                                                         </div>
-                                                        <input type="file" name="review_photo">
+                                                        <input type="file" id="review_photo">
                                                     </div>
                                                     
                                                     <div class="form-group">
                                                         <button type="button" onclick="insertComment()" class="button button-contactForm">댓글 등록</button>
 <!--                                                         <button type="submit" class="button button-contactForm">댓글 등록</button> -->
                                                     </div>
+                                                    </div>
+                                                </div>
                                                 </form>
                                                 <h3 class="section-title style-1 mb-30">상품 정보</h3>
                                     <table class="font-md mb-30">

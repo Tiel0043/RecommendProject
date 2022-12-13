@@ -25,18 +25,30 @@ on  c.cos_seq=r.cos_seq where d.gubun_depth=1 order by cos_likes desc;
 on  c.cos_seq=r.cos_seq where d.gubun_depth=1 order by review_rating desc;
 	 </select>
 	 
-	 <select id = "getCateRankSales" resultType = "CosmeticsDTO" parameterType="String">
-	  select *, (select Round((select avg(review_rating) from reviews where cos_seq=#{cos_seq}),1) from dual) as review_rating
-	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
-	  where c.cos_seq = d.cos_seq
-	  order by cos_sales_cnt desc;
+	 <select id = "rank_sales" resultType = "CosmeticsDTO" parameterType="String">
+	 select distinct * from cosmetics c left join category d on  c.cos_seq = d.cos_seq
+     left join (select (select Round(avg(review_rating),1) from dual) as review_rating , cos_seq from reviews group by cos_seq) as r
+on  c.cos_seq=r.cos_seq where d.gubun_value=#{cateName} and d.gubun_depth=1 order by cos_sales_cnt desc;
 	 </select>
 	 
-	 <select id = "getCateRankLikes" resultType = "CosmeticsDTO" parameterType="String">
-	  select *, (select Round((select avg(review_rating) from reviews where cos_seq=#{cos_seq}),1) from dual) as review_rating
-	  from cosmetics c, (select * from category where gubun_value = #{cate}) d
-	  where c.cos_seq = d.cos_seq
-	  order by cos_likes desc;
+	 <select id = "rank_reviews" resultType = "CosmeticsDTO" parameterType="String">
+	 select distinct * from cosmetics c left join category d on  c.cos_seq = d.cos_seq
+     left join (select (select Round(avg(review_rating),1) from dual) as review_rating , cos_seq from reviews group by cos_seq) as r
+on  c.cos_seq=r.cos_seq where d.gubun_value=#{cateName} and d.gubun_depth=1 order by review_rating desc;
 	 </select>
+	 
+	 <select id = "rank_likes" resultType = "CosmeticsDTO" parameterType="String">
+	 select distinct * from cosmetics c left join category d on  c.cos_seq = d.cos_seq
+     left join (select (select Round(avg(review_rating),1) from dual) as review_rating , cos_seq from reviews group by cos_seq) as r
+on  c.cos_seq=r.cos_seq where d.gubun_value=#{cateName} and d.gubun_depth=1 order by cos_likes desc;
+	 </select>
+	 
+
+	 
+	<!--  <select id = "getRankReviews" resultType = "CosmeticsDTO" parameterType="HashMap">
+	 select * from cosmetics c left join category d on  c.cos_seq = d.cos_seq
+     left join (select (select Round(avg(review_rating),1) from dual) as review_rating , cos_seq from reviews group by cos_seq) as r
+on  c.cos_seq=r.cos_seq where d.gubun_value=#{ order by cos_sales_cnt desc;
+	 </select> -->
 	 
 </mapper>

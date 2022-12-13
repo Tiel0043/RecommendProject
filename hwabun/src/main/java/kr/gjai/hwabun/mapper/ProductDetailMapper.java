@@ -30,5 +30,9 @@ public interface ProductDetailMapper {
 
 	void cInsertReview(ReviewDTO reviewDTO);
 
+	int like(int review_seq);
+
+	int likeCheck(ReviewDTO reviewDTO);
+
 	
 }

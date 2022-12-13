@@ -1,5 +1,8 @@
 package kr.gjai.hwabun.entity;
 
+import lombok.Data;
+
+@Data
 public class UserSkinDTO {
 	
 	private int skin_seq; // 스킨 순번

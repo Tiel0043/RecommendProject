@@ -1,12 +1,5 @@
 package kr.gjai.hwabun.entity;
 
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.util.Date;
-
-import org.apache.ibatis.type.Alias;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import lombok.Data;
 
 //@Alias("ReviewDTO")
@@ -25,6 +18,6 @@ public class ReviewDTO { // 화장품 정보 엔티티
 	private String mb_nick; // 작성자 닉네임
 	private String mb_name; //작성자 이름 
 	private String filepath; //저장 파일 경로
-	
+
 	
 }

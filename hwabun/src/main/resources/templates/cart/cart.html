@@ -48,8 +48,8 @@
                                             
                                        </td>
                                         
-                                                                     
-                                       <td th:id="|price_${row.cos_seq}|"class="price" data-title="Price" th:text="${row.cos_price}"><span>1개의가격</span>
+                                                                    
+                                       <td th:id="|price_${row.cos_seq}|"class="price" data-title="Price" th:text="|${#numbers.formatInteger(row.cos_price, 0, 'COMMA')}원|" ><span>1개의가격</span>
                                        </td>    
                                        <td class="text-center" data-title="Stock" >
                                         
@@ -92,8 +92,8 @@
                                        
                                        		</div>
                                         </td>
-                                        
-                                        <td  style="width:180px;"class="text-right eachsum" th:id="|eachsum_${row.cos_seq}|" data-title="Cart" th:text="${row.price}">
+                                                                                                                            
+                                        <td  style="width:180px;"class="text-right eachsum" th:id="|eachsum_${row.cos_seq}|" data-title="Cart" th:text="|${#numbers.formatInteger(row.price, 0, 'COMMA')}원|" >
                                             
                                             <input th:id="|sum_${row.cos_seq}|" style="visibility:hidden" class="sum" th:value="${row.price}">
                                             

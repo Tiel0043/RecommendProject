@@ -26,7 +26,7 @@ public class TestController {
 
 	@GetMapping("/t")
 	public String test() {
-		return "etc/index_back";
+		return "/vmain";
 
 	}
 	
@@ -35,5 +35,6 @@ public class TestController {
 		return "/customizing/test";
 
 	}
+	
 	
 }
