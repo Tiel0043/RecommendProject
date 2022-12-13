@@ -48,8 +48,8 @@
                                             
                                        </td>
                                         
-                                                                    
-                                       <td th:id="|price_${row.cos_seq}|"class="price" data-title="Price" th:text="|${#numbers.formatInteger(row.cos_price, 0, 'COMMA')}원|" ><span>1개의가격</span>
+                                                                     
+                                       <td th:id="|price_${row.cos_seq}|"class="price" data-title="Price" th:text="${row.cos_price}"><span>1개의가격</span>
                                        </td>    
                                        <td class="text-center" data-title="Stock" >
                                         
@@ -92,8 +92,8 @@
                                        
                                        		</div>
                                         </td>
-                                                                                                                            
-                                        <td  style="width:180px;"class="text-right eachsum" th:id="|eachsum_${row.cos_seq}|" data-title="Cart" th:text="|${#numbers.formatInteger(row.price, 0, 'COMMA')}원|" >
+                                        
+                                        <td  style="width:180px;"class="text-right eachsum" th:id="|eachsum_${row.cos_seq}|" data-title="Cart" th:text="${row.price}">
                                             
                                             <input th:id="|sum_${row.cos_seq}|" style="visibility:hidden" class="sum" th:value="${row.price}">
                                             
@@ -150,7 +150,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="#" onclick="purchase()" class="btn" style="float:right"> <i class="fi-rs-box-alt mr-10"></i>구매하러 가기</a>
+                                <a href="#$%&" onclick="purchase()" class="btn" style="float:right"> <i class="fi-rs-box-alt mr-10"></i>구매하러 가기</a>
                                 
                                 
                                 

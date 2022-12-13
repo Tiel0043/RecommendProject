@@ -211,10 +211,12 @@
 				var comm = "";
 				$.each(data, function(index,rdto){
 					console.log(rdto.mb_id);
+					console.log("!!!!!!!!!!!!!!!!!!!!!!");
+					console.log(rdto.mb_profile);
 					comm+= "<div class='single-comment justify-content-between d-flex' >";
 					comm+= "<div class='user justify-content-between d-flex'>";
 					comm+= "<div class='thumb text-center'>";
-					comm+= "<img src='assets/imgs/page/avatar-6.jpg' alt=''>";
+					comm+= "<img src='"+rdto.mb_profile+"' alt=''>";
 					comm+= "<h6 >"+rdto.mb_nick+"</h6>";
 					comm+= "<p class='font-xxs' >Since 2012</p>";
 					comm+= "</div>";
@@ -468,10 +470,10 @@
                                           
 												<!-- 장바구니 담기 시작-->
 												<div id="popup" class="popup" style="visibility:hidden; border:solid;border-width:1px; max-width:220px;min-width:220px;max-height:120px;min-height:120px;left:40%; position:fixed;top:40%;
-                                            	padding:20px 20px 10px 10px;z-index:100;background-color:#FFFFFF;">
+                                            	padding:20px 20px 10px 10px;z-index:100;background-color:#FFFFFF;text-align:center">
                                             	
                                             		
-                                            		<label for="popup" style="max-height:35px;min-height:35px;max-width:200px;min-width:200px;font-weight:300px;">상품이 장바구니에 담겼습니다.</label>
+                                            		<label for="popup" style="max-height:35px;min-height:35px;max-width:200px;min-width:200px;font-weight:300px;" >상품이 장바구니에 담겼습니다.</label>
                                             		
                                             	
                                             		

@@ -10,7 +10,7 @@
 	</select>
 	<!-- SELECT date_format(datetime, '%Y-%m-%d') as  FROM `sandbox2` WHERE id=1; -->
 	<select id = "getReviews" resultType="ReviewDTO"><!-- id값은 mapper 메소드명과 같아야함 -->
-		select r.review_seq, r.cos_seq, r.review_content,r.mb_id, r.review_rating, r.review_likes,r.review_photo, date_format(r.review_date, '%Y-%m-%d-%T') as review_date, m.mb_nick 
+		select r.review_seq, r.cos_seq, r.review_content,r.mb_id, r.review_rating, r.review_likes,r.review_photo, date_format(r.review_date, '%Y-%m-%d-%T') as review_date, m.mb_nick, m.mb_profile  
 		from reviews r, members m 
 		where m.mb_id=r.mb_id and cos_seq=#{cos_seq};
 	</select>

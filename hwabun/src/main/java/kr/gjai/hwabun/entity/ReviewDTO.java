@@ -18,6 +18,6 @@ public class ReviewDTO { // 화장품 정보 엔티티
 	private String mb_nick; // 작성자 닉네임
 	private String mb_name; //작성자 이름 
 	private String filepath; //저장 파일 경로
-
+	private String mb_profile; //작성자 프로필
 	
 }
