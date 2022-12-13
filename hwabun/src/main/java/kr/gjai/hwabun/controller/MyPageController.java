@@ -1,5 +1,6 @@
 package kr.gjai.hwabun.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import kr.gjai.hwabun.entity.MemberDTO;
+import kr.gjai.hwabun.entity.OrderDTO;
+import kr.gjai.hwabun.entity.OrderDetailDTO;
 import kr.gjai.hwabun.entity.ReviewDTO;
 import kr.gjai.hwabun.service.MyPageService;
 
@@ -45,14 +51,7 @@ public class MyPageController {
 
 	
 	
-	@GetMapping("/myaccount-order")
-	public String AccountOrder() {
-		return "mypage/page-orders-detail";
-	}
-	@GetMapping("/myaccount-tracking")
-	public String AccountTracking() {
-		return "mypage/page-orders-tracking";
-	}
+	
 	@GetMapping("/myaccount-reviews")
 	public String AccountReviews(HttpSession session,Model model){
 		
@@ -62,6 +61,62 @@ public class MyPageController {
 		return "mypage/page-reviews";
 	}
 	
+	@GetMapping("/myaccount-order")
+	public String AccountOrder(HttpSession session,Model model) {
+		
+		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");	
+		
+		List<OrderDTO> orders=myPageService.showOrders(mb.getMb_id());
+		
+		model.addAttribute("orders",orders);
+		
+		return "mypage/page-orders-detail";
+	
+	
+	}
+	
+	@GetMapping("/myaccount-recpurview")
+	public String Recpurview(HttpSession session,Model model) {
+		
+		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");	
+		model.addAttribute("recreviews",myPageService.showRReview(mb.getMb_id()));
+	
+		return "mypage/page-recpurview";
+	
+	
+	}
+	
+	@ResponseBody
+	@RequestMapping("/showDetail")
+	public String ShowDetail(@RequestParam(value="number") int number) throws JsonProcessingException {
+		
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		List<OrderDetailDTO> detail=new ArrayList<OrderDetailDTO>(myPageService.showDetail(number));
+		
+		String orderdetail=mapper.writeValueAsString(detail);
+		
+		return orderdetail;
+		 
+		
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/saveRReview")
+	public void SaveRReview(@RequestParam(value="recoseq") int recoseq,@RequestParam(value="content") String content,HttpSession session) {
+		
+		MemberDTO mb=(MemberDTO)session.getAttribute("mvo");	
+		
+		myPageService.saveRReview(mb.getMb_id(),recoseq,content);
+		
+		
+		
+		
+	
+	
+	}
 	
 	
 	

@@ -91,11 +91,13 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${cos.gubun_name}">Music</a>
+
+                                            <span th:text="${cos.gubun_name}"></span>
                                         </div>
                                         <!-- 제품명 입력 -->
                                         <h2 style="height:41px" th:text="${cos.cos_name}"><a href="shop-product-right.html">Colorful Pattern Shirts</a></h2>
-                                        <div class="rating-result" title="90%">
+                                        <div class="rating-result" title="90%"><div th:text="${cos.review_rating}"></div>
+
                                             <!-- <span>
                                                 <span>90%</span>
                                             </span> -->

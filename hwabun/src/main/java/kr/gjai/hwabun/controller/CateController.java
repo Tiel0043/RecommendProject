@@ -27,7 +27,7 @@ public class CateController { // 대분류 상품 조회 컨트롤러
 		List<CosmeticsDTO> list = cateService.getProductList(cate);
 		// 소분류 카테고리 받아오는 구문
 		List<CosmeticsDTO> cate2_list = cateService.getCate(cate);
-
+		log.info(list.get(0));
 		model.addAttribute("cos_list", list);
 		model.addAttribute("cate_list", cate2_list);
 		model.addAttribute("cate", cate);
@@ -42,6 +42,7 @@ public class CateController { // 대분류 상품 조회 컨트롤러
 		model.addAttribute("cos_list", list);
 		model.addAttribute("cate_list", cate2_list);
 		model.addAttribute("cate", cate1);
+		System.out.println(list.get(0));
 		return "product/product-list2";
 	}
 	

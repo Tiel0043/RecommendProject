@@ -2,7 +2,7 @@
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
 	<th:block th:fragment="content">
-		
+	
 	<body>
 	<div class="container">
    
@@ -16,7 +16,7 @@
                 <div class="heading_s1">
                     <h3 class="mb-30">Login</h3>
                 </div>
-                <form method="post" action="login.do">
+                <form method="post" action="login">
                     <div class="form-group">
                         <input type="text" required="" name="mb_id" placeholder="Your ID">
                     </div>
@@ -36,9 +36,8 @@
                         <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Log in</button> 
                      
                     </div>
-                    
+                    <input type="hidden" name="referrer" id="pre-url">
                      	
-                   
                 </form>
             </div>
         </div>
@@ -53,37 +52,55 @@
 	</th:block>
 	
 	
-<script type="text/javascript">
-
-$.ajax({
-		
-		url : '/countBasket',
-		data : {
-		'count':'count'
+	<script type="text/javascript">
+	
+	$.ajax({
+			
+			url : '/countBasket',
+			data : {
+			'count':'count'
+			},
+			
+			success : function(res){
+			// res --> 응답내용을 담는 변수
+			console.log(res);
+			console.log("success");
+			
 		},
+		error : function(){
+			console.log("error!error!error!");
+		}
 		
-		success : function(res){
-		// res --> 응답내용을 담는 변수
-		console.log(res);
-		console.log("success");
 		
-	},
-	error : function(){
-		console.log("error!error!error!");
+	
+	}).done(
+			
+	(data)=>{
+		
+	console.log(data);
+	
+	$('#countBasket').text(data);	
+		
 	}
+	);
+	
+	var referrer = document.referrer;
+	console.log(referrer);
+	$('#pre-url').val(referrer);
 	
 	
-
-}).done(
+	</script>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		console.log("로그인 실패");
+		let loginFail = '[[${fail}]]';
+		console.log(loginFail);
 		
-(data)=>{
+		if(loginFail=='"아이디와 비밀번호를 다시 확인해 주세요"'){
+			alert(loginfail);
+		}
 	
-console.log(data);
+	/*]]>*/
+	</script>
 
-$('#countBasket').text(data);	
-	
-}
-);
-
-</script>
 </html>

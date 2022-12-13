@@ -57,9 +57,10 @@
                         <span class="text">내가 쓴 리뷰</span>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a class="menu-link" href="page-brands.html"> <i class="icon material-icons md-stars"></i>
-                        <span class="text">1:1 문의</span> </a>
+                 <li class="menu-item">
+                    <a class="menu-link" href="/myaccount-recpurview"> <i class="icon material-icons md-comment"></i>
+                        <span class="text">맞춤형 추천 리뷰쓰기</span>
+                    </a>
                 </li>
              
             </ul>
@@ -129,8 +130,8 @@
         <section class="content-main">
             <div class="content-header">
                 <div>
-                    <h2 class="content-title card-title">Reviews</h2>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h2 class="content-title card-title">내가 쓴 리뷰</h2>
+                   
                 </div>
                 <div>
                     <input type="text" placeholder="Search by name" class="form-control bg-white">
@@ -171,11 +172,11 @@
                                         </div>
                                     </th>
                                     <th>#ID</th>
-                                    <th>Product</th>
-                                    <th>Name</th>
-                                    <th>Rating</th>
-                                    <th>Date</th>
-                                    <th class="text-end">Action</th>
+                                    <th>상품명</th>
+                                    <th>리뷰내용</th>
+                                    <th>리뷰평점</th>
+                                    <th>리뷰날짜</th>
+                                    
                                 </tr>
           </thead>
                             
@@ -193,7 +194,7 @@
 										
 									<td> <p th:text="${row.cos_name}"/></td>
 										
-									<td> <p th:text="${row.mb_name}"/></td>
+									<td> <p th:text="${row.review_content}"/></td>
 										
 								
 										
@@ -223,18 +224,7 @@
 										
 									<td> <p th:text="${row.review_date}"/></td>   
 										
-									<td class="text-end">                      
-                                         
-                                        <a href="#" class="btn btn-md rounded font-sm">Detail</a>
-                                        	<div class="dropdown">
-                                          z  	<a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
-                                            	<div class="dropdown-menu">
-                                               		<a class="dropdown-item" href="#">View detail</a>
-                                                	<a class="dropdown-item" href="#">Edit info</a>
-                                                	<a class="dropdown-item text-danger" href="#">Delete</a>
-                                            	</div>
-                                        	</div> <!-- dropdown //end -->
-                                    </td>
+								
                              
                   </tr>
            </tbody>

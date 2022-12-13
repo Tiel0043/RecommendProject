@@ -81,10 +81,6 @@ public class MainController {
 				System.out.println(mbtiP.size());
 				model.addAttribute("mbtiP", mbtiP);
 		
-	}
-	
-	
-	
-	
+	}	
 	
 }

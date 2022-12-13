@@ -74,5 +74,23 @@ public interface BasketMapper {
 			+ "		values (NOW(), 4, #{cos_seq}, #{user_id}, #{user_session}, 'op')")
 	public void payEvent(EventDTO edo);
 	
+	@Select("select cnt from basket where mb_id=#{param1} and cos_seq=#{param2}")
+	public int getCnt(String param1, int param2);
+
+	@Insert("insert into orders(order_date,total_amount,discount_amount,pay_amount,pay_method,paid_amount,mb_id,order_status) values(now(),#{param1},0,#{param1},'credit_card',#{param1},#{param2},'o')")
+	public void saveOrder(int amount, String mb_id);
+
+	@Select("select cos_price from cosmetics where cos_seq=#{cos_seq}")
+	public int getPrice(int cos_seq);
+
+	
+	@Select("select order_seq from orders where mb_id=#{mb_id} and order_date=(select max(order_date) from orders where mb_id=#{mb_id})")
+	public int getNumber(String mb_id);
+
+	@Insert("insert into order_detail(order_seq,cos_seq,cos_cnt) values(#{param1},#{param2},#{param3})")
+	public void saveDetail(int param1, int param2, int param3);
+
+	
+	
 	
 }

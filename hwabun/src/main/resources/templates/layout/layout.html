@@ -567,7 +567,7 @@
                                     </li>
                                     <li>
                                     	<a href="getProductList?cate=스킨케어"></a>
-                                        <a href="/rank">랭킹</a>
+                                        <a href="rank_sales">랭킹</a>
                                     </li>
                                     
                                     <!-- <li><a href="shop-grid-right.html">Shop <i class="fi-rs-angle-down"></i></a>
@@ -1106,7 +1106,45 @@
 		 
 		/*]]>*/
 	</script>
-  
+  	<script type="text/javascript">
+    $(document).ready(function(){   
+    	
+    	
+    	  $.ajax({
+    	 		
+    	 		url : '/countBasket',
+    	 		data : {
+    	 
+    	 		},
+    	 		
+    	 		success : function(res){
+    	 		// res --> 응답내용을 담는 변수
+    	 		console.log(res);
+    	 		console.log("success");
+    	 		
+    	 	},
+    	 	error : function(){
+    	 		console.log("error!error!error!");
+    	 	}
+    	 	
+    	 	
+
+    	 }).done(
+    	 		
+    	 (data)=>{
+    	 	
+    	 console.log(data);
+
+    	 $('#countBasket').text(data);	
+    	 	
+    	 }
+    	 );
+    	
+    	
+    })
+    
+  	
+  	</script>
 </body>
 </th:block>
 </html>
