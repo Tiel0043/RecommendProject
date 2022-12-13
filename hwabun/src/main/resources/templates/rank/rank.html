@@ -73,8 +73,8 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a th:href="@{/productDetail(cos_seq=${list.cos_seq})}">
-                                                <img class="default-img" th:src="${list.cos_photo1}" alt="">
-                                                <img class="hover-img" th:src="${list.cos_photo1}" alt="">
+                                                <img style="height:282px" class="default-img" th:src="${list.cos_photo1}" alt="">
+                                                <img style="height:282px" class="hover-img" th:src="${list.cos_photo1}" alt="">
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -84,14 +84,14 @@
                                             <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                           
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
                                             <span th:text="${list.gubun_name}"></span>
                                         </div>
-                                        <h2><a href="shop-product-right.html" th:text="${list.cos_name}"></a></h2>
+                                        <h2 style="height:41px"><a href="shop-product-right.html" th:text="${list.cos_name}"></a></h2>
                                         <div class="rating-result" title="90%"><div th:text="${list.review_rating}"></div>
                                             <!-- <span>
                                                 <span>90%</span>

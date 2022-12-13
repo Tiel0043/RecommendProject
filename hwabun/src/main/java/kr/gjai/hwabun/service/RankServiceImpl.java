@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
 import kr.gjai.hwabun.entity.MemberDTO;
+import kr.gjai.hwabun.entity.UserSkinDTO;
 import kr.gjai.hwabun.mapper.RankMapper;
 
 @Service
@@ -39,6 +40,7 @@ public class RankServiceImpl implements RankService{
 		List<CosmeticsDTO> list= rankMapper.getRankReviews();
 		return list;
 	}
+
 
 	@Override
 	public List<CosmeticsDTO> rank_sales(String cateName) {

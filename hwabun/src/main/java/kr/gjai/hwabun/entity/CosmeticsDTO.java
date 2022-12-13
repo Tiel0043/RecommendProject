@@ -18,7 +18,7 @@ public class CosmeticsDTO { // 화장품 정보 엔티티
 	private float review_rating; // 평점
 	private int cos_likes; //좋아요 수
 	private String gubun_value; // 카테고리 구분값
-	
+	private float percent; //그래프에 뿌릴 화장품 타입별 백분률 
 }
 
 

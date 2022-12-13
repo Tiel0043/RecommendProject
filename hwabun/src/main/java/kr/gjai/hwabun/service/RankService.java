@@ -3,6 +3,7 @@ package kr.gjai.hwabun.service;
 import java.util.List;
 
 import kr.gjai.hwabun.entity.CosmeticsDTO;
+import kr.gjai.hwabun.entity.UserSkinDTO;
 
 public interface RankService {
 
@@ -19,5 +20,6 @@ public interface RankService {
 	public List<CosmeticsDTO> rank_reviews(String cateName);
 	
 	public List<CosmeticsDTO> rank_likes(String cateName);
+
 
 }

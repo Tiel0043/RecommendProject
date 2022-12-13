@@ -1,7 +1,13 @@
 /*TYPOGRAPHY*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
 body {
   color: $color-text;
-  /*font-family: $font-text;*/
+  font-family: 'Open Sans', AppleSDGothicNeo, 'Noto Sans KR', 'Malgun Gothic', sans-serif !important;
+  font-size: .70rem;
   font-size: 14px;
   line-height: 24px;
   font-style: normal;
@@ -14,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-/* font-family: $font-heading; */
+  font-family: 'Open Sans', AppleSDGothicNeo, 'Noto Sans KR', 'Malgun Gothic', sans-serif !important;
   color: $color-heading;
   font-weight: 600;
   line-height: 1.2;

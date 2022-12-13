@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--css정해서 경로적기-->
-    <title>HwaBun</title>
-     <meta name="description" content="">
+    <meta charset="utf-8">
+    <title>Evara - eCommerce HTML Template</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="">
     <meta property="og:type" content="">
     <meta property="og:url" content="">
@@ -18,7 +17,6 @@
     <link rel="stylesheet" href="assets/css/main.css?v=3.3">
     <!-- my css -->
     <link rel="stylesheet" href="assets/css/my/my.css?v=3.3">
-    <link rel="stylesheet" href="assets/css/my/main-style.css?v=3.3">
     <link rel="stylesheet" href="assets/css/my/hn.css?v=3.3"> 
     <!-- font -->
     <link rel="preload" href="assets/css/my/fonts.css?v=3.3" as="style" onload="this.rel='stylesheet'">
@@ -80,7 +78,7 @@ $(document).ready(function(){
 			    // 날씨
 
 			    var weath = city.list[key].weather[0].description;
-
+				console.log(today);
 			    
 
 			    if(date === today) {
@@ -255,54 +253,534 @@ $(document).ready(function(){
 	});
 })
 </script>
+
+
 </head>
-<body class="body-hb">
-	
-    <div class="banner-hb">
-    
-        <video autoplay muted loop>
-            <source src="assets/imgs/video/main.mov" type="video/mp4" />             <!--파일경로지정-->
-        </video>
-        
-        <div class="header-hb mt-10">
-            <a ><img class="img-shadow-hb" src="assets/imgs/video/wlogo.png" ></a> 
-            <!-- <h1><a id="demotext" href="#">HwaBun</a></h1> -->
-            <!-- <div class="nav-hb">
-               <ul>
-                    <li><a href="#"><h3 id="nav-color-hb">Categories</h3></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">스킨케어</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">썬크림</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">폼클렌징</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">남성</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">랭킹</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">맞춤형</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">마이페이지</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">고객센터</h4></a></li>
-                    
-               </ul>   
-                                   
-                
-            </div> -->
-           
-          
-        <div class="header-bottom header-bottom-bg-color sticky-bar" >
+
+<body>
+    <!-- Quick view -->
+    <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">              
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>       
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="detail-gallery">
+                                <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                <!-- MAIN SLIDES -->
+                                <div class="product-image-slider">
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-2.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-1.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-3.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-4.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-5.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-6.jpg" alt="product image">
+                                    </figure>
+                                    <figure class="border-radius-10">
+                                        <img src="assets/imgs/shop/product-16-7.jpg" alt="product image">
+                                    </figure>
+                                </div>
+                                <!-- THUMBNAILS -->
+                                <div class="slider-nav-thumbnails pl-15 pr-15">
+                                    <div><img src="assets/imgs/shop/thumbnail-3.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-4.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-5.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-6.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-7.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-8.jpg" alt="product image"></div>
+                                    <div><img src="assets/imgs/shop/thumbnail-9.jpg" alt="product image"></div>
+                                </div>
+                            </div>
+                            <!-- End Gallery -->
+                            <div class="social-icons single-share">
+                                <ul class="text-grey-5 d-inline-block">
+                                    <li><strong class="mr-10">Share this:</strong></li>
+                                    <li class="social-facebook"><a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a></li>
+                                    <li class="social-twitter"> <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a></li>
+                                    <li class="social-instagram"><a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a></li>
+                                    <li class="social-linkedin"><a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="detail-info">
+                                <h3 class="title-detail mt-30">Colorful Pattern Shirts HD450</h3>
+                                <div class="product-detail-rating">
+                                    <div class="pro-details-brand">
+                                        <span> Brands: <a href="shop-grid-right.html">Bootstrap</a></span>
+                                    </div>
+                                    <div class="product-rate-cover text-end">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width:90%">
+                                            </div>
+                                        </div>
+                                        <span class="font-small ml-5 text-muted"> (25 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix product-price-cover">
+                                    <div class="product-price primary-color float-left">
+                                        <ins><span class="text-brand">$120.00</span></ins>
+                                        <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                        <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                    </div>
+                                </div>
+                                <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                <div class="short-desc mb-30">
+                                    <p class="font-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi,!</p>
+                                </div>
+                                
+                                <div class="attr-detail attr-color mb-15">
+                                    <strong class="mr-10">Color</strong>
+                                    <ul class="list-filter color-filter">
+                                        <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
+                                        <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
+                                        <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
+                                        <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a></li>
+                                        <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
+                                        <li><a href="#" data-color="Green"><span class="product-color-green"></span></a></li>
+                                        <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="attr-detail attr-size">
+                                    <strong class="mr-10">Size</strong>
+                                    <ul class="list-filter size-filter font-small">
+                                        <li><a href="#">S</a></li>
+                                        <li class="active"><a href="#">M</a></li>
+                                        <li><a href="#">L</a></li>
+                                        <li><a href="#">XL</a></li>
+                                        <li><a href="#">XXL</a></li>
+                                    </ul>
+                                </div>
+                                <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                <div class="detail-extralink">
+                                    <div class="detail-qty border radius">
+                                        <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                        <span class="qty-val">1</span>
+                                        <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                    </div>
+                                    <div class="product-extra-link2">
+                                        <button type="submit" class="button button-add-to-cart">Add to cart</button>
+                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                    </div>
+                                </div>
+                                <ul class="product-meta font-xs color-grey mt-50">
+                                    <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
+                                    <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">Women</a>, <a href="#" rel="tag">Dress</a> </li>
+                                    <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
+                                </ul>
+                            </div>
+                            <!-- Detail Info -->
+                        </div>
+                    </div>
+                </div>        
+        </div>
+        </div>
+    </div>
+    <header id="myheader-hb" class="header-area header-style-2 ">
+        <div class="my-hd-top-hb header-top header-top-ptb-1 d-none d-lg-block">
             <div class="container">
-                <div class="header-wrap header-space-between position-relative" >
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="header-info">
+                            <!-- <ul>
+                                <li><i class="fi-rs-smartphone"></i> <a href="#">(+01) - 2345 - 6789</a></li>
+                                <li><i class="fi-rs-marker"></i><a  href="page-contact.html">Our location</a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-4">
+                        <div class="text-center">
+                            <div id="news-flash" class="d-inline-block">
+                                <ul>
+                                    <li> <a href="shop-grid-right.html">MBTI</a>개인 피부 진단 & 맞춤형 화장품 추천</li>
+                                    <li>Supper Value Deals - Save more with coupons</li>
+                                    <li>Trendy 25silver jewelry, save up 35% off today <a href="shop-grid-right.html">Shop now</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="header-info header-info-right">
+                            <ul>
+                                <!-- <li>
+                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
+                                    <ul class="language-dropdown">
+                                        <li><a href="#"><img src="assets/imgs/theme/flag-fr.png" alt="">Français</a></li>
+                                        <li><a href="#"><img src="assets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
+                                        <li><a href="#"><img src="assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
+                                    </ul>
+                                </li> -->
+                                <li th:if = "${session.mvo == null}"><i class="fi-rs-user"></i><a href="/login">Log In/ </a><a href="/join">Sign Up </a></li>
+                              
+                                <li th:if = "${session.mvo != null}"> 
+                               <!--  <i class="fi-rs-user"></i> -->
+                                <a href="#"  th:text="|${session.mvo.mb_nick}님|">닉네임 </a></li>
+                                <li class="dropdown nav-item" th:if = "${session.mvo != null}">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/people/avatar2.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            <a class="dropdown-item" href="/myaccount-info"><i class="material-icons md-perm_identity"></i>마이페이지</a>
+                           <!--  <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a> -->
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/logout.do"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li> 
+                  
+                    
+		                    </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
+            <div class="container">
+                <div class="header-wrap">
+                    <div class="logo logo-width-1">
+
+                        <a href="/main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
+
+                    </div>
+                    <div class="header-right">
+                        <div class="search-style-2">
+                            <form action="#">
+                                <select class="select-active">
+                                    <option>All Categories</option>
+                                    <option>스킨케어</option>
+                                    <option>썬크림</option>
+                                    <option>클렌징</option>
+                                    <option>남성</option>
+                                </select>
+                                <input type="text" placeholder="Search for items...">
+                            </form>
+                        </div>
+                        <div class="header-action-right">
+                            <div class="header-action-2">
+                                <!-- <div class="header-action-icon-2">
+                                    <a href="shop-wishlist.html">
+                                        <img class="svgInject" alt="Evara" src="assets/imgs/theme/icons/icon-heart.svg">
+                                        <span class="pro-count blue">4</span>
+                                    </a>
+                                </div> -->
+                                <div class="header-action-icon-2">
+                                    <a class="mini-cart-icon" href="/goBasket">
+                                        <img alt="Evara" src="assets/imgs/theme/icons/icon-cart.svg">
+                                        <span id="countBasket"  class="pro-count blue"></span>
+                                    </a>
+                         <!--                <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                        <ul>
+                                       <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
+                                                    <h4><span>1 × </span>$800.00</h4>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-2.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
+                                                    <h4><span>1 × </span>$3200.00</h4>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="shopping-cart-footer">
+                                            <div class="shopping-cart-total">
+                                                <h4>Total <span>$4000.00</span></h4>
+                                            </div> 
+                                            <div class="shopping-cart-button">
+                                                <a href="/goBasket" class="outline">View cart</a>
+                                                <a href="shop-checkout.html">Checkout</a>
+                                            </div>--> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
+            <div class="container">
+                <div class="header-wrap">
+                    <div class="logo logo-width-1">
+                        <a href="main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
+                    </div>
+                    <div class="header-right">
+                        <div class="search-style-2">
+                            <form action="#">
+                                <select class="select-active">
+                                    <option>All Categories</option>
+                                    <option>스킨케어</option>
+                                    <option>썬크림</option>
+                                    <option>클렌징</option>
+                                    <option>남성</option>
+                                    
+                                </select>
+                                <input type="text" placeholder="Search for items...">
+                            </form>
+                        </div>
+                        <div class="header-action-right">
+                            <div class="header-action-2">
+
+                                <div class="header-action-icon-2">
+                                    <a class="mini-cart-icon" href="/goBasket">
+                                        <img alt="Evara" src="assets/imgs/theme/icons/icon-cart.svg">
+                                        <span class="pro-count blue">2</span>
+                                    </a>
+                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                        <ul>
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
+                                                    <h4><span>1 × </span>$800.00</h4>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-2.jpg"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
+                                                    <h4><span>1 × </span>$3200.00</h4>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="shopping-cart-footer">
+                                            <div class="shopping-cart-total">
+                                                <h4>Total <span>$4000.00</span></h4>
+                                            </div>
+                                            <div class="shopping-cart-button">
+                                                <a href="/goBasket" class="outline">View cart</a>
+                                                <a href="shop-checkout.html">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="header-bottom header-bottom-bg-color sticky-bar">
+            <div class="container">
+                <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
                         <a href="main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
                     </div>
-                    <!-- <div class="header-nav d-none d-lg-flex"> -->
-                    <div class="header-nav flex-center-hb">
-                       <!-- <div class="main-categori-wrap d-none d-lg-block" id="cate-bt-hb">
-                             <a class="categori-button-active open" href="#">
+                    <div class="header-nav d-none d-lg-flex">
+                        <div class="main-categori-wrap d-none d-lg-block" id="cate-bt-hb">
+                            <a class="categori-button-active open" href="#">
                                 <span class="fi-rs-apps"></span> Categories
                             </a>
-                            
-                        </div>  -->
-                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block" style="width:600px; float:right;">
-                            <nav class="flex-center-hb" >
+                            <div class="categori-dropdown-wrap categori-dropdown-active-large open" id="cate-hb">
                                 <ul>
+                                    <li class="has-children">
+                                        <a href="getProductList?cate=스킨케어"><i class="evara-font-dress"></i>스킨케어</a>
+                                        <div class="slim-menubar-hb dropdown-menu ">
+                                            <ul class="">
+                                                <li class="mega-menu-col col-lg-7">
+                                                    <ul class="wd-250-hb">
+                                                        <li class="mega-menu-col col-lg-8">
+                                                            <ul>
+                                                                <li><span class="submenu-title">스킨케어</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">토너</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">에센스</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">로션</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">크림</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <!-- <li class="mega-menu-col col-lg-6">
+                                                            <ul>
+                                                                <li><span class="submenu-title">Bottoms</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Leggings</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Skirts</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Shorts</a></li>
+                                                            </ul>
+                                                        </li> -->
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="mega-menu-col col-lg-5">
+                                                    <div class="header-banner2">
+                                                        <img src="assets/imgs/banner/menu-banner-2.jpg" alt="menu_banner1">
+                                                        <div class="banne_info">
+                                                            <h6>10% Off</h6>
+                                                            <h4>New Arrival</h4>
+                                                            <a href="#">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header-banner2">
+                                                        <img src="assets/imgs/banner/menu-banner-3.jpg" alt="menu_banner2">
+                                                        <div class="banne_info">
+                                                            <h6>15% Off</h6>
+                                                            <h4>Hot Deals</h4>
+                                                            <a href="#">Shop now</a>
+                                                        </div>
+                                                    </div> 
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!-- <li class="has-children">
+                                        <a href="shop-grid-right.html"><i class="evara-font-tshirt"></i>Men's Clothing</a>
+                                        <div class="dropdown-menu">
+                                            <ul class="mega-menu d-lg-flex">
+                                                <li class="mega-menu-col col-lg-7">
+                                                    <ul class="d-lg-flex">
+                                                        <li class="mega-menu-col col-lg-6">
+                                                            <ul>
+                                                                <li><span class="submenu-title">Jackets & Coats</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Down Jackets</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Jackets</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Parkas</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Faux Leather Coats</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Trench</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wool & Blends</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Vests & Waistcoats</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Leather Coats</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mega-menu-col col-lg-6">
+                                                            <ul>
+                                                                <li><span class="submenu-title">Suits & Blazers</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Blazers</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Jackets</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Pants</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suits</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Vests</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Tailor-made Suits</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Cover-Ups</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="mega-menu-col col-lg-5">
+                                                    <div class="header-banner2">
+                                                        <img src="assets/imgs/banner/menu-banner-4.jpg" alt="menu_banner1">
+                                                        <div class="banne_info">
+                                                            <h6>10% Off</h6>
+                                                            <h4>New Arrival</h4>
+                                                            <a href="#">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li> -->
+                                    <li><a href="getProductList?cate=썬크림"><i class="evara-font-desktop"></i>썬크림</a></li>
+                                    <li><a href="getProductList?cate=클렌징"><i class="evara-font-cpu"></i>클렌징</a></li>
+                                    <li class="has-children">
+                                        <a href="getProductList?cate=남성"><i class="evara-font-smartphone"></i> 남성</a>
+                                        <div class="slim-menubar-hb dropdown-menu ">
+                                            <ul class="">
+                                                <li class="mega-menu-col col-lg-7">
+                                                    <ul class="wd-250-hb">
+                                                        <li class="mega-menu-col col-lg-8">
+                                                            <ul>
+                                                                <li><span class="submenu-title">남성</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">스킨</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">에센스/올인원</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">로션/크림</a></li>
+                                                                
+                                                            </ul>
+                                                        </li>
+                                                        <!-- <li class="mega-menu-col col-lg-6">
+                                                            <ul>
+                                                                <li><span class="submenu-title">Accessories</span></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Screen Protectors</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wire Chargers</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wireless Chargers</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Car Chargers</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Power Bank</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Armbands</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Dust Plug</a></li>
+                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Signal Boosters</a></li>
+                                                            </ul>
+                                                        </li> -->
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="mega-menu-col col-lg-5">
+                                                    <div class="header-banner2">
+                                                        <img src="assets/imgs/banner/menu-banner-5.jpg" alt="menu_banner1">
+                                                        <div class="banne_info">
+                                                            <h6>10% Off</h6>
+                                                            <h4>New Arrival</h4>
+                                                            <a href="#">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header-banner2">
+                                                        <img src="assets/imgs/banner/menu-banner-6.jpg" alt="menu_banner2">
+                                                        <div class="banne_info">
+                                                            <h6>15% Off</h6>
+                                                            <h4>Hot Deals</h4>
+                                                            <a href="#">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
                                     
+                                    
+                                    <li>
+                                        <!-- <ul class="more_slide_open" style="display: none;">
+                                            <li><a href="shop-grid-right.html"><i class="evara-font-desktop"></i>Beauty, Health</a></li>
+                                            <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Bags and Shoes</a></li>
+                                            <li><a href="shop-grid-right.html"><i class="evara-font-diamond"></i>Consumer Electronics</a></li>
+                                            <li><a href="shop-grid-right.html"><i class="evara-font-home"></i>Automobiles & Motorcycles</a></li>
+                                        </ul> -->
+                                    </li>
+                                </ul>
+                                <!-- <div class="more_categories">Show more...</div> -->
+                            </div>
+                        </div> 
+                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
+                            <nav>
+                                <ul>
+                                    <!-- <li><a class="active" href="main">Home <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="main">Home 1</a></li>
+                                            <li><a href="index-2.html">Home 2</a></li>
+                                            <li><a href="index-3.html">Home 3</a></li>
+                                            <li><a href="index-4.html">Home 4</a></li>
+                                        </ul>
+                                    </li> -->
                                      <li><a href="getProductList?cate=스킨케어">스킨케어 <i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             
@@ -313,11 +791,11 @@ $(document).ready(function(){
                                         </ul>
                                     </li>
                                     <li>
-                                    	<!-- <a href="getProductList?cate=썬크림"></a> -->
+                                    	<a href="getProductList?cate=썬크림"></a>
                                         <a href="getProductList?cate=썬크림">썬크림</a>
                                     </li>
                                     <li>
-                                    	<!-- <a href="getProductList?cate=스킨케어"></a> -->
+                                    	<a href="getProductList?cate=스킨케어"></a>
                                         <a href="getProductList?cate=클렌징">클렌징</a>
                                     </li>
                                      <li><a href="getProductList?cate=남성">남성 <i class="fi-rs-angle-down"></i></a>
@@ -333,31 +811,139 @@ $(document).ready(function(){
                                         <a href="/rank">랭킹</a>
                                     </li>
                                     
-                                  
-                                    <li><a href="/customizing">맞춤형 </a></li>
-                                        
-          
-                                 
+                                    <!-- <li><a href="shop-grid-right.html">Shop <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="shop-grid-right.html">Shop Grid – Right Sidebar</a></li>
+                                            <li><a href="shop-grid-left.html">Shop Grid – Left Sidebar</a></li>
+                                            <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
+                                            <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
+                                            <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
+                                            <li><a href="#">Single Product <i class="fi-rs-angle-right"></i></a>
+                                                <ul class="level-menu">
+                                                    <li><a href="shop-product-right.html">Product – Right Sidebar</a></li>
+                                                    <li><a href="shop-product-left.html">Product – Left Sidebar</a></li>
+                                                    <li><a href="shop-product-full.html">Product – No sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="shop-filter.html">Shop – Filter</a></li>
+                                            <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
+                                            <li><a href="/goBasket">Shop – Cart</a></li>
+                                            <li><a href="shop-checkout.html">Shop – Checkout</a></li>
+                                            <li><a href="shop-compare.html">Shop – Compare</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- <li class="position-static"><a href="#">Mega menu <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="mega-menu">
+                                            <li class="sub-mega-menu sub-mega-menu-width-22">
+                                                <a class="menu-title" href="#">Women's Fashion</a>
+                                                <ul>
+                                                    <li><a href="shop-product-right.html">Dresses</a></li>
+                                                    <li><a href="shop-product-right.html">Blouses & Shirts</a></li>
+                                                    <li><a href="shop-product-right.html">Hoodies & Sweatshirts</a></li>
+                                                    <li><a href="shop-product-right.html">Wedding Dresses</a></li>
+                                                    <li><a href="shop-product-right.html">Prom Dresses</a></li>
+                                                    <li><a href="shop-product-right.html">Cosplay Costumes</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="sub-mega-menu sub-mega-menu-width-22">
+                                                <a class="menu-title" href="#">Men's Fashion</a>
+                                                <ul>
+                                                    <li><a href="shop-product-right.html">Jackets</a></li>
+                                                    <li><a href="shop-product-right.html">Casual Faux Leather</a></li>
+                                                    <li><a href="shop-product-right.html">Genuine Leather</a></li>
+                                                    <li><a href="shop-product-right.html">Casual Pants</a></li>
+                                                    <li><a href="shop-product-right.html">Sweatpants</a></li>
+                                                    <li><a href="shop-product-right.html">Harem Pants</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="sub-mega-menu sub-mega-menu-width-22">
+                                                <a class="menu-title" href="#">Technology</a>
+                                                <ul>
+                                                    <li><a href="shop-product-right.html">Gaming Laptops</a></li>
+                                                    <li><a href="shop-product-right.html">Ultraslim Laptops</a></li>
+                                                    <li><a href="shop-product-right.html">Tablets</a></li>
+                                                    <li><a href="shop-product-right.html">Laptop Accessories</a></li>
+                                                    <li><a href="shop-product-right.html">Tablet Accessories</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="sub-mega-menu sub-mega-menu-width-34">
+                                                <div class="menu-banner-wrap">
+                                                    <a href="shop-product-right.html"><img src="assets/imgs/banner/menu-banner.jpg" alt="Evara"></a>
+                                                    <div class="menu-banner-content">
+                                                        <h4>Hot deals</h4>
+                                                        <h3>Don't miss<br> Trending</h3>
+                                                        <div class="menu-banner-price">
+                                                            <span class="new-price text-success">Save to 50%</span>
+                                                        </div>
+                                                        <div class="menu-banner-btn">
+                                                            <a href="shop-product-right.html">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="menu-banner-discount">
+                                                        <h3>
+                                                            <span>35%</span>
+                                                            off
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- <li><a href="blog-category-grid.html">Blog <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog-category-grid.html">Blog Category Grid</a></li>
+                                            <li><a href="blog-category-list.html">Blog Category List</a></li>
+                                            <li><a href="blog-category-big.html">Blog Category Big</a></li>
+                                            <li><a href="blog-category-fullwidth.html">Blog Category Wide</a></li>
+                                            <li><a href="#">Single Post <i class="fi-rs-angle-right"></i></a>
+                                                <ul class="level-menu level-menu-modify">
+                                                    <li><a href="blog-post-left.html">Left Sidebar</a></li>
+                                                    <li><a href="blog-post-right.html">Right Sidebar</a></li>
+                                                    <li><a href="blog-post-fullwidth.html">No Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li> -->
+                                    <li><a href="/customizing">맞춤형 <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            
+                                            <li><a href="page-contact.html">Contact</a></li>
+                                            <li><a href="/myaccount">My Account</a></li>
+                                            <li><a href="/login">login</a></li>
+                                            <li><a href="page-login-register.html">register</a></li>
+                                        </ul>
+                                    </li>
+                                   <!--  <li><a href="/myaccount-info">마이페이지 <i class="fi-rs-angle-down"></i></a> -->
+                                      <!--   <ul class="sub-menu">
+                                            
+                                            <li><a href="page-contact.html">Contact</a></li>
+                                            <li><a href="/myaccount">My Account</a></li>
+                                            <li><a href="/login">login/register</a></li>
+                                        </ul> -->
+                                   <!--  </li> -->
+                                    <!-- <li>
+                                        <a href="page-about.html">고객센터</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="page-contact.html">Contact</a>
+                                    </li> -->
                                 </ul>
-                                
-                                <div class="hotline d-none d-lg-block" style="padding-top:18px">
-		                        	<p><i class="fi-rs-headset"></i><span>고객센터</span></p>
-		                    	</div>
                             </nav>
-                            
                         </div>
-                    </div>                              
-                    <div class="Dday-1-hb" style="display:block; width:500px;"></div>
-                   <!--  <div>
-                        <p><i class=""></i><span>Log in / </span></p>
+                    </div>
+                    
+                    <div class="hotline d-none d-lg-block">
+                        <p><i class="fi-rs-headset"></i><span>고객센터</span></p>
                     </div> 
-                    <div>
-                        <p><i class=""></i><span> Sign up</span></p>
-                    </div>  -->
-                 <!--   <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 25%</p>
+                    <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 25%</p>
                     <div class="header-action-right d-block d-lg-none">
                         <div class="header-action-2">
-                           
+                            <!-- <div class="header-action-icon-2">
+                                <a href="shop-wishlist.html">
+                                    <img alt="Evara" src="assets/imgs/theme/icons/icon-heart.svg">
+                                    <span class="pro-count white">4</span>
+                                </a>
+                            </div> -->
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="/goBasket">
                                     <img alt="Evara" src="assets/imgs/theme/icons/icon-cart.svg">
@@ -402,60 +988,182 @@ $(document).ready(function(){
                                 </div>
                             </div>
                             <div class="header-action-icon-2 d-block d-lg-none">
-                                <div class="burger-icon burger-icon-white ">
-                                    <span class="burger-icon-top" ></span>
+                                <div class="burger-icon burger-icon-white">
+                                    <span class="burger-icon-top"></span>
                                     <span class="burger-icon-mid"></span>
                                     <span class="burger-icon-bottom"></span>
                                 </div>
                             </div>
                         </div>
-                    </div> --> 
-             		<div class="top-bt-hb" th:if = "${session.mvo == null}">
-                        <p style="cursor:pointer;" onclick="location.href='/login'"><i class=""></i><span>Log in</span></p>
-                    </div> 
-                    <div class="top-bt-hb" th:if = "${session.mvo == null}">
-                        <p style="cursor:pointer;" onclick="location.href='/join'"><i class=""></i><span>Sign up</span></p>
-                    </div> 
-                    
-                    <!--  -->
-					 <div class="col-xl-3 col-lg-2 " th:if = "${session.mvo != null}">
-                        <!-- <div class="header-info header-info-right">  -->                             
-                            <ul class="ul-main-hb" style="">
-                                <li th:if = "${session.mvo != null}"> 
-                               	<!--  <i class="fi-rs-user"></i> -->
-                                <a href="#"  th:text="|${session.mvo.mb_nick}님|">닉네임 </a></li>
-                                <li class="dropdown nav-item" th:if = "${session.mvo != null}">
-			                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/video/grade1.png" alt="User"></a>
-			                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-			                            <a class="dropdown-item" href="/myaccount-info"><i class="material-icons md-perm_identity"></i>마이페이지</a>
-			                           <!--  <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a> -->
-			                            <div class="dropdown-divider"></div>
-			                            <a class="dropdown-item text-danger" href="/logout.do"><i class="material-icons md-exit_to_app"></i>Logout</a>
-			                        </div>
-			                    </li>      
-		                    </ul>
-                       <!--  </div> -->
                     </div>
-                    <!--  -->
-                    
-                    
                 </div>
             </div>
         </div>
-        </div>
-        <div class="content-hb">
-           <h1 class="mb-20" id="demotext">3분, 간편 진단</h1> 
-            <h3><small>당신의 피부 MBTI가 궁금하다면</small></h3>
-                     
-            <button>MBTI검사</button>
+    </header>
+    <div class="mobile-header-active mobile-header-wrapper-style">
+        <div class="mobile-header-wrapper-inner">
+            <div class="mobile-header-top">
+                <div class="mobile-header-logo">
+                    <a href="main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
+                </div>
+                <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
+                    <button class="close-style search-close">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-header-content-area">
+                <div class="mobile-search search-style-3 mobile-header-border">
+                    <form action="#">
+                        <input type="text" placeholder="Search for items…">
+                        <button type="submit"><i class="fi-rs-search"></i></button>
+                    </form>
+                </div>
+                <div class="mobile-menu-wrap mobile-header-border">
+                    <div class="main-categori-wrap mobile-header-border">
+                        <a class="categori-button-active-2" href="#">
+                            <span class="fi-rs-apps"></span> Categories
+                        </a>
+                        <div class="categori-dropdown-wrap categori-dropdown-active-small">
+                            <ul>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-dress"></i>Women's Clothing</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-tshirt"></i>Men's Clothing</a></li>
+                                <li> <a href="shop-grid-right.html"><i class="evara-font-smartphone"></i> Cellphones</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-desktop"></i>Computer & Office</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Consumer Electronics</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-home"></i>Home & Garden</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-high-heels"></i>Shoes</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-teddy-bear"></i>Mother & Kids</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-kite"></i>Outdoor fun</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu start -->
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="main">Home</a>
+                                <ul class="dropdown">
+                                    <li><a href="main">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop-grid-right.html">shop</a>
+                                <ul class="dropdown">
+                                    <li><a href="shop-grid-right.html">Shop Grid – Right Sidebar</a></li>
+                                    <li><a href="shop-grid-left.html">Shop Grid – Left Sidebar</a></li>
+                                    <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
+                                    <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
+                                    <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single Product</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Product – Right Sidebar</a></li>
+                                            <li><a href="shop-product-left.html">Product – Left Sidebar</a></li>
+                                            <li><a href="shop-product-full.html">Product – No sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="shop-filter.html">Shop – Filter</a></li>
+                                    <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
+                                    <li><a href="/goBasket">Shop – Cart</a></li>
+                                    <li><a href="shop-checkout.html">Shop – Checkout</a></li>
+                                    <li><a href="shop-compare.html">Shop – Compare</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mega menu</a>
+                                <ul class="dropdown">
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Dresses</a></li>
+                                            <li><a href="shop-product-right.html">Blouses & Shirts</a></li>
+                                            <li><a href="shop-product-right.html">Hoodies & Sweatshirts</a></li>
+                                            <li><a href="shop-product-right.html">Women's Sets</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's Fashion</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Jackets</a></li>
+                                            <li><a href="shop-product-right.html">Casual Faux Leather</a></li>
+                                            <li><a href="shop-product-right.html">Genuine Leather</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Technology</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Gaming Laptops</a></li>
+                                            <li><a href="shop-product-right.html">Ultraslim Laptops</a></li>
+                                            <li><a href="shop-product-right.html">Tablets</a></li>
+                                            <li><a href="shop-product-right.html">Laptop Accessories</a></li>
+                                            <li><a href="shop-product-right.html">Tablet Accessories</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog-category-fullwidth.html">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="blog-category-grid.html">Blog Category Grid</a></li>
+                                    <li><a href="blog-category-list.html">Blog Category List</a></li>
+                                    <li><a href="blog-category-big.html">Blog Category Big</a></li>
+                                    <li><a href="blog-category-fullwidth.html">Blog Category Wide</a></li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single Product Layout</a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog-post-left.html">Left Sidebar</a></li>
+                                            <li><a href="blog-post-right.html">Right Sidebar</a></li>
+                                            <li><a href="blog-post-fullwidth.html">No Sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="page-about.html">About Us</a></li>
+                                    <li><a href="page-contact.html">Contact</a></li>
+                                    <li><a href="page-account.html">My Account</a></li>
+                                    <li><a href="/login">login/register</a></li>
+                                    <li><a href="page-purchase-guide.html">Purchase Guide</a></li>
+                                    <li><a href="page-privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="page-terms.html">Terms of Service</a></li>
+                                    <li><a href="page-404.html">404 Page</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">German</a></li>
+                                    <li><a href="#">Spanish</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- mobile menu end -->
+                </div>
+                <div class="mobile-header-info-wrap mobile-header-border">
+                    <div class="single-mobile-header-info mt-30">
+                        <a  href="page-contact.html"> Our location </a>
+                    </div>
+                    <div class="single-mobile-header-info">
+                        <a href="/">Log In / Sign Up </a>
+                    </div>
+                    <!-- <div class="single-mobile-header-info">
+                        <a href="#">(+01) - 2345 - 6789 </a>
+                    </div> -->
+                </div>
+                <div class="mobile-social-icon">
+                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
+                    <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
+                    <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
+                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- content -->
+    <!-- ------------------------------------------------------ -->
+    <!-- content 시작-->
      <main class="main">
-       <!--  <section class="home-slider position-relative mb-30">
+        <section class="home-slider position-relative mb-30">
             <div class="container">
                 <div class="home-slide-cover bg-grey-10">
                     <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
@@ -468,7 +1176,7 @@ $(document).ready(function(){
                                             <h3 class="animated fw-900">Supper Value Deals</h3>
                                             <h2 class="animated fw-900 text-brand">products</h2>
                                             <p class="animated">up to 70% off</p>
-                                            <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html" tabindex="0"> Shop Now </a>
+                                            <!-- <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html" tabindex="0"> Shop Now </a> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -503,47 +1211,47 @@ $(document).ready(function(){
                     <div class="slider-arrow hero-slider-1-arrow"></div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!--메인 베너 끝-->
         <div id="weather"></div>
         <!--반응하는 네모 박스들 시작-->
-       <section class="featured section-padding">
+        <section class="featured section-padding">
             <div class="container pb-25">
                 <div class="row">
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div1" ><img style="height:115px" src="assets/imgs/graph/graph1.png" alt=""></a>
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div1" ><img src="assets/imgs/graph/graph1.png" alt=""></a>
                             <h4 class="bg-1">#MBTI별 구매상품</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div2"><img style="height:115px" src="assets/imgs/graph/graph2.png" alt=""></a>
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div2"><img src="assets/imgs/graph/graph2.png" alt=""></a>
                             <h4 class="bg-3">#계절</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div3"><img style="height:115px" src="assets/imgs/graph/graph3.png" alt=""></a>
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div3"><img src="assets/imgs/graph/graph3.png" alt=""></a>
                             <h4 class="bg-2">#성분다이어트</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                           <a href="#div4"><img style="height:115px" src="assets/imgs/graph/graph4.png" alt=""></a>
+                        <div class="banner-features wow fadeIn animated hover-up">
+                           <a href="#div4"><img src="assets/imgs/graph/graph4.png" alt=""></a>
                             <h4 class="bg-4">#MBTI진단</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div5"><img style="height:115px" src="assets/imgs/graph/graph5.png" alt=""></a>
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div5"><img src="assets/imgs/graph/graph5.png" alt=""></a>
                             <h4 class="bg-5">#구매기간</h4>
                         </div>
                     </div>
-                    <div style="height:155px" class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div7"><img style="height:115px" src="assets/imgs/graph/graph6.png" alt=""></a>
-                            <h4 class="bg-6">#랭킹</h4>
+                            <img src="assets/imgs/graph/graph5.png" alt="">
+                            <h4 class="bg-6">24/7 Support</h4>
                         </div>
                     </div>
                      <div id="div1"></div>
@@ -553,8 +1261,7 @@ $(document).ready(function(){
         <!--반응하는 네모 박스들 끝-->
     <!-------------------------------------------------------------------로그인 했을때만 보이는--------------------------------------------------------------------------------->
 <!-- 메인 베너 시작-->
-<!-- 로그인 했을때 같은 MBTI시작 -->
-<section id="div1" class="bg-grey-9 section-padding" style="margin-top:40px" th:if = "${session.mvo != null}">
+<section id="div1" class="bg-grey-9 section-padding">
     <div class="container pt-15 pb-25">
         <div class="heading-tab d-flex">
             <div class="heading-tab-left wow fadeIn animated">
@@ -567,21 +1274,13 @@ $(document).ready(function(){
                 <!-- <div class="banner-img style-2 wow fadeIn animated "> -->
         		<!-- <div class="card mb-4"> -->
                         <!-- <article class="card-body"> -->
-                            <h5 class="card-title" ></h5>
-                            <div th:each="smg : ${smg}" >
+                            <h5 class="card-title"></h5>
+                            <div th:each="smg : ${smg}">
                             <span class="text-muted font-xs" th:text="${smg.cos_type}">유분</span>
                             <div class="progress mb-3">                                                
                                 <div class="progress-bar" role="progressbar" th:style="|width:${smg.percent}%|" th:text="|${#numbers.formatDecimal(smg.percent,2,1)}%|"></div>
                             </div>
                             </div>
-                            <!-- <h5 class="card-title" th:if = "${session.mvo != null}"></h5>
-                            <div th:each="smg : ${smg}" th:if = "${session.mvo != null}">
-                            <span class="text-muted font-xs" th:text="${smg.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${smg.percent}%|" th:text="|${#numbers.formatDecimal(smg.percent,2,1)}%|"></div>
-                            </div>
-                            </div> -->
-                          
                             <!-- <span class="text-muted font-xs">수분</span>
                             <div class="progress mb-3">
                                 <div class="progress-bar" role="progressbar" style="width: 65%">65% </div>
@@ -729,7 +1428,7 @@ $(document).ready(function(){
                                         </div>
                                     </div>
                                 </div>
-                              <div class="product-cart-wrap" style="display:none">
+                               <!--  <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
@@ -765,7 +1464,7 @@ $(document).ready(function(){
                                             <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
-                                </div> 
+                                </div> -->
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -1201,656 +1900,6 @@ $(document).ready(function(){
         </div>
     </div>
 </section>
-<!-- 로그인 안했을때 같은 mbti 끝-->
-<!-- 로그인 안했을때 같은 mbti 시작-->
-<section id="div1" class="bg-grey-9 section-padding" style="margin-top:40px" th:if = "${session.mvo == null}">
-    <div class="container pt-15 pb-25">
-        <div class="heading-tab d-flex">
-            <div class="heading-tab-left wow fadeIn animated">
-                <h3 class="section-title mb-20"><span >#OSPW</span>고객님이 구매한 상품</h3>
-            </div>
-            
-        </div>
-        <div class="row">
-            <div class="col-lg-3 mt-5">
-                <!-- <div class="banner-img style-2 wow fadeIn animated "> -->
-        		<!-- <div class="card mb-4"> -->
-                        <!-- <article class="card-body"> -->
-                            <h5 class="card-title" ></h5>
-                            <div th:each="mbtiG : ${mbtiG}" >
-                            <span class="text-muted font-xs" th:text="${mbtiG.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${mbtiG.percent}%|" th:text="|${#numbers.formatDecimal(mbtiG.percent,2,1)}%|"></div>
-                            </div>
-                            </div>
-                           <!--  <h5 class="card-title" ></h5>
-                            <div th:each="smp : ${smp}" >
-                            <span class="text-muted font-xs" th:text="${smp.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${smp.percent}%|" th:text="|${#numbers.formatDecimal(mbtiP.percent,2,1)}%|"></div>
-                            </div>
-                            </div> -->
-                          
-                            <!-- <span class="text-muted font-xs">수분</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 65%">65% </div>
-                            </div>
-                            <span class="text-muted font-xs">민감성</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 51%"> 51% </div>
-                            </div>
-                            <span class="text-muted font-xs">트러블</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div>
-                            <span class="text-muted font-xs">주름</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div>
-                            <span class="text-muted font-xs">색소</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div> -->
-                        <!-- </article> -->
-                  <!--   </div> -->
-                    <!-- <img src="assets/imgs/banner/banner-9.jpg" alt="">
-                    <div class="banner-text">
-                        <span>Woman Area</span>
-                        <h4 class="mt-5">Save 17% on <br>Clothing</h4>
-                        <a href="shop-grid-right.html" class="text-white">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                    </div> -->
-               <!--  </div> -->
-            </div>
-            <div class="col-lg-9 col-md-12">
-                <div class="tab-content wow fadeIn animated" id="myTabContent-1">
-                    <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="@{/productDetail(cos_seq=${mbtiP[0].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[0].cos_photo1}" alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[0].gubun_name}">Nulla</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[0].cos_seq})}" th:text="${mbtiP[0].cos_name}">Maecenas eget</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span th:text="${#numbers.formatDecimal(mbtiP[0].review_rating,1,1)}">70%</span>
-                                            </span> 
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[0].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-           <!--                                  <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[1].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[1].cos_photo1}" alt="">
-                                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="new">New</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html"  th:text="${mbtiP[1].gubun_name}">Duis </a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[1].cos_seq})}" th:text="${mbtiP[1].cos_name}">Luctus suscipit</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[1].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span  th:text="|${#numbers.formatInteger(mbtiP[1].cos_price, 0, 'COMMA')}원|">$138.85 </span>
-                                           <!--  <span class="old-price">$145.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[2].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[2].cos_photo1}" alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="best">Best Sell</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[2].gubun_name}">Fusce </a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[2].cos_seq})}" th:text="${mbtiP[2].cos_name}">Aliquam ac</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[2].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span  th:text="|${#numbers.formatInteger(mbtiP[2].cos_price, 0, 'COMMA')}원|">$152.85 </span>
-                                            <!-- <span class="old-price">$156.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                              <div class="product-cart-wrap" style="display:none">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-4-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Nunc </a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Fusce et ligula</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[3].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[3].cos_photo1}"  alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-11-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="sale">Sale</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[3].gubun_name}">Aliquam</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[3].cos_seq})}" th:text="${mbtiP[3].cos_name}">Morbi lacinia</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[3].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[3].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End tab-pane-->
-                    <div class="tab-pane fade" id="tab-two-1" role="tabpanel" aria-labelledby="tab-two-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-2-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-2">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[4].cos_seq})}"
->
-                                                <img class="default-img" th:src="${mbtiP[4].cos_photo1}"  alt="">
-                                              <!--   <img class="hover-img" src="assets/imgs/shop/product-6-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                           <!--  <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[4].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[4].cos_seq})}"
- th:text="${mbtiP[4].cos_name}">Cotton Leaf Printed 2</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[4].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[4].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                          <!--   <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-7-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="new">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$138.85 </span>
-                                            <span class="old-price">$145.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-5-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-5-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="best">Best Sell</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Hugy Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$152.85 </span>
-                                            <span class="old-price">$156.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-10-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-10-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-12-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-12-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-three-1" role="tabpanel" aria-labelledby="tab-three-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-3-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-3">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[5].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[5].cos_photo1}"  alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-8-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[5].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[5].cos_seq})}" th:text="${mbtiP[5].cos_name}">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[5].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[5].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-13-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-13-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="new">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$138.85 </span>
-                                            <span class="old-price">$145.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-14-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-14-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="best">Best Sell</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Hugy Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$152.85 </span>
-                                            <span class="old-price">$156.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-15-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[6].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[6].cos_photo1}"  alt="">
-                                              <!--   <img class="hover-img" src="assets/imgs/shop/product-11-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                           <!--  <span class="sale">Sale</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[6].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[6].cos_seq})}" th:text="${mbtiP[6].cos_name}">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[6].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[6].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div id="div2"></div>
-                </div>
-                <!--End tab-content-->
-            </div>
-            <!--End Col-lg-9-->
-        </div>
-    </div>
-</section>
-<!-- 로그인 안했을때 같은 mbti 끝 -->
 <!-- 메인 베너 끝-->
 <!-- 메인 베너2 시작-->
 
@@ -1858,7 +1907,7 @@ $(document).ready(function(){
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
-        <h3 class="section-title mb-20"><span style="color:#377198;">#계절별</span> 맞춤 추천</h3>
+        <h3 class="section-title mb-20"><span>#계절별</span> 맞춤 추천</h3>
     </div>
     
 </div>
@@ -1932,7 +1981,7 @@ $(document).ready(function(){
 </section>
 <!-- 메인 베너2 끝-->
 <!-- 메인 베너3 시작-->
-<section  class="bg-grey-9 section-padding" th:if = "${session.mvo != null}">
+<section  class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2011,7 +2060,7 @@ $(document).ready(function(){
 <!-- 메인 베너3 끝-->
 <!-- 메인 베너4 시작-->
 
-<section id="div4" class="section-padding white-hb" th:if = "${session.mvo != null}">
+<section id="div4" class="section-padding white-hb">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2021,7 +2070,7 @@ $(document).ready(function(){
 </div>
 <div class="row">
     <div class="col-lg-7 d-none d-lg-flex">
-        <div id="container-hb" style="height: 100%" > </div>
+        <div id="container-hb" style="height: 100%"> </div>
                 <!-- <div class="banner-img style-2 wow fadeIn animated"> -->
                     <div id="result-graph1-hb" style="height: 100%"> </div>
             <!-- <img src="assets/imgs/banner/banner-9.jpg" alt="">
@@ -2089,8 +2138,8 @@ $(document).ready(function(){
 </div>
 </section>
 <!-- 메인 베너4 끝-->
-<!-- 메인 베너5 시작-->
-<section id="div5" class="bg-grey-9 section-padding" th:if = "${session.mvo != null}">
+<!-- 메인 베너5 시작 -->
+<section id="div5" class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2174,59 +2223,20 @@ $(document).ready(function(){
 </div>
 </section>
 <!-- 메인 베너5 끝-->
- <!-- 3개 작은 네모 광고 베너 시작-->
-        <section class="banners mb-20">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/my/image (4).png" alt="" style="width:400px; height:253.54px">
-                            <div class="banner-text" style="left:55%; top:30%">
-                                <span style="color:#F0F0F0">ANUA</span>
-                                <h4> 어성초 77토너</h4>
-                                <a href="/productDetail?cos_seq=359" style="color:#bed8ff">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/my/image (8).png" alt="" style="width:400px; height:253.54px">
-                            <div class="banner-text" style="top:35%">
-                                <span>numbuzin</span>
-                                <h4>3번 보들보들 결 세럼</h4>
-                                <a href="/productDetail?cos_seq=339">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-md-none d-lg-flex">
-                        <div class="banner-img wow fadeIn animated  mb-sm-0">
-                            <img src="assets/imgs/my/image (11).png" alt="" style="width:380px; height:253.54px">
-                            <div class="banner-text" style="top:40%">
-                                <span>d'Alba</span>
-                                <h4>화이트 트러플<br> 더블 세럼 앤<br> 크림</h4>
-                                <a href="/productDetail?cos_seq=377">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-       <!-- 3개 작은 네모 광고 베너 끝-->
-<!-- <section class="mb-50">
+<section class="mb-50">
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-20">
+            <div class="col-12">
                 <div class="banner-bg wow fadeIn animated" style="background-image: url('assets/imgs/banner/banner-8.jpg')">
                     <div class="banner-content">
                         <h5 class="text-grey-4 mb-15">Shop Today’s Deals</h5>
-                <div id="div7"></div>
                         <h2 class="fw-600">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <section>
     <div class="container">
         <div class="row mb-30">
@@ -2241,23 +2251,23 @@ $(document).ready(function(){
                 </div>
             </div> -->
             <div class="col-lg-4 col-md-6 mb-sm-5 mb-md-0">
-                <h4 class="section-title style-1 mb-30 wow fadeIn animated">판매랭킹</h4>
+                <h4 class="section-title style-1 mb-30 wow fadeIn animated">Deals & Outlet</h4>
                 <div class="product-list-small wow fadeIn animated">
-                    <article class="row align-items-center" style="height:130.67px" th:each="sp, i : ${sp}" th:if="(${i.index} < 3)">
-                        <figure class="col-md-4 mb-0" style="height:122.67px">
-                            <a th:href="@{/productDetail(cos_seq=${sp.cos_seq})}"><img style="height:122.67px; width:122.67px" th:src="${sp.cos_photo1}"  alt=""></a>
+                    <article class="row align-items-center">
+                        <figure class="col-md-4 mb-0">
+                            <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-3.jpg" alt=""></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h4 class="title-small">
-                                <a th:href="@{/productDetail(cos_seq=${sp.cos_seq})}" th:text="${sp.cos_name}">Fish Print Patched T-shirt</a>
+                                <a href="shop-product-right.html">Fish Print Patched T-shirt</a>
                             </h4>
                             <div class="product-price">
-                                <span th:text="|${#numbers.formatInteger(sp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                <!-- <span class="old-price">$245.8</span> -->
+                                <span>$238.85 </span>
+                                <span class="old-price">$245.8</span>
                             </div>
                         </div>
                     </article>
-                 <!--    <article class="row align-items-center">
+                    <article class="row align-items-center">
                         <figure class="col-md-4 mb-0">
                             <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-4.jpg" alt=""></a>
                         </figure>
@@ -2284,27 +2294,27 @@ $(document).ready(function(){
                                 <span class="old-price">$245.8</span>
                             </div>
                         </div>
-                    </article> -->
+                    </article>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-sm-5 mb-md-0">
-                <h4 class="section-title style-1 mb-30 wow fadeIn animated">리뷰랭킹</h4>
+                <h4 class="section-title style-1 mb-30 wow fadeIn animated">Top Selling</h4>
                 <div class="product-list-small wow fadeIn animated">
-                    <article class="row align-items-center" style="height:130.67px" th:each="rp, i : ${rp}" th:if="(${i.index} < 3)">
+                    <article class="row align-items-center">
                         <figure class="col-md-4 mb-0">
-                            <a th:href="@{/productDetail(cos_seq=${rp.cos_seq})}"><img style="height:122.67px; width:122.67px" th:src="${rp.cos_photo1}"  alt=""></a>
+                            <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-6.jpg" alt=""></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h4 class="title-small">
-                                <a th:href="@{/productDetail(cos_seq=${rp.cos_seq})}" th:text="${rp.cos_name}">Fish Print Patched T-shirt</a>
+                                <a href="shop-product-right.html">Geometric Printed Long Sleeve Blosue</a>
                             </h4>
                             <div class="product-price">
-                                <span th:text="|${#numbers.formatInteger(rp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                <!-- <span class="old-price">$245.8</span> -->
+                                <span>$238.85 </span>
+                                <span class="old-price">$245.8</span>
                             </div>
                         </div>
                     </article>
-                  <!--   <article class="row align-items-center">
+                    <article class="row align-items-center">
                         <figure class="col-md-4 mb-0">
                             <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-7.jpg" alt=""></a>
                         </figure>
@@ -2331,27 +2341,27 @@ $(document).ready(function(){
                                 <span class="old-price">$245.8</span>
                             </div>
                         </div>
-                    </article> -->
+                    </article>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <h4 class="section-title style-1 mb-30 wow fadeIn animated">찜랭킹</h4>
+                <h4 class="section-title style-1 mb-30 wow fadeIn animated">Hot Releases</h4>
                 <div class="product-list-small wow fadeIn animated">
-                    <article class="row align-items-center" th:each="lp, i : ${lp}" th:if="(${i.index} < 3)">
+                    <article class="row align-items-center">
                         <figure class="col-md-4 mb-0">
-                            <a th:href="@{/productDetail(cos_seq=${lp.cos_seq})}"><img style="height:122.67px; width:122.67px" th:src="${lp.cos_photo1}"  alt=""></a>
+                            <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-9.jpg" alt=""></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h4 class="title-small">
-                                <a th:href="@{/productDetail(cos_seq=${lp.cos_seq})}" th:text="${lp.cos_name}">Fish Print Patched T-shirt</a>
+                                <a href="shop-product-right.html">Floral Print Casual Cotton Dress</a>
                             </h4>
                             <div class="product-price">
-                                <span th:text="|${#numbers.formatInteger(lp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                <!-- <span class="old-price">$245.8</span> -->
+                                <span>$238.85 </span>
+                                <span class="old-price">$245.8</span>
                             </div>
                         </div>
                     </article>
-                   <!--  <article class="row align-items-center">
+                    <article class="row align-items-center">
                         <figure class="col-md-4 mb-0">
                             <a href="shop-product-right.html"><img src="assets/imgs/shop/thumbnail-1.jpg" alt=""></a>
                         </figure>
@@ -2378,17 +2388,59 @@ $(document).ready(function(){
                                 <span class="old-price">$245.8</span>
                             </div>
                         </div>
-                    </article> -->
+                    </article>
                 </div>
             </div>
         </div>
     </div>
 </section>
- 
+    <!-------------------------------------------------------------------로그인 했을때만 보이는--------------------------------------------------------------------------------------->
+
+
+
+        <!-------------------------------------------------------------------로그인안했을때도 보이는--------------------------------------------------------------------------------------->
+        <!-- 3개 작은 네모 광고 베너 시작-->
+        <section class="banners mb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="banner-img wow fadeIn animated">
+                            <img src="assets/imgs/banner/banner-1.png" alt="">
+                            <div class="banner-text">
+                                <span>Smart Offer</span>
+                                <h4>Save 20% on <br>Woman Bag</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="banner-img wow fadeIn animated">
+                            <img src="assets/imgs/banner/banner-2.png" alt="">
+                            <div class="banner-text">
+                                <span>Sale off</span>
+                                <h4>Great Summer <br>Collection</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-md-none d-lg-flex">
+                        <div class="banner-img wow fadeIn animated  mb-sm-0">
+                            <img src="assets/imgs/banner/banner-3.png" alt="">
+                            <div class="banner-text">
+                                <span>New Arrivals</span>
+                                <h4>Shop Today’s <br>Deals & Offers</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <!-- 3개 작은 네모 광고 베너 끝-->
        <!--가격있는 작은 상품 박스1 시작-->
-      <!--  <section class="pt-25 pb-15">
+       <section class="pt-25 pb-15">
         <div class="container wow fadeIn animated">
-            <h3 class="section-title mb-20"><span>히히</span> Arrivals</h3>
+            <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
             <div class="carausel-6-columns-cover position-relative">
                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
                 <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
@@ -2397,7 +2449,7 @@ $(document).ready(function(){
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2422,13 +2474,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-4-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2453,13 +2505,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-15-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2484,13 +2536,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-3-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2515,13 +2567,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-9-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-9-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-9-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2546,13 +2598,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-7-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2577,13 +2629,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-1-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2604,69 +2656,25 @@ $(document).ready(function(){
                                 <span class="old-price">$245.8</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!--End product-cart-wrap-2-->
-              <!--   </div>
-            </div>
-        </div>
-    </section> -->
-    <!--가격있는 작은 상품 박스1 끝-->
-<!--가격있는 작은 상품 박스2 시작-->   
-<section class="pt-25 pb-30">
-    <div class="container wow fadeIn animated">
-        <h3 class="section-title mb-20"><span>#20대</span> 인기 상품</h3>
-        <div class="row">
-            <div class="col" th:each="twp, i : ${twp}" th:if="(${i.index} < 6)">
-                <div class="product-cart-wrap small hover-up">
-                    <div class="product-img-action-wrap">
-                        <div class="product-img product-img-zoom">
-                            <a th:href="@{/productDetail(cos_seq=${twp.cos_seq})}">
-                                <!-- <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt=""> -->
-                                <img class="default-img" th:src="${twp.cos_photo1}" alt="">
-                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
-                            </a>
-                        </div>
-                        <div class="product-action-1">
-                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
-                        </div>
-                        <div class="product-badges product-badges-position product-badges-mrg">
-                            <!-- <span class="hot">Hot</span> -->
-                        </div>
-                    </div>
-                    <div class="product-content-wrap">
-                        <h2 style="height:40.8px"><a th:href="@{/productDetail(cos_seq=${twp.cos_seq})}" th:text="${twp.cos_name}" >Lorem ipsum dolor</a></h2>
-                        <div class="rating-result" title="90%">
-                            <span th:text="${#numbers.formatDecimal(twp.review_rating,1,1)}">
-                            </span>
-                        </div>
-                        <div class="product-price">
-                            <span th:text="|${#numbers.formatInteger(twp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                           <!--  <span class="old-price">$245.8</span> -->
-                        </div>
-                    </div>
                 </div>
             </div>
-           
         </div>
-    </div>
-</section>
-<!--가격있는 작은 상품 박스3 끝-->
-<!--가격있는 작은 상품 박스2 시작-->   
-<!-- <section class="pt-25 pb-15">
+    </section>
+    <!--가격있는 작은 상품 박스1 끝-->
+<!--가격있는 작은 상품 박스2 시작-->
+<section class="pt-25 pb-15">
     <div class="container wow fadeIn animated">
-        <h3 class="section-title mb-20"><span>#30대</span> 인기 상품</h3>
+        <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
         <div class="row">
-            <div class="col" th:each="thp, i : ${thp}" th:if="(${i.index} < 6)">
+            <div class="col">
                 <div class="product-cart-wrap small hover-up">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <a th:href="@{/productDetail(cos_seq=${thp.cos_seq})}">
+                            <a href="shop-product-right.html">
                                 <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                <img class="default-img" th:src="${thp.cos_photo1}" alt="">
-                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
                             </a>
                         </div>
                         <div class="product-action-1">
@@ -2680,32 +2688,403 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <div class="product-content-wrap">
-                        <h2 style="height:40.8px"><a th:href="@{/productDetail(cos_seq=${thp.cos_seq})}" th:text="${twp.cos_name}" >Lorem ipsum dolor</a></h2>
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
                         <div class="rating-result" title="90%">
                             <span>
                             </span>
                         </div>
                         <div class="product-price">
-                            <span th:text="|${#numbers.formatInteger(thp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
+                            <span>$238.85 </span>
                             <span class="old-price">$245.8</span>
                         </div>
                     </div>
                 </div>
             </div>
-           
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section> -->
+</section>
+<!--가격있는 작은 상품 박스2 끝-->
+<!--가격있는 작은 상품 박스3 시작-->
+<section class="pt-25 pb-15">
+    <div class="container wow fadeIn animated">
+        <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
+        <div class="row">
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                               <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                              <!--   <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!--가격있는 작은 상품 박스3 끝-->
 
 
     <!-------------------------------------------------------------------로그인안했을때--------------------------------------------------------------------------------------->
 
     <!--중간 긴 광고 베너 시작-->    
-   
+    <section class="banner-2 section-padding pb-0">
+            <div class="container">
+                <div class="banner-img banner-big wow fadeIn animated f-none">
+                    <img src="assets/imgs/banner/banner-4.png" alt="">
+                    <div class="banner-text d-md-block d-none">
+                        <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
+                        <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
+                        <a href="shop-grid-right.html" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--중간 긴 광고 베너 끝-->  
         <!--카드형식 가격없는 상품 시작-->  
-       <!--  <section class="popular-categories section-padding mt-15">
+        <section class="popular-categories section-padding mt-15">
             <div class="container wow fadeIn animated">
                 <h3 class="section-title mb-20"><span>Popular</span> Categories</h3>
                 <div class="carausel-6-columns-cover position-relative">
@@ -2762,7 +3141,7 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!--카드형식 가격없는 상품 끝-->  
         
         <!--시간 제한 광고 시작-->
@@ -2809,9 +3188,11 @@ $(document).ready(function(){
        <!--시간 제한 광고 끝-->
         
     </main>
-      
+    
+    <!-- content 끝 -->
+    <!-- ------------------------------------------------------ -->
     <!-- footer -->
-     <footer class="main">
+    <footer class="main">
         <section class="newsletter p-30 text-white wow fadeIn animated">
             <div class="container">
                 <div class="row align-items-center">
@@ -2987,7 +3368,7 @@ $(document).ready(function(){
 		 
 		/*]]>*/
 	</script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 	<script type="text/javascript">
 	 $(document).ready(function(){   
 
@@ -3043,7 +3424,7 @@ $(document).ready(function(){
                     fill: true,
                     backgroundColor: 'rgba(44, 120, 220, 0.2)',
                     borderColor: 'rgba(44, 120, 220)',
-                    data: [18, 17, 4, 3, 2, 20, 25, 31, 25, 22, 20, 9]
+                    data: [200, 170, 40, 30, 20, 200, 250, 310, 250, 220, 200, 90]
                 },
                 {
                     label: '썬크림',
@@ -3051,7 +3432,7 @@ $(document).ready(function(){
                     fill: true,
                     backgroundColor: 'rgba(4, 209, 130, 0.2)',
                     borderColor: 'rgb(4, 209, 130)',
-                    data: [40, 20, 17, 9, 23, 35, 39, 30, 34, 25, 27, 17]
+                    data: [400, 200, 170, 90, 230, 350, 390, 300, 340, 250, 270, 170]
                 },
                 {
                     label: '클렌징',
@@ -3059,7 +3440,7 @@ $(document).ready(function(){
                     fill: true,
                     backgroundColor: 'rgba(380, 200, 230, 0.2)',
                     borderColor: 'rgb(380, 200, 230)',
-                    data: [30, 10, 27, 19, 33, 15, 19, 20, 24, 15, 37, 6]
+                    data: [300, 100, 270, 190, 330, 150, 190, 200, 240, 150, 370, 60]
                 }
 
             ]
@@ -3142,11 +3523,8 @@ $(document).ready(function(){
   <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/bmap.min.js"></script>
   -->
 <!-- mbti 진단별 변화 -->
-   <script th:inline="javascript">
+   <script type="text/javascript">
   /*<![CDATA[*/
-  	
-	
-	
 	console.log("~~~~~")
 	var r1 = '[[${mlg[0].wrinkle}]]'
     console.log(r1);
@@ -3157,8 +3535,6 @@ $(document).ready(function(){
 	var r4 = '[[${mlg[3].wrinkle}]]'
     console.log(r4);
     console.log("~~~~~")
-	
-	
   
     var dom = document.getElementById('container-hb');
     var myChart = echarts.init(dom, null, {
@@ -3360,8 +3736,8 @@ $(document).ready(function(){
     }
 
     window.addEventListener('resize', myChart.resize);
-      /*]]*/ 
- 
+    
+    /*]]*/
   </script>
  
    <!--  <script type="text/javascript">
@@ -3525,4 +3901,5 @@ $(document).ready(function(){
     /*]]*/
   </script> 
 </body>
+</th:block>
 </html>

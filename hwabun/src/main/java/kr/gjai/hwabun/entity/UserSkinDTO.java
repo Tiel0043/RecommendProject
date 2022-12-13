@@ -1,5 +1,6 @@
 package kr.gjai.hwabun.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class UserSkinDTO {
 	
 	private int skin_seq; // 스킨 순번

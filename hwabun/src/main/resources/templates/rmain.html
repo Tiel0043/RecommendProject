@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--css정해서 경로적기-->
-    <title>HwaBun</title>
-     <meta name="description" content="">
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=3.3">
-    <!-- my css -->
-    <link rel="stylesheet" href="assets/css/my/my.css?v=3.3">
-    <link rel="stylesheet" href="assets/css/my/main-style.css?v=3.3">
-    <link rel="stylesheet" href="assets/css/my/hn.css?v=3.3"> 
-    <!-- font -->
-    <link rel="preload" href="assets/css/my/fonts.css?v=3.3" as="style" onload="this.rel='stylesheet'">
-  <script th:inline="javascript">
+<th:block th:replace="~{/layout/layout::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+<!-- 여기서부터 작성 -->
+<script th:inline="javascript">
 $(document).ready(function(){
 
 	$.ajax({
@@ -255,207 +237,11 @@ $(document).ready(function(){
 	});
 })
 </script>
-</head>
-<body class="body-hb">
-	
-    <div class="banner-hb">
-    
-        <video autoplay muted loop>
-            <source src="assets/imgs/video/main.mov" type="video/mp4" />             <!--파일경로지정-->
-        </video>
-        
-        <div class="header-hb mt-10">
-            <a ><img class="img-shadow-hb" src="assets/imgs/video/wlogo.png" ></a> 
-            <!-- <h1><a id="demotext" href="#">HwaBun</a></h1> -->
-            <!-- <div class="nav-hb">
-               <ul>
-                    <li><a href="#"><h3 id="nav-color-hb">Categories</h3></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">스킨케어</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">썬크림</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">폼클렌징</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">남성</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">랭킹</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">맞춤형</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">마이페이지</h4></a></li>
-                    <li><a href="#"><h4 id="nav-color-hb">고객센터</h4></a></li>
-                    
-               </ul>   
-                                   
-                
-            </div> -->
-           
-          
-        <div class="header-bottom header-bottom-bg-color sticky-bar" >
-            <div class="container">
-                <div class="header-wrap header-space-between position-relative" >
-                    <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
-                    </div>
-                    <!-- <div class="header-nav d-none d-lg-flex"> -->
-                    <div class="header-nav flex-center-hb">
-                       <!-- <div class="main-categori-wrap d-none d-lg-block" id="cate-bt-hb">
-                             <a class="categori-button-active open" href="#">
-                                <span class="fi-rs-apps"></span> Categories
-                            </a>
-                            
-                        </div>  -->
-                        <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block" style="width:600px; float:right;">
-                            <nav class="flex-center-hb" >
-                                <ul>
-                                    
-                                     <li><a href="getProductList?cate=스킨케어">스킨케어 <i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            
-                                            <li><a href="page-contact.html">토너</a></li>
-                                            <li><a href="/myaccount">에센스</a></li>
-                                            <li><a href="/login">로션</a></li>
-                                            <li><a href="page-login-register.html">크림</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                    	<!-- <a href="getProductList?cate=썬크림"></a> -->
-                                        <a href="getProductList?cate=썬크림">썬크림</a>
-                                    </li>
-                                    <li>
-                                    	<!-- <a href="getProductList?cate=스킨케어"></a> -->
-                                        <a href="getProductList?cate=클렌징">클렌징</a>
-                                    </li>
-                                     <li><a href="getProductList?cate=남성">남성 <i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            
-                                            <li><a href="page-contact.html">스킨</a></li>
-                                            <li><a href="/myaccount">에센스/올인원</a></li>
-                                            <li><a href="/login">로션/크림</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                    	<a href="getProductList?cate=스킨케어"></a>
-                                        <a href="/rank">랭킹</a>
-                                    </li>
-                                    
-                                  
-                                    <li><a href="/customizing">맞춤형 </a></li>
-                                        
-          
-                                 
-                                </ul>
-                                
-                                <div class="hotline d-none d-lg-block" style="padding-top:18px">
-		                        	<p><i class="fi-rs-headset"></i><span>고객센터</span></p>
-		                    	</div>
-                            </nav>
-                            
-                        </div>
-                    </div>                              
-                    <div class="Dday-1-hb" style="display:block; width:500px;"></div>
-                   <!--  <div>
-                        <p><i class=""></i><span>Log in / </span></p>
-                    </div> 
-                    <div>
-                        <p><i class=""></i><span> Sign up</span></p>
-                    </div>  -->
-                 <!--   <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 25%</p>
-                    <div class="header-action-right d-block d-lg-none">
-                        <div class="header-action-2">
-                           
-                            <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="/goBasket">
-                                    <img alt="Evara" src="assets/imgs/theme/icons/icon-cart.svg">
-                                    <span class="pro-count white">2</span>
-                                </a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
-                                                <h3><span>1 × </span>$800.00</h3>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Evara" src="assets/imgs/shop/thumbnail-4.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
-                                                <h3><span>1 × </span>$3500.00</h3>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>$383.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="/goBasket">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-action-icon-2 d-block d-lg-none">
-                                <div class="burger-icon burger-icon-white ">
-                                    <span class="burger-icon-top" ></span>
-                                    <span class="burger-icon-mid"></span>
-                                    <span class="burger-icon-bottom"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --> 
-             		<div class="top-bt-hb" th:if = "${session.mvo == null}">
-                        <p style="cursor:pointer;" onclick="location.href='/login'"><i class=""></i><span>Log in</span></p>
-                    </div> 
-                    <div class="top-bt-hb" th:if = "${session.mvo == null}">
-                        <p style="cursor:pointer;" onclick="location.href='/join'"><i class=""></i><span>Sign up</span></p>
-                    </div> 
-                    
-                    <!--  -->
-					 <div class="col-xl-3 col-lg-2 " th:if = "${session.mvo != null}">
-                        <!-- <div class="header-info header-info-right">  -->                             
-                            <ul class="ul-main-hb" style="">
-                                <li th:if = "${session.mvo != null}"> 
-                               	<!--  <i class="fi-rs-user"></i> -->
-                                <a href="#"  th:text="|${session.mvo.mb_nick}님|">닉네임 </a></li>
-                                <li class="dropdown nav-item" th:if = "${session.mvo != null}">
-			                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/video/grade1.png" alt="User"></a>
-			                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-			                            <a class="dropdown-item" href="/myaccount-info"><i class="material-icons md-perm_identity"></i>마이페이지</a>
-			                           <!--  <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
-			                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a> -->
-			                            <div class="dropdown-divider"></div>
-			                            <a class="dropdown-item text-danger" href="/logout.do"><i class="material-icons md-exit_to_app"></i>Logout</a>
-			                        </div>
-			                    </li>      
-		                    </ul>
-                       <!--  </div> -->
-                    </div>
-                    <!--  -->
-                    
-                    
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="content-hb">
-           <h1 class="mb-20" id="demotext">3분, 간편 진단</h1> 
-            <h3><small>당신의 피부 MBTI가 궁금하다면</small></h3>
-                     
-            <button>MBTI검사</button>
-        </div>
-    </div>
-    <!-- content -->
-     <main class="main">
-       <!--  <section class="home-slider position-relative mb-30">
+
+<!--여기서부터 메인-->
+<!--메인 베너 시작-->
+    <main class="main">
+        <section class="home-slider position-relative mb-30">
             <div class="container">
                 <div class="home-slide-cover bg-grey-10">
                     <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
@@ -468,7 +254,7 @@ $(document).ready(function(){
                                             <h3 class="animated fw-900">Supper Value Deals</h3>
                                             <h2 class="animated fw-900 text-brand">products</h2>
                                             <p class="animated">up to 70% off</p>
-                                            <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html" tabindex="0"> Shop Now </a>
+                                            <!-- <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html" tabindex="0"> Shop Now </a> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-7 col-md-6">
@@ -503,7 +289,7 @@ $(document).ready(function(){
                     <div class="slider-arrow hero-slider-1-arrow"></div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!--메인 베너 끝-->
         <div id="weather"></div>
         <!--반응하는 네모 박스들 시작-->
@@ -511,38 +297,38 @@ $(document).ready(function(){
             <div class="container pb-25">
                 <div class="row">
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div1" ><img style="height:115px" src="assets/imgs/graph/graph1.png" alt=""></a>
+                        <div style="height:255px" class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div1" ><img src="assets/imgs/graph/graph1.png" alt=""></a>
                             <h4 class="bg-1">#MBTI별 구매상품</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div2"><img style="height:115px" src="assets/imgs/graph/graph2.png" alt=""></a>
+                        <div style="height:255px" class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div2"><img style="height:152px" src="assets/imgs/graph/graph2.png" alt=""></a>
                             <h4 class="bg-3">#계절</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div3"><img style="height:115px" src="assets/imgs/graph/graph3.png" alt=""></a>
+                        <div style="height:255px" class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div3"><img style="height:152px" src="assets/imgs/graph/graph3.png" alt=""></a>
                             <h4 class="bg-2">#성분다이어트</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                           <a href="#div4"><img style="height:115px" src="assets/imgs/graph/graph4.png" alt=""></a>
+                        <div style="height:255px" class="banner-features wow fadeIn animated hover-up">
+                           <a href="#div4"><img style="height:152px" src="assets/imgs/graph/graph4.png" alt=""></a>
                             <h4 class="bg-4">#MBTI진단</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div style="height:155px" class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div5"><img style="height:115px" src="assets/imgs/graph/graph5.png" alt=""></a>
+                        <div style="height:255px" class="banner-features wow fadeIn animated hover-up">
+                            <a href="#div5"><img style="height:152px" src="assets/imgs/graph/graph5.png" alt=""></a>
                             <h4 class="bg-5">#구매기간</h4>
                         </div>
                     </div>
-                    <div style="height:155px" class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div style="height:255px" class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
                         <div class="banner-features wow fadeIn animated hover-up">
-                            <a href="#div7"><img style="height:115px" src="assets/imgs/graph/graph6.png" alt=""></a>
+                            <a href="#div7"><img style="height:152px" src="assets/imgs/graph/graph6.png" alt=""></a>
                             <h4 class="bg-6">#랭킹</h4>
                         </div>
                     </div>
@@ -553,8 +339,7 @@ $(document).ready(function(){
         <!--반응하는 네모 박스들 끝-->
     <!-------------------------------------------------------------------로그인 했을때만 보이는--------------------------------------------------------------------------------->
 <!-- 메인 베너 시작-->
-<!-- 로그인 했을때 같은 MBTI시작 -->
-<section id="div1" class="bg-grey-9 section-padding" style="margin-top:40px" th:if = "${session.mvo != null}">
+<section id="div1" class="bg-grey-9 section-padding">
     <div class="container pt-15 pb-25">
         <div class="heading-tab d-flex">
             <div class="heading-tab-left wow fadeIn animated">
@@ -567,21 +352,13 @@ $(document).ready(function(){
                 <!-- <div class="banner-img style-2 wow fadeIn animated "> -->
         		<!-- <div class="card mb-4"> -->
                         <!-- <article class="card-body"> -->
-                            <h5 class="card-title" ></h5>
-                            <div th:each="smg : ${smg}" >
+                            <h5 class="card-title"></h5>
+                            <div th:each="smg : ${smg}">
                             <span class="text-muted font-xs" th:text="${smg.cos_type}">유분</span>
                             <div class="progress mb-3">                                                
                                 <div class="progress-bar" role="progressbar" th:style="|width:${smg.percent}%|" th:text="|${#numbers.formatDecimal(smg.percent,2,1)}%|"></div>
                             </div>
                             </div>
-                            <!-- <h5 class="card-title" th:if = "${session.mvo != null}"></h5>
-                            <div th:each="smg : ${smg}" th:if = "${session.mvo != null}">
-                            <span class="text-muted font-xs" th:text="${smg.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${smg.percent}%|" th:text="|${#numbers.formatDecimal(smg.percent,2,1)}%|"></div>
-                            </div>
-                            </div> -->
-                          
                             <!-- <span class="text-muted font-xs">수분</span>
                             <div class="progress mb-3">
                                 <div class="progress-bar" role="progressbar" style="width: 65%">65% </div>
@@ -729,7 +506,7 @@ $(document).ready(function(){
                                         </div>
                                     </div>
                                 </div>
-                              <div class="product-cart-wrap" style="display:none">
+                               <!--  <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
@@ -765,7 +542,7 @@ $(document).ready(function(){
                                             <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
-                                </div> 
+                                </div> -->
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -1201,656 +978,6 @@ $(document).ready(function(){
         </div>
     </div>
 </section>
-<!-- 로그인 안했을때 같은 mbti 끝-->
-<!-- 로그인 안했을때 같은 mbti 시작-->
-<section id="div1" class="bg-grey-9 section-padding" style="margin-top:40px" th:if = "${session.mvo == null}">
-    <div class="container pt-15 pb-25">
-        <div class="heading-tab d-flex">
-            <div class="heading-tab-left wow fadeIn animated">
-                <h3 class="section-title mb-20"><span >#OSPW</span>고객님이 구매한 상품</h3>
-            </div>
-            
-        </div>
-        <div class="row">
-            <div class="col-lg-3 mt-5">
-                <!-- <div class="banner-img style-2 wow fadeIn animated "> -->
-        		<!-- <div class="card mb-4"> -->
-                        <!-- <article class="card-body"> -->
-                            <h5 class="card-title" ></h5>
-                            <div th:each="mbtiG : ${mbtiG}" >
-                            <span class="text-muted font-xs" th:text="${mbtiG.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${mbtiG.percent}%|" th:text="|${#numbers.formatDecimal(mbtiG.percent,2,1)}%|"></div>
-                            </div>
-                            </div>
-                           <!--  <h5 class="card-title" ></h5>
-                            <div th:each="smp : ${smp}" >
-                            <span class="text-muted font-xs" th:text="${smp.cos_type}">유분</span>
-                            <div class="progress mb-3">                                                
-                                <div class="progress-bar" role="progressbar" th:style="|width:${smp.percent}%|" th:text="|${#numbers.formatDecimal(mbtiP.percent,2,1)}%|"></div>
-                            </div>
-                            </div> -->
-                          
-                            <!-- <span class="text-muted font-xs">수분</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 65%">65% </div>
-                            </div>
-                            <span class="text-muted font-xs">민감성</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 51%"> 51% </div>
-                            </div>
-                            <span class="text-muted font-xs">트러블</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div>
-                            <span class="text-muted font-xs">주름</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div>
-                            <span class="text-muted font-xs">색소</span>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"> 80%</div>
-                            </div> -->
-                        <!-- </article> -->
-                  <!--   </div> -->
-                    <!-- <img src="assets/imgs/banner/banner-9.jpg" alt="">
-                    <div class="banner-text">
-                        <span>Woman Area</span>
-                        <h4 class="mt-5">Save 17% on <br>Clothing</h4>
-                        <a href="shop-grid-right.html" class="text-white">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                    </div> -->
-               <!--  </div> -->
-            </div>
-            <div class="col-lg-9 col-md-12">
-                <div class="tab-content wow fadeIn animated" id="myTabContent-1">
-                    <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="@{/productDetail(cos_seq=${mbtiP[0].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[0].cos_photo1}" alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[0].gubun_name}">Nulla</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[0].cos_seq})}" th:text="${mbtiP[0].cos_name}">Maecenas eget</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span th:text="${#numbers.formatDecimal(mbtiP[0].review_rating,1,1)}">70%</span>
-                                            </span> 
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[0].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-           <!--                                  <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[1].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[1].cos_photo1}" alt="">
-                                                <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="new">New</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html"  th:text="${mbtiP[1].gubun_name}">Duis </a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[1].cos_seq})}" th:text="${mbtiP[1].cos_name}">Luctus suscipit</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[1].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span  th:text="|${#numbers.formatInteger(mbtiP[1].cos_price, 0, 'COMMA')}원|">$138.85 </span>
-                                           <!--  <span class="old-price">$145.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[2].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[2].cos_photo1}" alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="best">Best Sell</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[2].gubun_name}">Fusce </a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[2].cos_seq})}" th:text="${mbtiP[2].cos_name}">Aliquam ac</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[2].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span  th:text="|${#numbers.formatInteger(mbtiP[2].cos_price, 0, 'COMMA')}원|">$152.85 </span>
-                                            <!-- <span class="old-price">$156.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                              <div class="product-cart-wrap" style="display:none">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-4-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Nunc </a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Fusce et ligula</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[3].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[3].cos_photo1}"  alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-11-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="sale">Sale</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[3].gubun_name}">Aliquam</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[3].cos_seq})}" th:text="${mbtiP[3].cos_name}">Morbi lacinia</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[3].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[3].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End tab-pane-->
-                    <div class="tab-pane fade" id="tab-two-1" role="tabpanel" aria-labelledby="tab-two-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-2-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-2">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[4].cos_seq})}"
->
-                                                <img class="default-img" th:src="${mbtiP[4].cos_photo1}"  alt="">
-                                              <!--   <img class="hover-img" src="assets/imgs/shop/product-6-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                           <!--  <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[4].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[4].cos_seq})}"
- th:text="${mbtiP[4].cos_name}">Cotton Leaf Printed 2</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[4].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[4].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                          <!--   <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-7-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="new">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$138.85 </span>
-                                            <span class="old-price">$145.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-5-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-5-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="best">Best Sell</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Hugy Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$152.85 </span>
-                                            <span class="old-price">$156.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-10-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-10-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-12-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-12-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-three-1" role="tabpanel" aria-labelledby="tab-three-1">
-                        <div class="carausel-4-columns-cover arrow-center position-relative">
-                            <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-3-arrows"></div>
-                            <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-3">
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[5].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[5].cos_photo1}"  alt="">
-                                               <!--  <img class="hover-img" src="assets/imgs/shop/product-8-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <!-- <span class="hot">Hot</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[5].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[5].cos_seq})}" th:text="${mbtiP[5].cos_name}">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[5].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[5].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-13-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-13-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="new">New</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$138.85 </span>
-                                            <span class="old-price">$145.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-14-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-14-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="best">Best Sell</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Hugy Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$152.85 </span>
-                                            <span class="old-price">$156.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                               <!--  <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-15-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">-12%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Watch</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Smart Speaker</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>$238.85 </span>
-                                            <span class="old-price">$245.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <div class="product-cart-wrap">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a th:href="@{/productDetail(cos_seq=${mbtiP[6].cos_seq})}">
-                                                <img class="default-img" th:src="${mbtiP[6].cos_photo1}"  alt="">
-                                              <!--   <img class="hover-img" src="assets/imgs/shop/product-11-2.jpg" alt=""> -->
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-<i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                           <!--  <span class="sale">Sale</span> -->
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html" th:text="${mbtiP[6].gubun_name}">Watch</a>
-                                        </div>
-                                        <h2 style="height:41px"><a th:href="@{/productDetail(cos_seq=${mbtiP[6].cos_seq})}" th:text="${mbtiP[6].cos_name}">Cotton Leaf Printed</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span  th:text="${#numbers.formatDecimal(mbtiP[6].review_rating,1,1)}">70%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span th:text="|${#numbers.formatInteger(mbtiP[6].cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                                            <!-- <span class="old-price">$245.8</span> -->
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div id="div2"></div>
-                </div>
-                <!--End tab-content-->
-            </div>
-            <!--End Col-lg-9-->
-        </div>
-    </div>
-</section>
-<!-- 로그인 안했을때 같은 mbti 끝 -->
 <!-- 메인 베너 끝-->
 <!-- 메인 베너2 시작-->
 
@@ -1858,7 +985,7 @@ $(document).ready(function(){
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
-        <h3 class="section-title mb-20"><span style="color:#377198;">#계절별</span> 맞춤 추천</h3>
+        <h3 class="section-title mb-20"><span>#계절별</span> 맞춤 추천</h3>
     </div>
     
 </div>
@@ -1932,7 +1059,7 @@ $(document).ready(function(){
 </section>
 <!-- 메인 베너2 끝-->
 <!-- 메인 베너3 시작-->
-<section  class="bg-grey-9 section-padding" th:if = "${session.mvo != null}">
+<section  class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2011,7 +1138,7 @@ $(document).ready(function(){
 <!-- 메인 베너3 끝-->
 <!-- 메인 베너4 시작-->
 
-<section id="div4" class="section-padding white-hb" th:if = "${session.mvo != null}">
+<section id="div4" class="section-padding white-hb">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2021,7 +1148,7 @@ $(document).ready(function(){
 </div>
 <div class="row">
     <div class="col-lg-7 d-none d-lg-flex">
-        <div id="container-hb" style="height: 100%" > </div>
+        <div id="container-hb" style="height: 100%"> </div>
                 <!-- <div class="banner-img style-2 wow fadeIn animated"> -->
                     <div id="result-graph1-hb" style="height: 100%"> </div>
             <!-- <img src="assets/imgs/banner/banner-9.jpg" alt="">
@@ -2090,7 +1217,7 @@ $(document).ready(function(){
 </section>
 <!-- 메인 베너4 끝-->
 <!-- 메인 베너5 시작-->
-<section id="div5" class="bg-grey-9 section-padding" th:if = "${session.mvo != null}">
+<section id="div5" class="bg-grey-9 section-padding">
 <div class="container pt-15 pb-25">
 <div class="heading-tab d-flex">
     <div class="heading-tab-left wow fadeIn animated">
@@ -2174,45 +1301,7 @@ $(document).ready(function(){
 </div>
 </section>
 <!-- 메인 베너5 끝-->
- <!-- 3개 작은 네모 광고 베너 시작-->
-        <section class="banners mb-20">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/my/image (4).png" alt="" style="width:400px; height:253.54px">
-                            <div class="banner-text" style="left:55%; top:30%">
-                                <span style="color:#F0F0F0">ANUA</span>
-                                <h4> 어성초 77토너</h4>
-                                <a href="/productDetail?cos_seq=359" style="color:#bed8ff">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/my/image (8).png" alt="" style="width:400px; height:253.54px">
-                            <div class="banner-text" style="top:35%">
-                                <span>numbuzin</span>
-                                <h4>3번 보들보들 결 세럼</h4>
-                                <a href="/productDetail?cos_seq=339">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-md-none d-lg-flex">
-                        <div class="banner-img wow fadeIn animated  mb-sm-0">
-                            <img src="assets/imgs/my/image (11).png" alt="" style="width:380px; height:253.54px">
-                            <div class="banner-text" style="top:40%">
-                                <span>d'Alba</span>
-                                <h4>화이트 트러플<br> 더블 세럼 앤<br> 크림</h4>
-                                <a href="/productDetail?cos_seq=377">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-       <!-- 3개 작은 네모 광고 베너 끝-->
-<!-- <section class="mb-50">
+<section class="mb-50">
     <div class="container">
         <div class="row">
             <div class="col-12 mt-20">
@@ -2226,7 +1315,7 @@ $(document).ready(function(){
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <section>
     <div class="container">
         <div class="row mb-30">
@@ -2384,9 +1473,51 @@ $(document).ready(function(){
         </div>
     </div>
 </section>
- 
+    <!-------------------------------------------------------------------로그인 했을때만 보이는--------------------------------------------------------------------------------------->
+
+
+
+        <!-------------------------------------------------------------------로그인안했을때도 보이는--------------------------------------------------------------------------------------->
+        <!-- 3개 작은 네모 광고 베너 시작-->
+        <section class="banners mb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="banner-img wow fadeIn animated">
+                            <img src="assets/imgs/banner/banner-1.png" alt="">
+                            <div class="banner-text">
+                                <span>Smart Offer</span>
+                                <h4>Save 20% on <br>Woman Bag</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="banner-img wow fadeIn animated">
+                            <img src="assets/imgs/banner/banner-2.png" alt="">
+                            <div class="banner-text">
+                                <span>Sale off</span>
+                                <h4>Great Summer <br>Collection</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-md-none d-lg-flex">
+                        <div class="banner-img wow fadeIn animated  mb-sm-0">
+                            <img src="assets/imgs/banner/banner-3.png" alt="">
+                            <div class="banner-text">
+                                <span>New Arrivals</span>
+                                <h4>Shop Today’s <br>Deals & Offers</h4>
+                                <a href="shop-grid-right.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <!-- 3개 작은 네모 광고 베너 끝-->
        <!--가격있는 작은 상품 박스1 시작-->
-      <!--  <section class="pt-25 pb-15">
+       <section class="pt-25 pb-15">
         <div class="container wow fadeIn animated">
             <h3 class="section-title mb-20"><span>히히</span> Arrivals</h3>
             <div class="carausel-6-columns-cover position-relative">
@@ -2397,7 +1528,7 @@ $(document).ready(function(){
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2422,13 +1553,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-4-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2453,13 +1584,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-15-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-15-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2484,13 +1615,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-3-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2515,13 +1646,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-9-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-9-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-9-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2546,13 +1677,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-7-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt="">
+                                    <!-- <img class="hover-img" src="assets/imgs/shop/product-7-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2577,13 +1708,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    End product-cart-wrap-2
+                    <!--End product-cart-wrap-2-->
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="shop-product-right.html">
                                     <img class="default-img" src="assets/imgs/shop/product-1-1.jpg" alt="">
-                                    <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt="">
+                                   <!--  <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt=""> -->
                                 </a>
                             </div>
                             <div class="product-action-1">
@@ -2604,25 +1735,24 @@ $(document).ready(function(){
                                 <span class="old-price">$245.8</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!--End product-cart-wrap-2-->
-              <!--   </div>
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!--가격있는 작은 상품 박스1 끝-->
-<!--가격있는 작은 상품 박스2 시작-->   
-<section class="pt-25 pb-30">
+<!--가격있는 작은 상품 박스2 시작-->
+<section class="pt-25 pb-15">
     <div class="container wow fadeIn animated">
         <h3 class="section-title mb-20"><span>#20대</span> 인기 상품</h3>
         <div class="row">
-            <div class="col" th:each="twp, i : ${twp}" th:if="(${i.index} < 6)">
+            <div class="col">
                 <div class="product-cart-wrap small hover-up">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <a th:href="@{/productDetail(cos_seq=${twp.cos_seq})}">
-                                <!-- <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt=""> -->
-                                <img class="default-img" th:src="${twp.cos_photo1}" alt="">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
                                <!--  <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt=""> -->
                             </a>
                         </div>
@@ -2633,39 +1763,28 @@ $(document).ready(function(){
                             <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
                         </div>
                         <div class="product-badges product-badges-position product-badges-mrg">
-                            <!-- <span class="hot">Hot</span> -->
+                            <span class="hot">Hot</span>
                         </div>
                     </div>
                     <div class="product-content-wrap">
-                        <h2 style="height:40.8px"><a th:href="@{/productDetail(cos_seq=${twp.cos_seq})}" th:text="${twp.cos_name}" >Lorem ipsum dolor</a></h2>
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
                         <div class="rating-result" title="90%">
-                            <span th:text="${#numbers.formatDecimal(twp.review_rating,1,1)}">
+                            <span>
                             </span>
                         </div>
                         <div class="product-price">
-                            <span th:text="|${#numbers.formatInteger(twp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
-                           <!--  <span class="old-price">$245.8</span> -->
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
                         </div>
                     </div>
                 </div>
             </div>
-           
-        </div>
-    </div>
-</section>
-<!--가격있는 작은 상품 박스3 끝-->
-<!--가격있는 작은 상품 박스2 시작-->   
-<!-- <section class="pt-25 pb-15">
-    <div class="container wow fadeIn animated">
-        <h3 class="section-title mb-20"><span>#30대</span> 인기 상품</h3>
-        <div class="row">
-            <div class="col" th:each="thp, i : ${thp}" th:if="(${i.index} < 6)">
+            <!-- <div class="col">
                 <div class="product-cart-wrap small hover-up">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <a th:href="@{/productDetail(cos_seq=${thp.cos_seq})}">
+                            <a href="shop-product-right.html">
                                 <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                <img class="default-img" th:src="${thp.cos_photo1}" alt="">
                                 <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
                             </a>
                         </div>
@@ -2680,32 +1799,371 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <div class="product-content-wrap">
-                        <h2 style="height:40.8px"><a th:href="@{/productDetail(cos_seq=${thp.cos_seq})}" th:text="${twp.cos_name}" >Lorem ipsum dolor</a></h2>
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
                         <div class="rating-result" title="90%">
                             <span>
                             </span>
                         </div>
                         <div class="product-price">
-                            <span th:text="|${#numbers.formatInteger(thp.cos_price, 0, 'COMMA')}원|">$238.85 </span>
+                            <span>$238.85 </span>
                             <span class="old-price">$245.8</span>
                         </div>
                     </div>
                 </div>
             </div>
-           
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section> -->
+</section>
+가격있는 작은 상품 박스2 끝
+가격있는 작은 상품 박스3 시작
+<section class="pt-25 pb-15">
+    <div class="container wow fadeIn animated">
+        <h3 class="section-title mb-20"><span>#30대</span> 인기 상품</h3>
+        <div class="row">
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="product-cart-wrap small hover-up">
+                    <div class="product-img-action-wrap">
+                        <div class="product-img product-img-zoom">
+                            <a href="shop-product-right.html">
+                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
+                                <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="product-action-1">
+                            <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+<i class="fi-rs-eye"></i></a>
+                            <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                        </div>
+                        <div class="product-badges product-badges-position product-badges-mrg">
+                            <span class="hot">Hot</span>
+                        </div>
+                    </div>
+                    <div class="product-content-wrap">
+                        <h2><a href="shop-product-right.html">Lorem ipsum dolor</a></h2>
+                        <div class="rating-result" title="90%">
+                            <span>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <span>$238.85 </span>
+                            <span class="old-price">$245.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
 <!--가격있는 작은 상품 박스3 끝-->
 
 
     <!-------------------------------------------------------------------로그인안했을때--------------------------------------------------------------------------------------->
 
     <!--중간 긴 광고 베너 시작-->    
-   
+    <section class="banner-2 section-padding pb-0">
+            <div class="container">
+                <div class="banner-img banner-big wow fadeIn animated f-none">
+                    <img src="assets/imgs/banner/banner-4.png" alt="">
+                    <div class="banner-text d-md-block d-none">
+                        <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
+                        <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
+                        <a href="shop-grid-right.html" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--중간 긴 광고 베너 끝-->  
         <!--카드형식 가격없는 상품 시작-->  
-       <!--  <section class="popular-categories section-padding mt-15">
+        <section class="popular-categories section-padding mt-15">
             <div class="container wow fadeIn animated">
                 <h3 class="section-title mb-20"><span>Popular</span> Categories</h3>
                 <div class="carausel-6-columns-cover position-relative">
@@ -2762,7 +2220,7 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!--카드형식 가격없는 상품 끝-->  
         
         <!--시간 제한 광고 시작-->
@@ -2809,185 +2267,15 @@ $(document).ready(function(){
        <!--시간 제한 광고 끝-->
         
     </main>
-      
-    <!-- footer -->
-     <footer class="main">
-        <section class="newsletter p-30 text-white wow fadeIn animated">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 mb-md-3 mb-lg-0">
-                        <div class="row align-items-center">
-                            <!-- <div class="col flex-horizontal-center">
-                                <img class="icon-email" src="assets/imgs/theme/icons/icon-email.svg" alt="">
-                                <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
-                            </div>
-                            <div class="col my-4 my-md-0 des">
-                                <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$25 coupon for first shopping.</strong></h5>
-                            </div> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <!-- Subscribe Form -->
-                        <!-- <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                            <button class="btn bg-dark text-white" type="submit">Subscribe</button>
-                        </form> -->
-                        <!-- End Subscribe Form -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section-padding footer-mid">
-            <div class="container pt-15 pb-20">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="widget-about font-md mb-md-5 mb-lg-0">
-                            <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="main"><img src="assets/imgs/theme/logo.svg" alt="logo"></a>
-                            </div>
-                            <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
-                            <p class="wow fadeIn animated">
-                                <strong>Address: </strong>562 Wellington Road, Street 32, San Francisco
-                            </p>
-                            <!-- <p class="wow fadeIn animated">
-                                <strong>Phone: </strong>+01 2222 365 /(+91) 01 2345 6789
-                            </p> -->
-                            <p class="wow fadeIn animated">
-                                <strong>Hours: </strong>10:00 - 18:00, Mon - Sat
-                            </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
-                            <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">About</h5>
-                        <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2  col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">My Account</h5>
-                        <ul class="footer-list wow fadeIn animated">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Order</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="widget-title wow fadeIn animated">Payment</h5>
-                        <!-- <div class="row">
-                            <div class="col-md-8 col-lg-12">
-                                <p class="wow fadeIn animated">From App Store or Google Play</p>
-                                <div class="download-app wow fadeIn animated">
-                                    <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active" src="assets/imgs/theme/app-store.jpg" alt=""></a>
-                                    <a href="#" class="hover-up"><img src="assets/imgs/theme/google-play.jpg" alt=""></a>
-                                </div>
-                            </div> -->
-                            <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                                <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
-                                <img class="wow fadeIn animated" src="assets/imgs/theme/payment-method.png" alt="">
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </section>
-        <div class="container pb-20 wow fadeIn animated">
-            <div class="row">
-                <div class="col-12 mb-20">
-                    <div class="footer-bottom"></div>
-                </div>
-                <div class="col-lg-6">
-                    <p class="float-md-left font-sm text-muted mb-0">&copy; 2022, <strong class="text-brand">Hwabun</strong> -2nd Project </p>
-                </div>
-                <div class="col-lg-6">
-                    <p class="text-lg-end text-start font-sm text-muted mb-0">
-                        Designed by <a href="http://alithemes.com" target="_blank">Alithemes.com</a>. All rights reserved
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="text-center">
-                    <h5 class="mb-5">Now Loading</h5>
-                    <div class="loader">
-                        <div class="bar bar1"></div>
-                        <div class="bar bar2"></div>
-                        <div class="bar bar3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor JS-->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/plugins/slick.js"></script>
-    <script src="assets/js/plugins/jquery.syotimer.min.js"></script>
-    <script src="assets/js/plugins/wow.js"></script>
-    <script src="assets/js/plugins/jquery-ui.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.js"></script>
-    <script src="assets/js/plugins/magnific-popup.js"></script>
-    <script src="assets/js/plugins/select2.min.js"></script>
-    <script src="assets/js/plugins/waypoints.js"></script>
-    <script src="assets/js/plugins/counterup.js"></script>
-    <script src="assets/js/plugins/jquery.countdown.min.js"></script>
-    <script src="assets/js/plugins/images-loaded.js"></script>
-    <script src="assets/js/plugins/isotope.js"></script>
-    <script src="assets/js/plugins/scrollup.js"></script>
-    <script src="assets/js/plugins/jquery.vticker-min.js"></script>
-    <script src="assets/js/plugins/jquery.theia.sticky.js"></script>
-    <script src="assets/js/plugins/jquery.elevatezoom.js"></script>
-    <!-- Template  JS -->
-    <script src="./assets/js/main.js?v=3.3"></script>
     
-    <script src="./assets/js/shop.js?v=3.3"></script>
-   
-	<script th:inline="javascript">
-	/*<![CDATA[*/
-		let cateAddrass = /*[[${main}]]*/
-		console.log("오류방지용");
-
-	/*	if(cateAddrass=="main"){
-			 $("#cate-hb").css("display","block");
-		}else{
-			 $("#cate-hb").css("display","none");
-			 $("#cate-bt-hb").on("mouseover",function(){
-				  $("#cate-hb").css("display","block");
-			 })
-			 $("#cate-hb").on("mouseout",function(){
-				  $("#cate-hb").css("display","none");
-			 })
-		}*/
-		
-		
-		
-		 $("#cate-hb").css("display","none");
-		 $("#cate-bt-hb").on("mouseover",function(){
-			  $("#cate-hb").css("display","block");
-		 })
-		 $("#cate-hb").on("mouseout",function(){
-			  $("#cate-hb").css("display","none");
-		 })
-		 
-		/*]]>*/
-	</script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    
+    
+    
+    
+<!-- 여기까지 입력 -->
+	</th:block>
+	</th:block>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 	<script type="text/javascript">
 	 $(document).ready(function(){   
 
@@ -3142,11 +2430,8 @@ $(document).ready(function(){
   <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/bmap.min.js"></script>
   -->
 <!-- mbti 진단별 변화 -->
-   <script th:inline="javascript">
+   <script type="text/javascript">
   /*<![CDATA[*/
-  	
-	
-	
 	console.log("~~~~~")
 	var r1 = '[[${mlg[0].wrinkle}]]'
     console.log(r1);
@@ -3157,8 +2442,6 @@ $(document).ready(function(){
 	var r4 = '[[${mlg[3].wrinkle}]]'
     console.log(r4);
     console.log("~~~~~")
-	
-	
   
     var dom = document.getElementById('container-hb');
     var myChart = echarts.init(dom, null, {
@@ -3360,8 +2643,8 @@ $(document).ready(function(){
     }
 
     window.addEventListener('resize', myChart.resize);
-      /*]]*/ 
- 
+    
+    /*]]*/
   </script>
  
    <!--  <script type="text/javascript">
@@ -3524,5 +2807,5 @@ $(document).ready(function(){
     window.addEventListener('resize', myChart2.resize);
     /*]]*/
   </script> 
-</body>
+   
 </html>

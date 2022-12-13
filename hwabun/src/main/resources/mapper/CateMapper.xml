@@ -3,6 +3,7 @@
 <mapper namespace="kr.gjai.hwabun.mapper.CateMapper"><!-- 인터페이스(클래스) 이름 적어줘야함!!!!!-->
 	
 	<!-- resultType : 리턴타입, parameterType : 인자 타입 -->
+
 	<select id = "getProductList" resultType="CosmeticsDTO" parameterType="String"><!-- id값은 mapper 메소드명과 같아야함 -->	  
 	  select *
 	 from cosmetics c, (select * from category where gubun_value = #{cate} and gubun_depth=1) d, (select cos_seq, avg(review_rating)as review_rating from reviews group by cos_seq ) a
