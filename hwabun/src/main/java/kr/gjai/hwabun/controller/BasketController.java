@@ -211,7 +211,7 @@ public class BasketController {
 		
 		model.addAttribute("pitem",basketService.willPurchase(mb.getMb_id(),pchase, session.getId()));
 		
-		return "cart/purchase";
+		return "cart/payment";
 		
 	}
 	

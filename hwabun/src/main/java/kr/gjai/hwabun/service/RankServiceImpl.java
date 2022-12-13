@@ -1,5 +1,7 @@
 package kr.gjai.hwabun.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,20 +33,47 @@ public class RankServiceImpl implements RankService{
 		List<CosmeticsDTO> list= rankMapper.getRankLikes();
 		return list;
 	}
-	@Override
-	public List<CosmeticsDTO> getCateRankSales(String cate) {
-		List<CosmeticsDTO> list= rankMapper.getCateRankSales(cate);
-		return list;
-	}
-	@Override
-	public List<CosmeticsDTO> getCateRankLikes(String cate) {
-		List<CosmeticsDTO> list= rankMapper.getCateRankLikes(cate);
-		return list;
-	}
 
 	@Override
 	public List<CosmeticsDTO> getRankReviews() {
 		List<CosmeticsDTO> list= rankMapper.getRankReviews();
+		return list;
+	}
+
+	@Override
+	public List<CosmeticsDTO> rank_sales(String cateName) {
+		
+		List<CosmeticsDTO> list = new ArrayList<CosmeticsDTO>();
+		if(cateName.equals("전체")) {
+			list= rankMapper.getRankSales();
+		}else {
+			list= rankMapper.rank_sales(cateName);
+		}
+		return list;
+	}
+
+	@Override
+	public List<CosmeticsDTO> rank_reviews(String cateName) {
+		
+		List<CosmeticsDTO> list = new ArrayList<CosmeticsDTO>();
+		if(cateName.equals("전체")) {
+			list= rankMapper.getRankReviews();
+		}else {
+			list= rankMapper.rank_reviews(cateName);
+		}
+		return list;
+	}
+
+	@Override
+	public List<CosmeticsDTO> rank_likes(String cateName) {
+		
+		List<CosmeticsDTO> list = new ArrayList<CosmeticsDTO>();
+		if(cateName.equals("전체")) {
+			list= rankMapper.getRankLikes();
+		}else {
+			list= rankMapper.rank_likes(cateName);
+		}
+		
 		return list;
 	}
 

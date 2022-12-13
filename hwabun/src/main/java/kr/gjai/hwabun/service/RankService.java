@@ -12,10 +12,12 @@ public interface RankService {
 
 	public List<CosmeticsDTO> getRankLikes();
 
-	public List<CosmeticsDTO> getCateRankSales(String cate);
-
-	public List<CosmeticsDTO> getCateRankLikes(String cate);
-
 	public List<CosmeticsDTO> getRankReviews();
+
+	public List<CosmeticsDTO> rank_sales(String cateName);
+	
+	public List<CosmeticsDTO> rank_reviews(String cateName);
+	
+	public List<CosmeticsDTO> rank_likes(String cateName);
 
 }
